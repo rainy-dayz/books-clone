@@ -13,7 +13,7 @@ class Review(db.Model):
     rating = db.Column(db.Numeric(precision=3, scale=2), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     book_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("books.id")))
-
+    created_at=db.Column(db.Date)
     # Relationships goes here
     user = db.relationship("User", back_populates='reviews')
     book = db.relationship("Book", back_populates='reviews')
@@ -25,6 +25,7 @@ class Review(db.Model):
             'rating': self.rating,
             'user_id': self.user_id,
             'book_id': self.book_id,
+            'created_at':self.created_at,
             'user': {
                 'id': self.user.id,
                 'firstName': self.user.first_name,

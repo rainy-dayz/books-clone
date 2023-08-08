@@ -1,5 +1,6 @@
 from app.models import db, User, environment, SCHEMA,Book,Genre,Review
 from sqlalchemy.sql import text
+from datetime import datetime
 
 
 # Adds a demo user, you can add other users here if you want
@@ -49,22 +50,22 @@ def seed_users():
         name="Down Among the Sticks and Bones", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker ',
         genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/A1DfuuJpEjL.jpg")
     review1=Review(
-        comment="Mid",rating=3.5,user_id=1, book_id=1
+        comment="Mid",rating=3.5,user_id=1, book_id=1,created_at=datetime(2010, 10, 5)
     )
     review2=Review(
-        comment="Best SciFi book ever.",rating=5,user_id=2, book_id=2
+        comment="Best SciFi book ever.",rating=5,user_id=2, book_id=2,created_at=datetime(2021, 9, 6)
     )
     review3=Review(
-        comment="This is the best",rating=5,user_id=2, book_id=3
+        comment="This is the best",rating=5,user_id=2, book_id=3,created_at=datetime(2015, 11, 5)
     )
     review4=Review(
-        comment="Romace was supre cute",rating=4.5,user_id=1, book_id=4
+        comment="Romace was supre cute",rating=4.5,user_id=1, book_id=4,created_at=datetime(2020, 7, 15)
     )
     review5=Review(
-        comment="This book was so dark and the twists were amazing! Kept me on the edge of my seat",rating=4,user_id=1, book_id=5
+        comment="This book was so dark and the twists were amazing! Kept me on the edge of my seat",rating=4,user_id=1, book_id=5,created_at=datetime(2022, 11, 15)
     )
     review6=Review(
-        comment="This book was amazing!",rating=5,user_id=2, book_id=1
+        comment="This book was amazing!",rating=5,user_id=2, book_id=1,created_at=datetime(2015, 10, 25)
     )
     db.session.add(demo)
     db.session.add(marnie)

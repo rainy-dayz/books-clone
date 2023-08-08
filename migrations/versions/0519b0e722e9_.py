@@ -1,18 +1,18 @@
 """empty message
 
-Revision ID: b48d5892242c
+Revision ID: 0519b0e722e9
 Revises:
-Create Date: 2023-08-08 15:21:20.622342
+Create Date: 2023-08-08 15:55:34.053266
 
 """
 from alembic import op
 import sqlalchemy as sa
+
 import os
 environment = os.getenv("FLASK_ENV")
 SCHEMA = os.environ.get("SCHEMA")
-
 # revision identifiers, used by Alembic.
-revision = 'b48d5892242c'
+revision = '0519b0e722e9'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -25,6 +25,7 @@ def upgrade():
     sa.Column('name', sa.String(length=25), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
+
     if environment == "production":
         op.execute(f"ALTER TABLE genres SET SCHEMA {SCHEMA};")
 
@@ -39,7 +40,6 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
-
     if environment == "production":
         op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
 
@@ -85,6 +85,7 @@ def upgrade():
     sa.Column('rating', sa.Numeric(precision=3, scale=2), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('book_id', sa.Integer(), nullable=True),
+    sa.Column('created_at', sa.Date(), nullable=True),
     sa.ForeignKeyConstraint(['book_id'], ['books.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
