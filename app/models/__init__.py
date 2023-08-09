@@ -4,5 +4,4 @@ from .db import environment, SCHEMA
 from .book import Book
 from .genre import Genre
 from .review import Review
-from .order import Order
-from .order_items import OrderItem
+from .cart import Cart

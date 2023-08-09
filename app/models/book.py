@@ -16,7 +16,7 @@ class Book(db.Model):
     book_image=db.Column(db.String(255), nullable=False)
 
     genre = db.relationship('Genre', back_populates='book')
-    orders1= db.relationship('OrderItem',back_populates="book1",cascade="all, delete-orphan")
+    orders1= db.relationship('Cart',back_populates="book1",cascade="all, delete-orphan")
     reviews = db.relationship('Review', back_populates='book', cascade="all, delete-orphan")
     def to_dict(self):
         return {
