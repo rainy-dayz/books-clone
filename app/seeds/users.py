@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA,Book,Genre,Review
+from app.models import db, User, environment, SCHEMA,Book,Genre,Review,Cart
 from sqlalchemy.sql import text
 from datetime import datetime
 
@@ -41,10 +41,10 @@ def seed_users():
         name="That Time I Got Drunk and Saved a Demon", author='Kimberly Lemming',price=10.99, description="After saving a demon Cinn's whole world is turned upside down and she must now embark on a quest that will change everything",
         genre_id=3,book_image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627439923i/58648147.jpg")
     book9=Book(
-        name="Ace of Spades", author='Faridah Àbíké-Íyímídé',price=20.99, description='Gossip Girl meets Get Out',
+        name="Ace of Spades", author='Faridah Abike-Iyimide',price=20.99, description='Gossip Girl meets Get Out',
         genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg")
     book10=Book(
-        name="Assassination Classroom, Vol.1", author='Yūsei Matsui',price=5.99, description="The students in Class 3-E of Kunugigaoka Junior High have a new teacher: an alien octopus with bizarre powers and unlimited strength, who's just destroyed the moon and is threatening to destroy the earth - unless they can kill him first!",
+        name="Assassination Classroom, Vol.1", author='Yusei Matsui',price=5.99, description="The students in Class 3-E of Kunugigaoka Junior High have a new teacher: an alien octopus with bizarre powers and unlimited strength, who's just destroyed the moon and is threatening to destroy the earth - unless they can kill him first!",
         genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png")
     book11=Book(
         name="Down Among the Sticks and Bones", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker ',
@@ -67,12 +67,22 @@ def seed_users():
     review6=Review(
         comment="This book was amazing!",rating=5,user_id=2, book_id=1,created_at=datetime(2015, 10, 25)
     )
+    cart1=Cart(
+        user_id=1,book_id=1,quantity=2,created_at=datetime(2010, 10, 3)
+    )
+    cart2=Cart(
+        user_id=1,book_id=2,quantity=2,created_at=datetime(2010, 10, 3)
+    )
+    cart3=Cart(
+        user_id=2,book_id=2,quantity=2,created_at=datetime(2010, 10, 3)
+    )
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add_all([genre1,genre2,genre3,genre4,genre5])
     db.session.add_all([book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11])
     db.session.add_all([review1,review2,review3,review4,review5,review6])
+    db.session.add_all([cart1,cart2,cart3])
     db.session.commit()
 
 
@@ -84,11 +94,13 @@ def seed_users():
 # it will reset the primary keys for you as well.
 def undo_users():
     if environment == "production":
+        db.session.execute(f"TRUNCATE table {SCHEMA}.carts RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.genres RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.books RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
+        db.session.execute(text("DELETE FROM carts"))
         db.session.execute(text("DELETE FROM reviews"))
         db.session.execute(text("DELETE FROM genres"))
         db.session.execute(text("DELETE FROM books"))
