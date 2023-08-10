@@ -51,7 +51,8 @@ export const thunkGetSingleReview = (reviewId) => async(dispatch) => {
     }
 }
 export const thunkCreateReview = (comment, rating,userId,bookId) => async (dispatch) => {
-try{
+// try{
+    console.log('are we even inside')
     const response = await fetch(`/api/reviews/${userId}/${bookId}`, {
         method:'POST',
         headers:{"Content-Type":"application/json"},
@@ -63,14 +64,32 @@ try{
         dispatch(createReview(review))
         return review
     }
-    }catch(error){
-        const err = await error.json()
-        return {error:err}
+    // }catch(error){
+    //     const err = await error.json()
+    //     return {error:err}
+    // }
+    else if (response.status < 500){
+    const err = await response.json()
+    return err
+}
+}
+
+export const thunkEditReview = (reviewId,comment,rating) => async (dispatch) => {
+
+    const response = await fetch(`/api/reviews/edit/${reviewId}`, {
+        method:'PUT',
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({comment,rating})
+    })
+    if (response.ok)    {
+        const review = await response.json()
+        dispatch(editReview(review))
+        return review
     }
-//     else if (response.status < 500){
-//     const err = await response.json()
-//     return err
-// }
+    else if (response.status < 500){
+    const err = await response.json()
+    return err
+}
 }
 
 export const thunkDeleteReview = (reviewId) => async (dispatch) => {
@@ -116,12 +135,12 @@ export default function reducer(state = initialState, action) {
             delete newState.allReviews[action.eventId]
             return newState
         }
-        // case EDIT_REVIEW: {
-        //     const newState = {...state, singleReview:{...state.singleReview}}
-        //     newState.singleReview = {}
-        //     newState.singleReview = action.data
-        //     return newState
-        // }
+        case EDIT_REVIEW: {
+            const newState = {...state, singleReview:{...state.singleReview}}
+            newState.singleReview = {}
+            newState.singleReview = action.data
+            return newState
+        }
         default:
             return state
     }

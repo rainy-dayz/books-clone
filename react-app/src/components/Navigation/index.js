@@ -21,7 +21,7 @@ function Navigation({ isLoaded }){
 				<div>
 					<ProfileButton user={sessionUser} />
 				</div>
-				<div onClick={() => {history.push(`/carts`)}}><i class="fa-sharp fa-solid fa-cart-shopping"></i></div>
+				<div onClick={() => {history.push(`/carts`)}}><i className="fa-sharp fa-solid fa-cart-shopping"></i></div>
 				{genreAll.map(gen =>{
 					return <div key ={gen.id}>
 					<p onClick={() => {history.push(`/genres/${gen.id}`)}}>{gen.name}</p>

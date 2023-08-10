@@ -14,15 +14,15 @@ import Reviews from '../Reviews'
 
 function SingleBook() {
     const dispatch = useDispatch()
-    // let genre = useSelector(state => Object.values(state.genres.singleGenre))
+    let genre = useSelector(state => Object.values(state.genres.singleGenre))
     let user = useSelector(state => (state.session.user))
     let book = useSelector(state => (state.book.singleBook))
+    let cartAll = useSelector(state => Object.values(state.carts.allCarts))
     const history = useHistory()
     const { bookId } = useParams()
-    console.log('user', user)
+    console.log('cart', cartAll)
 
     useEffect(async() => {
-        // console.log('test', bookId)
         let book=await dispatch(thunkGetSingleBook(bookId))
     }, [dispatch])
 
@@ -31,12 +31,13 @@ function SingleBook() {
             <p>{book.name}</p>
             <img className='booksImageHomepage' src ={book.book_image}/>
             <p>{book.price}</p>
-
+            <p>{book.description}</p>
             {user ?<button onClick={() => {
                 return dispatch(thunkCreateCart(user.id,bookId))
             }}>Add to Cart</button>: <div>Login or Signup to add this book to your cart!</div>}
         <p>{book.id}</p>
-        {/* <Reviews /> */}
+        <h1>Reviews</h1>
+        <Reviews />
 
         </div>
         )

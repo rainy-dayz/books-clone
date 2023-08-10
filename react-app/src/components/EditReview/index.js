@@ -3,35 +3,33 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import "./reviewModal.css"
-import StarRatingInput from './StarInputRating';
-import { thunkGetSingleBook } from '../../store/book';
-import { thunkCreateReview } from '../../store/reviews';
-
+// import "../Create Review/reviewModal.css"
+import StarRatingInput from '../Create Review/StarInputRating';
+import { thunkGetReviews } from '../../store/reviews';
+import { thunkEditReview } from '../../store/reviews';
 // import { useSelector } from "react-redux";
-const CreateReview = ({ closeModal,book,user }) => {
-  const [comment, setComment] = useState('')
-  const [rating, setRating] = useState('')
+const EditReview = ({ closeModal1,review }) => {
+  const [comment, setComment] = useState(review.comment)
+  const [rating, setRating] = useState(review.rating)
   const [error, setErrors] = useState({});
   const dispatch = useDispatch();
   const history = useHistory();
-//   const {bookId} =useParams()
+  const {bookId} =useParams()
 
   // const book =  useSelector(state=> state.book.singleBook)
   // const user= useSelector(state => state.session.user)
-  console.log('user review',user)
-  console.log('book review',book)
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       // setErrors({});
       // reviews = {comment,rating};
-          let reviews = await dispatch(thunkCreateReview(comment,rating,book.id,user.id));
-          await dispatch(thunkGetSingleBook(book.id))
+          let reviews = await dispatch(thunkEditReview(review.id,comment,rating));
+          await dispatch(thunkGetReviews(bookId))
 
       // if (reviews.error) {
       //   setErrors(reviews.error);
       // }else {
-          closeModal(false)
+          closeModal1(false)
       // }
     };
     const onChange = (number) => {
@@ -71,7 +69,7 @@ const CreateReview = ({ closeModal,book,user }) => {
           return handleSubmit
           }}>Submit your Review</button>
               <button onClick={()=>
-                closeModal(false)
+                closeModal1(false)
                 }>Cancel</button>
           </div>
        </form>
@@ -79,4 +77,4 @@ const CreateReview = ({ closeModal,book,user }) => {
 
               );
             };
-export default CreateReview;
+export default EditReview;

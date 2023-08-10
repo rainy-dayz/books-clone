@@ -27,7 +27,6 @@ function SingleGenre() {
                 return <div key={book.id} >
                     {book.genre_id == genreId &&  <p>{book.name}</p>}
                     {book.genre_id == genreId && <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />}
-                    {book.genre_id == genreId &&  <p>{book.description}</p>}
                     </div>
 
             })}
