@@ -27,13 +27,13 @@ class Book(db.Model):
             'description': self.description,
             'genre_id':self.genre_id,
             'book_image':self.book_image,
-            'reviews': [review.to_dict() for review in self.reviews]
-            # 'average_rating': self.average_rating
+            'reviews': [review.to_dict() for review in self.reviews],
+            'avgRating': self.avgRating
         }
 
-    # @property
-    # def average_rating(self):
-    #     if not self.reviews:
-    #         return None
-    #     total_ratings = sum(review.rating for review in self.reviews)
-    #     return total_ratings / len(self.reviews) if len(self.reviews) > 0 else None
+    @property
+    def avgRating(self):
+        if not self.reviews:
+            return None
+        total = sum(review.rating for review in self.reviews)
+        return total / len(self.reviews) if len(self.reviews) > 0 else None
