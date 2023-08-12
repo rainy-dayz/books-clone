@@ -25,7 +25,7 @@ const CreateReview = ({ closeModal,book,user }) => {
       e.preventDefault();
       // setErrors({});
       // reviews = {comment,rating};
-          let reviews = await dispatch(thunkCreateReview(comment,rating,book.id,user.id));
+          let reviews = await dispatch(thunkCreateReview(comment,rating,user.id,book.id));
           await dispatch(thunkGetSingleBook(book.id))
 
       // if (reviews.error) {

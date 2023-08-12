@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -39,6 +39,7 @@ const EditReview = ({ closeModal1,review }) => {
     if(comment.length >9 && rating >= 1){
        disable=false
     }
+
   return (
     <div className="modals" >
       <form onSubmit={handleSubmit}>

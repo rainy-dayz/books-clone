@@ -24,5 +24,6 @@ class Cart(db.Model):
             'user_id': self.user_id,
             'book_id': self.book_id,
             'quantity': self.quantity,
-            'created_at':self.created_at
+            'created_at':self.created_at,
+            'books':self.book1.to_dict()
         }

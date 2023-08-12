@@ -16,3 +16,5 @@ def get_all_genres():
 def get_single_genre(id):
     genre = Genre.query.get(id)
     return genre.to_dict()
+
+

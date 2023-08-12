@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
 import './books.css'
-
+import fantasy from '../../images/fantasy.png'
+import manga from '../../images/manga.png'
+import romance from '../../images/romance.png'
+import scifi from '../../images/scifi.png'
+import thriller from '../../images/thriller.png'
 
 
 
@@ -13,23 +17,116 @@ function Books() {
     let booksAll = useSelector(state => Object.values(state.book.allBooks))
 
     const history = useHistory()
-    console.log(booksAll, '-----------------')
+
 
     useEffect(() => {
         dispatch(thunkGetBooks())
     }, [dispatch])
 
-
-
+    let counter=1
+    let direction=1
+                setInterval(function() {
+                    document.getElementById('radio'+ counter)
+                    //.check=true
+                    if(direction===1){
+                        counter++
+                        if(counter ===6){
+                            direction=0
+                        }
+                    }
+                    if(direction===0){
+                    counter--
+                    if(counter===1){
+                        direction=1
+                    }
+                    }
+                }, 5000);
     return (
-        <div>
-            {booksAll.map(book => {
-                return <div key={book.id} >
-                    <p>{book.name}</p>
-                    <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
-                    </div>
-            })}
-        </div>
+        <>
+            <div className="slider">
+            <div className="slides">
+            <input type="radio" name="radio-btn" id='radio1' />
+            <input type="radio" name="radio-btn" id='radio2' />
+            <input type="radio" name="radio-btn" id='radio3' />
+            <input type="radio" name="radio-btn" id='radio4' />
+            <input type="radio" name="radio-btn" id='radio5' />
+
+            <div className="slide first">
+            <img
+                src={fantasy}
+                alt=""
+            />
+            </div>
+
+
+            <div className="slide">
+            <img src={manga} alt="" />
+            </div>
+
+
+            <div className="slide">
+            <img src={scifi} alt="" />
+            </div>
+
+
+            <div className="slide">
+            <img src={romance} alt="" />
+            </div>
+
+            <div className="slide">
+            <img src={thriller} alt="" />
+            </div>
+
+            <div className="navigation-auto">
+                <div className='auto-btn1'></div>
+                <div className='auto-btn2'></div>
+                <div className='auto-btn3'></div>
+                <div className='auto-btn4'></div>
+                <div className='auto-btn5'></div>
+            </div>
+
+            <div className="navigation-manual">
+                <label for='radio1'className='manual-btn'></label>
+               <label for='radio2'className='manual-btn'></label>
+               <label for='radio3'className='manual-btn'></label>
+               <label for='radio4'className='manual-btn'></label>
+               <label for='radio5'className='manual-btn'></label>
+            </div>
+            </div>
+            </div>
+            <div  className="highestRated">Highest Rated:
+            {booksAll.slice(0,10).map(book => {
+                return( <>
+                   {book.avgRating>=4.50 &&
+                    <div className="cheese">
+                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   </div>}
+                   </>)
+
+})}        </div>
+<div  className="highestRated">Books Under $10:
+            {booksAll.slice(0,10).map(book => {
+                return( <div className="theactualbooks">
+                   {book.price<10.00 &&
+                    <div className="cheese">
+                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   </div>}
+                   </div>)
+
+})}        </div>
+<div  className="highestRated">New Releases:
+            {booksAll.slice(0,10).map(book => {
+                return( <div className="theactualbooks">
+
+                   {book.releaseDate.slice(8,11)== 'Aug' && parseInt(book.releaseDate.slice(5,7)) <10&& parseInt(book.releaseDate.slice(12,17)) ==2023 &&
+                    <div className="cheese">
+                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   </div>}
+                   </div>)
+
+})}        </div>
+
+</>
         )
     }
 

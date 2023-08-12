@@ -22,39 +22,37 @@ function Cart() {
     }, [dispatch])
 
 
+let price1
     return (
         <div>
-            {cartAll.map(cart => {
-                return <div key={cart.id} >
+            <h1>Cart:</h1>
+            {cartAll.length ?
+            cartAll.toReversed().map(cart => {
 
-                    {booksAll.map(book => {
-                    return <div key={book.id}>
-                        {cart.book_id == book.id && <p>{book.name}</p>}
-                        {cart.book_id == book.id && <p>Book Id:{book.id}</p>}
-                        {cart.book_id == book.id && <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />}
-                        {cart.book_id == book.id && <p>{book.price}</p>}
-                        {cart.book_id == book.id &&<p>Quantity: {cart.quantity}</p>}
-                        {cart.book_id == book.id &&<button onClick={async()=> {
+                return <div key={cart.id} >
+                    <p>{cart.books.name}</p>
+                    <img onClick={() => {history.push(`/books/${cart.books.id}`)}} className="booksImageHomepage" src={cart.books.book_image}/>
+                    <p>{cart.books.price}</p>
+                    <p>Book Id:{cart.books.id}</p>
+                    {cart.books.types == false? <p>Hardcover</p>: <p>Paperback</p>}
+                    <p>Quantity: {cart.quantity}</p>
+                    <button onClick={async()=> {
                             cart.quantity +=1
-                            book.price*=cart.quantity
                         dispatch(thunkEditCart(cart.id,cart.quantity))
-                            dispatch(thunkGetSingleCart(cart.id))
-                        }}>+</button>}
-                        {cart.book_id == book.id &&<button onClick={async()=> {
-                            cart.quantity -=1
-                            book.price/=cart.quantity
-                        dispatch(thunkEditCart(cart.id,cart.quantity))
-                            dispatch(thunkGetSingleCart(cart.id))
-                        }}>-</button>}
-                        {cart.book_id == book.id &&<button onClick={()=>{
+                        // dispatch(thunkGetCart())
+                    }}>+</button>
+                    <button onClick={async()=> {
+                        cart.quantity -=1
+                       price1 = cart.books.price*cart.quantity
+                       dispatch(thunkEditCart(cart.id,cart.quantity))
+                    //    dispatch(thunkGetCart())
+                    }}>-</button>
+                    <button onClick={()=>{
                             return dispatch(thunkDeleteCart(cart.id))
                             .then(()=> dispatch(thunkGetCart()))
-                            }}>Delete</button>}
-                            </div>
-
-})}
+                            }}>Delete</button>
 </div>
-            })}
+            }): <div>Your Cart is currently empty!</div>}
         </div>
         )
     }

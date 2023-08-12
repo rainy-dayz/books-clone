@@ -14,6 +14,8 @@ class Book(db.Model):
     description = db.Column(db.String(2000), nullable=False)
     genre_id=db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("genres.id")))
     book_image=db.Column(db.String(255), nullable=False)
+    types=db.Column(db.Boolean, nullable=False)
+    releaseDate=db.Column(db.Date)
 
     genre = db.relationship('Genre', back_populates='book')
     orders1= db.relationship('Cart',back_populates="book1",cascade="all, delete-orphan")
@@ -27,6 +29,8 @@ class Book(db.Model):
             'description': self.description,
             'genre_id':self.genre_id,
             'book_image':self.book_image,
+            'types':self.types,
+            'releaseDate':self.releaseDate,
             'reviews': [review.to_dict() for review in self.reviews],
             'avgRating': self.avgRating
         }

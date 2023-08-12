@@ -6,11 +6,11 @@ from datetime import datetime
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', first_name='Demo', last_name='Lition',email='demo@aa.io', password='password')
+        username='Demo', firstName='Demo', lastName='Lition',email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', first_name='Marnie', last_name='Here', email='marnie@aa.io', password='password')
+        username='marnie', firstName='Marnie', lastName='Here', email='marnie@aa.io', password='password')
     bobbie = User(
-        username='bobbie', first_name='Bobbie', last_name='Chef', email='bobbie@aa.io', password='password')
+        username='bobbie', firstName='Bobbie', lastName='Chef', email='bobbie@aa.io', password='password')
     genre1=Genre(name="Fantasy")
     genre2=Genre(name="SciFi")
     genre3=Genre(name="Romance")
@@ -18,37 +18,37 @@ def seed_users():
     genre5=Genre(name="Manga")
     book1=Book(
         name="JuJutsu Laisen Vol.1", author='Gege Akutami',price=8.99, description='A boy with already supernatural powers is thrust into the limelight when he becomes the perfect vessel for a powerful demon',
-        genre_id=5,book_image="https://www.anime-planet.com/images/manga/covers/jujutsu-kaisen-24477.jpg")
+        genre_id=5,book_image="https://www.anime-planet.com/images/manga/covers/jujutsu-kaisen-24477.jpg",types=False,releaseDate=datetime(2023, 8, 8))
     book2=Book(
         name="Project Hail Mary", author='Andy Weir',price=20.99, description='Humanities last hope is a Science Teacher with amnesia in space',
-        genre_id=2,book_image="https://bookandfilmglobe.com/wp-content/uploads/2021/05/91Bd7P8UwxL.jpg")
+        genre_id=2,book_image="https://bookandfilmglobe.com/wp-content/uploads/2021/05/91Bd7P8UwxL.jpg",types=False,releaseDate=datetime(2023, 8, 5))
     book3=Book(
         name="Pet", author='Akwaeke Emezi',price=10.99, description='The monsters have come back',
-        genre_id=1,book_image="https://blackwells.co.uk/jacket/l/9780571355112.jpg")
+        genre_id=1,book_image="https://blackwells.co.uk/jacket/l/9780571355112.jpg",types=False,releaseDate=datetime(2023, 8, 8))
     book4=Book(
         name="The Duchess Deal", author='Tessa Dare',price=5.99, description='A marriage of convenience will may turn into more',
-        genre_id=3,book_image="https://booktrib.com/wp-content/uploads/2017/07/The-Duchess-Deal.jpg")
+        genre_id=3,book_image="https://booktrib.com/wp-content/uploads/2017/07/The-Duchess-Deal.jpg",types=False,releaseDate=datetime(2023, 8, 6))
     book5=Book(
         name="Monday's Not Coming", author='Tiffany D. Jackson',price=15.99, description='Her best friend is missing and no one seems to care',
-        genre_id=4,book_image="https://d1ldy8a769gy68.cloudfront.net/300/978/006/242/267/5/9780062422675.jpg")
+        genre_id=4,book_image="https://d1ldy8a769gy68.cloudfront.net/300/978/006/242/267/5/9780062422675.jpg",types=False,releaseDate=datetime(2023, 8, 2))
     book6=Book(
         name="The Wild Ones", author='Nafiza Azad',price=13.99, description='A group of girls with magic power must save their creator before all is lost',
-        genre_id=1,book_image="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781534484962/the-wild-ones-9781534484962_xlg.jpg")
+        genre_id=1,book_image="https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781534484962/the-wild-ones-9781534484962_xlg.jpg",types=False,releaseDate=datetime(2023, 8, 8))
     book7=Book(
         name="Finna", author='Nino Cipri',price=8.99, description='When an elderly customer at a big box furniture store slips through a portal to another dimension, it’s up to two minimum-wage employees to track her across the multiverse and protect their company’s bottom line.',
-        genre_id=2,book_image="https://media.s-bol.com/Jqvk9BoDGQOg/525x840.jpg")
+        genre_id=2,book_image="https://media.s-bol.com/Jqvk9BoDGQOg/525x840.jpg",types=False,releaseDate=datetime(2023, 10, 8))
     book8=Book(
         name="That Time I Got Drunk and Saved a Demon", author='Kimberly Lemming',price=10.99, description="After saving a demon Cinn's whole world is turned upside down and she must now embark on a quest that will change everything",
-        genre_id=3,book_image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627439923i/58648147.jpg")
+        genre_id=3,book_image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627439923i/58648147.jpg",types=False,releaseDate=datetime(2023, 8, 8))
     book9=Book(
         name="Ace of Spades", author='Faridah Abike-Iyimide',price=20.99, description='Gossip Girl meets Get Out',
-        genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg")
+        genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg",types=False,releaseDate=datetime(2023, 5, 8))
     book10=Book(
         name="Assassination Classroom, Vol.1", author='Yusei Matsui',price=5.99, description="The students in Class 3-E of Kunugigaoka Junior High have a new teacher: an alien octopus with bizarre powers and unlimited strength, who's just destroyed the moon and is threatening to destroy the earth - unless they can kill him first!",
-        genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png")
+        genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png",types=False,releaseDate=datetime(2023, 10, 7))
     book11=Book(
         name="Down Among the Sticks and Bones", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker ',
-        genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/A1DfuuJpEjL.jpg")
+        genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/A1DfuuJpEjL.jpg",types=False,releaseDate=datetime(2023, 10, 8))
     review1=Review(
         comment="Mid",rating=3.5,user_id=1, book_id=1,created_at=datetime(2010, 10, 5)
     )
@@ -65,16 +65,16 @@ def seed_users():
         comment="This book was so dark and the twists were amazing! Kept me on the edge of my seat",rating=4,user_id=1, book_id=5,created_at=datetime(2022, 11, 15)
     )
     review6=Review(
-        comment="This book was amazing!",rating=5,user_id=2, book_id=1,created_at=datetime(2015, 10, 25)
+        comment="This book was amazing!",rating=5,user_id=2, book_id=9,created_at=datetime(2015, 10, 25)
     )
     cart1=Cart(
-        user_id=1,book_id=1,quantity=2,created_at=datetime(2010, 10, 3)
+        user_id=1,book_id=1,quantity=1,created_at=datetime(2010, 10, 3)
     )
     cart2=Cart(
-        user_id=1,book_id=2,quantity=2,created_at=datetime(2010, 10, 3)
+        user_id=1,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
     )
     cart3=Cart(
-        user_id=2,book_id=2,quantity=2,created_at=datetime(2010, 10, 3)
+        user_id=2,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
     )
     db.session.add(demo)
     db.session.add(marnie)

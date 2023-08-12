@@ -1,6 +1,7 @@
 const GET_GENRES = "genres/GET_GENRES"
 const GET_SINGLE_GENRE = "genres/GET_SINGLE_GENRE"
 
+
 const getGenres = (genres) => ({
     type:GET_GENRES,
     data:genres
@@ -10,6 +11,7 @@ const getSingleGenre = (genre) => ({
     type:GET_SINGLE_GENRE,
     data:genre
 })
+
 
 
 export const thunkGetGenres = () => async(dispatch) => {
@@ -37,7 +39,6 @@ export const thunkGetSingleGenre = (genreId) => async(dispatch) => {
     }
 }
 
-
 const initialState = {allGenres:{}, singleGenre:{}}
 export default function reducer(state = initialState, action) {
     switch (action.type) {
@@ -55,6 +56,7 @@ export default function reducer(state = initialState, action) {
             newState.singleGenre=action.data
             return newState
         }
+
         default:
             return state
     }

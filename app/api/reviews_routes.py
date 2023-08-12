@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify
 from app.models import Cart,db, Book, User,Review
 from flask_login import current_user, login_required
 from app.forms.review_form import ReviewForm
-
+from datetime import datetime
 reviews_routes = Blueprint('reviews', __name__)
 
 
@@ -25,6 +25,7 @@ def create_review(userId,bookId):
             rating= form.data['rating'],
             user_id=userId,
             book_id=bookId,
+            created_at=datetime.utcnow()
 
         )
 

@@ -48,6 +48,10 @@ def edit_channel(cartId):
     cart = Cart.query.get(cartId)
     form['csrf_token'].data = request.cookies['csrf_token']
     cart.quantity = form.data['quantity']
+    if int(form.data['quantity']) < 1:
+        db.session.delete(cart)
+        db.session.commit()
+        return {'message':'removed from cart'}
     db.session.commit()
     return cart.to_dict()
 

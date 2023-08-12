@@ -83,6 +83,7 @@ export const thunkEditCart = (cartId,quantity) => async (dispatch) => {
         const cart = await response.json()
         console.log('cart thunk',cart)
         dispatch(editCart(cart))
+        dispatch(thunkGetCart())
         return cart
     }
     else if (response.status < 500){

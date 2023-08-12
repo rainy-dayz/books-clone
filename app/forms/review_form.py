@@ -9,4 +9,4 @@ class ReviewForm(FlaskForm):
     rating = IntegerField('rating', validators=[DataRequired()])
     user_id = IntegerField('user_id')
     book_id = IntegerField('book_id')
-    # created_at=DateField('Date', format='%Y-%m-%d', default=datetime.now().strftime("%Y-%m-%d"))
+    created_at=DateField('Date')

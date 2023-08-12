@@ -2,31 +2,74 @@ import { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
-import { thunkGetSingleGenre } from '../../store/genres';
-import { thunkGetBooks } from '../../store/book'
+import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre } from '../../store/genres';
+import { thunkFilterPriceBooks, thunkGetBooks } from '../../store/book'
+
 
 
 
 function SingleGenre() {
     const dispatch = useDispatch()
-    let genre = useSelector(state => Object.values(state.genres.singleGenre))
-    let booksAll = useSelector(state => Object.values(state.book.allBooks))
+    let genre = useSelector(state => (state.genres.singleGenre.books))
+    const [descending,setDescending]=useState(false)
+    const[reversePrice, setReversePrice]=useState(false)
+    const [highestRated,setHighestRated]=useState(false)
+    const [lowestRated,setLowestRated]=useState(false)
     const history = useHistory()
     const { genreId } = useParams()
-    console.log('genre', genre[0])
+    // console.log('genre', genre)
 
-    useEffect(() => {
-        dispatch(thunkGetSingleGenre(genreId))
-        dispatch(thunkGetBooks())
-    }, [dispatch])
+    useEffect(async() => {
+            dispatch(thunkGetSingleGenre(genreId))
+        setDescending(false)
+        setReversePrice(false)
+        setHighestRated(false)
+        setLowestRated(false)
+    }, [genreId])
 
+        if(descending){
+        genre.sort((a,b) => a.price-b.price)
+        }
+        else if(reversePrice){
+        genre.sort((a,b)=> b.price-a.price)
+        }
+        else if(highestRated){
+        genre.sort((c,d)=>d.avgRating-c.avgRating)
+        }
+        else if(lowestRated){
+        genre.sort((c,d)=>c.avgRating-d.avgRating)
+        }
     if(!genre) return null
     return (
         <div>
-            {booksAll.map(book => {
+            <button onClick={()=>{
+             setDescending(true)
+             setReversePrice(false)
+            setHighestRated(false)
+            }}>Price low to high</button>
+
+            <button onClick={()=>{
+             setReversePrice(true)
+             setDescending(false)
+             setHighestRated(false)
+            }}>Price high to low</button>
+
+            <button onClick={()=>{
+                setHighestRated(true)
+                setDescending(false)
+                setReversePrice(false)
+            }}>Rating Highest to Lowest</button>
+            <button onClick={()=>{
+                setLowestRated(true)
+                setHighestRated(false)
+                setDescending(false)
+                setReversePrice(false)
+            }}>Rating Lowest to Highest</button>
+            {genre.map(book => {
                 return <div key={book.id} >
-                    {book.genre_id == genreId &&  <p>{book.name}</p>}
-                    {book.genre_id == genreId && <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />}
+                    <p>{book.name}</p>
+                    <p>{book.price}</p>
+                    <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
                     </div>
 
             })}
