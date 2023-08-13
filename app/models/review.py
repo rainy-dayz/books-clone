@@ -26,9 +26,4 @@ class Review(db.Model):
             'user_id': self.user_id,
             'book_id': self.book_id,
             'created_at':self.created_at
-            # 'user': {
-            #     'id': self.user.id,
-            #     'firstName': self.user.first_name,
-            #     'lastName': self.user.last_name,
-            # }
         }

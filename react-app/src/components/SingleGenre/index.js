@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre } from '../../store/genres';
 import { thunkFilterPriceBooks, thunkGetBooks } from '../../store/book'
-
+import './singleGenre.css'
 
 
 
 function SingleGenre() {
     const dispatch = useDispatch()
     let genre = useSelector(state => (state.genres.singleGenre.books))
+    let genreName = useSelector(state => (state.genres.singleGenre))
     const [descending,setDescending]=useState(false)
     const[reversePrice, setReversePrice]=useState(false)
     const [highestRated,setHighestRated]=useState(false)
@@ -40,31 +41,61 @@ function SingleGenre() {
         genre.sort((c,d)=>c.avgRating-d.avgRating)
         }
     if(!genre) return null
+
     return (
         <div>
-            <button onClick={()=>{
+            <h1 className="singlegenreheader">{genreName.name}</h1>
+            <div className="buttonFilterGenreCont">
+                <button className="dropBtnt">Sort By</button>
+                <div className="dropdown-content">
+            {descending ==false?<div className="buttonFilterGenre"onClick={()=>{
              setDescending(true)
-             setReversePrice(false)
+            setReversePrice(false)
             setHighestRated(false)
-            }}>Price low to high</button>
+            setLowestRated(false)
+            }}>Price low to high</div>:<div style={{color: "blue"}}className="buttonFilterGenre"onClick={()=>{
+                setDescending(true)
+                setReversePrice(false)
+                setHighestRated(false)
+                setLowestRated(false)
+               }}>Price low to high</div>}
 
-            <button onClick={()=>{
+            {reversePrice ==false?<div className="buttonFilterGenre"onClick={()=>{
              setReversePrice(true)
              setDescending(false)
              setHighestRated(false)
-            }}>Price high to low</button>
+             setLowestRated(false)
+            }}>Price high to low</div>:<div style={{color: "blue"}}className="buttonFilterGenre"onClick={()=>{
+                setReversePrice(true)
+                setDescending(false)
+                setHighestRated(false)
+                setLowestRated(false)
+               }}>Price high to low</div>}
 
-            <button onClick={()=>{
+            {highestRated ==false?<div className="buttonFilterGenre"onClick={()=>{
                 setHighestRated(true)
                 setDescending(false)
                 setReversePrice(false)
-            }}>Rating Highest to Lowest</button>
-            <button onClick={()=>{
+                setLowestRated(false)
+            }}>Rating Highest to Lowest</div>:<div style={{color: "blue"}} className="buttonFilterGenre"onClick={()=>{
+                setHighestRated(true)
+                setDescending(false)
+                setReversePrice(false)
+                setLowestRated(false)
+            }}>Rating Highest to Lowest</div>}
+            {lowestRated ==false?<div className="buttonFilterGenre"onClick={()=>{
                 setLowestRated(true)
                 setHighestRated(false)
                 setDescending(false)
                 setReversePrice(false)
-            }}>Rating Lowest to Highest</button>
+            }}>Rating Lowest to Highest</div>:<div style={{color: "blue"}} className="buttonFilterGenre"onClick={()=>{
+                setLowestRated(true)
+                setHighestRated(false)
+                setDescending(false)
+                setReversePrice(false)
+            }}>Rating Lowest to Highest</div>}
+            </div>
+            </div>
             {genre.map(book => {
                 return <div key={book.id} >
                     <p>{book.name}</p>

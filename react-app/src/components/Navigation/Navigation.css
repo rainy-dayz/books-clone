@@ -12,22 +12,65 @@
 }
 
 .profile-dropdown{
-  /* position: absolute; */
-  background-color: #f1f1f1;
-  /* right:48px;
-  padding: 25px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  align-content:center;
-  justify-content:center; */
-  /* z-index:1; */
-  /* border-radius:10%; */
+  position: absolute;
+    background-color: #f1f1f1;
+    right:48px;
+    padding: 25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    align-content:center;
+    justify-content:center;
+    z-index:1;
+    border-radius:10%;
 }
 .navLinksCont{
   display:flex;
   justify-content: space-evenly;
+  margin-bottom:15px;
 }
 .navLinks2{
   cursor:pointer;
+  font-size:18px
+}
+.navLinks2:hover{
+text-decoration:underline;
+}
+.mainNavLineCont2{
+  display:flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin:20px;
+}
+.cartInNav{
+  display:flex;
+  margin-top:5px;
+}
+.fa-cart-shopping{
+  font-size:25px;
+}
+.cartnNumber{
+  color:white;
+  background:rgb(38, 183, 227);
+  border-radius:100%;
+  padding:5px;
+  font-size:11px;
+  position:relative;
+  margin-left:-5px;
+
+}
+.content-box{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  align-content:center;
+  justify-content:center;
+}
+.profile-dropdown div {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+.hidden{
+  display:none;
 }

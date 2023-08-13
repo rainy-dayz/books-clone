@@ -21,26 +21,13 @@ function Books() {
 
     useEffect(() => {
         dispatch(thunkGetBooks())
+        clearInterval(chicken)
     }, [dispatch])
 
     let counter=1
     let direction=1
-                setInterval(function() {
-                    document.getElementById('radio'+ counter)
-                    //.check=true
-                    if(direction===1){
-                        counter++
-                        if(counter ===6){
-                            direction=0
-                        }
-                    }
-                    if(direction===0){
-                    counter--
-                    if(counter===1){
-                        direction=1
-                    }
-                    }
-                }, 5000);
+    let chicken
+
     return (
         <>
             <div className="slider">
@@ -94,38 +81,79 @@ function Books() {
             </div>
             </div>
             </div>
-            <div  className="highestRated">Highest Rated:
+            <div className="shelfCont">
+            <div>Highest Rated:</div>
+            <div  className="highestRated">
             {booksAll.slice(0,10).map(book => {
                 return( <>
                    {book.avgRating>=4.50 &&
                     <div className="cheese">
-                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   <img onClick={() => {
+                    // clearInterval(chicken)
+                    history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
                    </div>}
                    </>)
 
-})}        </div>
-<div  className="highestRated">Books Under $10:
+})}
+ </div>
+</div>
+<div className="shelfCont">
+    <div>Books Under $10:</div>
+<div  className="highestRated">
             {booksAll.slice(0,10).map(book => {
-                return( <div className="theactualbooks">
+                return( <>
                    {book.price<10.00 &&
                     <div className="cheese">
-                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   <img onClick={() => {
+                    // clearInterval(chicken)
+                    history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
                    </div>}
-                   </div>)
+                   </>)
 
-})}        </div>
-<div  className="highestRated">New Releases:
+})}
+ </div>
+ </div>
+ <div className="shelfCont">
+    <div>New Releases:</div>
+<div  className="highestRated">
             {booksAll.slice(0,10).map(book => {
-                return( <div className="theactualbooks">
+                return( <>
 
                    {book.releaseDate.slice(8,11)== 'Aug' && parseInt(book.releaseDate.slice(5,7)) <10&& parseInt(book.releaseDate.slice(12,17)) ==2023 &&
                     <div className="cheese">
-                   <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                   <img onClick={() => {
+                    // clearInterval(chicken)
+                    history.push(`/books/${book.id}`)
+                    }} className="booksImageHomepage" src={book.book_image} />
                    </div>}
-                   </div>)
+                   </>)
 
-})}        </div>
-
+})}
+   </div>
+   </div>
+        <script type="text/javascript">
+                {
+            chicken= setInterval(() => {
+                    if(document.getElementById('radio'+ counter)){
+                    document.getElementById('radio'+ counter).checked=true
+                    if(direction===1){
+                        counter++
+                        if(counter ===6){
+                            direction=0
+                        }
+                    }
+                    if(direction===0){
+                    counter--
+                    if(counter===1){
+                        direction=1
+                    }
+                    }
+                }else{
+                    clearInterval(chicken)
+                }
+                }, 5000)}
+                {/* )} */}
+        </script>
 </>
         )
     }
