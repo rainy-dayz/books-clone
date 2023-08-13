@@ -71,7 +71,12 @@ def downgrade():
     # ### end Alembic commands ###
 
 
-
+if environment == "production":
+        op.execute(f"ALTER TABLE genres SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE books SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
 
 
 from __future__ import with_statement
