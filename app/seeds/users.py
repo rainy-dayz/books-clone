@@ -63,7 +63,7 @@ def seed_users():
         genre_id=3,book_image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627439923i/58648147.jpg",types=False,releaseDate=datetime(2023, 8, 8),subgenre_id=17)
     book9=Book(
         name="Ace of Spades", author='Faridah Abike-Iyimide',price=20.99, description='Gossip Girl meets Get Out',
-        genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg",types=False,releaseDate=datetime(2023, 5, 8),subgenre_id=21)
+        genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg",types=False,releaseDate=datetime(2023, 5, 8),subgenre_id=20)
     book10=Book(
         name="Assassination Classroom, Vol.1", author='Yusei Matsui',price=5.99, description="The students in Class 3-E of Kunugigaoka Junior High have a new teacher: an alien octopus with bizarre powers and unlimited strength, who's just destroyed the moon and is threatening to destroy the earth - unless they can kill him first!",
         genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png",types=False,releaseDate=datetime(2023, 10, 7),subgenre_id=8)
