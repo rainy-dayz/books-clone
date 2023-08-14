@@ -52,7 +52,6 @@ const dispatch = useDispatch()
 
       />
       {filteredData.length===0 ? <i className="fa-solid fa-magnifying-glass" ></i>: <i className="fa-solid fa-x"></i>}
-      {/* <i className="fa-solid fa-magnifying-glass"></i> */}
       </div>
       {filteredData.length !== 0 &&
       <div  className="dataResult">

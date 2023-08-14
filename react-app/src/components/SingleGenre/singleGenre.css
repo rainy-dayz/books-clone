@@ -35,6 +35,13 @@
         display: block;
         cursor:pointer;
 }
+.buttonFilterGenre1{
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor:pointer;
+}
 .buttonFilterGenre:hover {background-color: #f1f1f1}
 
 .buttonFilterGenreCont:hover .dropdown-content {

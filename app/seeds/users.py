@@ -49,6 +49,9 @@ def seed_users():
     book11=Book(
         name="Down Among the Sticks and Bones", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker ',
         genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/A1DfuuJpEjL.jpg",types=False,releaseDate=datetime(2023, 10, 8))
+    book12=Book(
+        name="Every heart a Doorway", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker ',
+        genre_id=4,book_image="https://www.blackgate.com/wp-content/uploads/2017/05/Every-Heart-a-Doorway_Seanan-McGuire.jpg",types=False,releaseDate=datetime(2023, 10, 8))
     review1=Review(
         comment="Mid",rating=3.5,user_id=1, book_id=1,created_at=datetime(2010, 10, 5)
     )
@@ -80,7 +83,7 @@ def seed_users():
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add_all([genre1,genre2,genre3,genre4,genre5])
-    db.session.add_all([book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11])
+    db.session.add_all([book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,book11,book12])
     db.session.add_all([review1,review2,review3,review4,review5,review6])
     db.session.add_all([cart1,cart2,cart3])
     db.session.commit()

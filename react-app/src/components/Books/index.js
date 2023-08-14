@@ -21,16 +21,25 @@ function Books() {
 
     useEffect(() => {
         dispatch(thunkGetBooks())
-        clearInterval(chicken)
+        // clearInterval(chicken)
     }, [dispatch])
 
-    let counter=1
-    let direction=1
-    let chicken
+//     useEffect(()=>{
+//         const clearPics = () => {
+//             clearInterval(chicken)
+//        }
+//        window.addEventListener('click',clearPics)
+
+//        return ()=>window.removeEventListener('click',clearPics)
+//    },[])
+
+    // let counter=1
+    // let direction=1
+    // let chicken
 
     return (
         <>
-            <div className="slider">
+         <div className="slider">
             <div className="slides">
             <input type="radio" name="radio-btn" id='radio1' />
             <input type="radio" name="radio-btn" id='radio2' />
@@ -131,7 +140,7 @@ function Books() {
 })}
    </div>
    </div>
-        <script type="text/javascript">
+    {/* <script type="text/javascript">
                 {
             chicken= setInterval(() => {
                     if(document.getElementById('radio'+ counter)){
@@ -152,8 +161,8 @@ function Books() {
                     clearInterval(chicken)
                 }
                 }, 5000)}
-                {/* )} */}
-        </script>
+
+        </script> */}
 </>
         )
     }
