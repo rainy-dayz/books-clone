@@ -28,8 +28,9 @@ def update_book(bookId):
     return book.to_dict()
     return {'errors': 'error'}, 401
 
-@books_routes.route('/filter/price')
+@books_routes.route('/filter')
 def filter_books():
-    books=Book.query.order_by(Book.price).all()
-
+    subgenre=request.headers.get('SubGenre').split(',')
+    subgenre=[int(book) for book in subgenre]
+    books= Book.query.filter(Book.subgenre_id.in_(subgenre)).all()
     return [boo.to_dict() for boo in books]

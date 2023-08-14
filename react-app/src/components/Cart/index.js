@@ -56,6 +56,9 @@ const sum = price1.reduce((partialSum, a) => partialSum + a, 0);
                     {/* <p>{sum}</p> */}
 </div>
             }): <div>Your Cart is currently empty!</div>}
+            {/* <button onClick={()=>{
+                return dispatch(thunkDeleteWholeCart())
+                .then(()=> dispatch(thunkGetCart()))}}>Checkout</button> */}
         </div>
         )
     }

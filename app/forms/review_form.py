@@ -10,3 +10,4 @@ class ReviewForm(FlaskForm):
     user_id = IntegerField('user_id')
     book_id = IntegerField('book_id')
     created_at=DateField('Date')
+    user_username=StringField('user_username')

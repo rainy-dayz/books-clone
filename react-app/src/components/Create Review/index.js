@@ -19,13 +19,13 @@ const CreateReview = ({ closeModal,book,user }) => {
 
   // const book =  useSelector(state=> state.book.singleBook)
   // const user= useSelector(state => state.session.user)
-  console.log('user review',user)
+  console.log('user review',user.username)
   console.log('book review',book)
   const handleSubmit = async (e) => {
       e.preventDefault();
       // setErrors({});
-      // reviews = {comment,rating};
-          let reviews = await dispatch(thunkCreateReview(comment,rating,user.id,book.id));
+      const data = {comment,rating, user_username:user.username};
+          let reviews = await dispatch(thunkCreateReview(data,user.id,book.id));
           await dispatch(thunkGetSingleBook(book.id))
 
       // if (reviews.error) {

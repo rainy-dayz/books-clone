@@ -62,3 +62,10 @@ def single_channel(cartId):
     # channel=Channel.query.all()
     # print('backend chanel--------------', channel.to_dict())
     return cart.to_dict()
+
+@carts_routes.route('/delete/cart')
+def delete_whole_cart():
+    carts = Cart.query.filter_by(user_id=current_user.id).all()
+    db.session.delete(carts)
+    db.session.commit()
+    return {'message':'deleted'}

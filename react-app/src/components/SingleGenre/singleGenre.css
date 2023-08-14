@@ -8,7 +8,7 @@
 }
 
 .dropBtnt{
-    background-color: #4CAF50;
+    background-color: blue;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -49,5 +49,13 @@
   }
 
   .buttonFilterGenreCont:hover .dropBtnt {
-    background-color: #3e8e41;
+    background-color: blue;
   }
+.holdsthebooksforgenre{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  gap:30px;
+}

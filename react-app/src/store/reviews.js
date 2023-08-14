@@ -50,13 +50,13 @@ export const thunkGetSingleReview = (reviewId) => async(dispatch) => {
         return {errors:err}
     }
 }
-export const thunkCreateReview = (comment, rating,userId,bookId) => async (dispatch) => {
+export const thunkCreateReview = (data,userId,bookId) => async (dispatch) => {
 // try{
     console.log('are we even inside')
     const response = await fetch(`/api/reviews/${userId}/${bookId}`, {
         method:'POST',
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({comment,rating})
+        body:JSON.stringify(data)
     })
     if (response.ok)    {
         const review = await response.json()
@@ -74,16 +74,18 @@ export const thunkCreateReview = (comment, rating,userId,bookId) => async (dispa
 }
 }
 
-export const thunkEditReview = (reviewId,comment,rating) => async (dispatch) => {
+export const thunkEditReview = (reviewId,data,bookId) => async (dispatch) => {
 
     const response = await fetch(`/api/reviews/edit/${reviewId}`, {
         method:'PUT',
         headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({comment,rating})
+        body:JSON.stringify(data)
     })
     if (response.ok)    {
         const review = await response.json()
-        dispatch(editReview(review))
+        console.log('thunkeditstuff',review)
+        await dispatch(editReview(review))
+        await dispatch(thunkGetReviews(bookId))
         return review
     }
     else if (response.status < 500){
@@ -136,8 +138,7 @@ export default function reducer(state = initialState, action) {
             return newState
         }
         case EDIT_REVIEW: {
-            const newState = {...state, singleReview:{...state.singleReview}}
-            newState.singleReview = {}
+            const newState = {...state,singleReview:{...state.singleReview}}
             newState.singleReview = action.data
             return newState
         }

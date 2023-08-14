@@ -3,7 +3,7 @@ import { thunkGetReviews } from "./reviews"
 const GET_BOOKS = "books/GET_BOOKS"
 const GET_SINGLE_BOOK = "books/GET_SINGLE_BOOK"
 const UPDATE_BOOK="books/UPDATE_BOOK"
-const PRICE_FILTER='books/PRICE_FILTER'
+const FILTERED_BOOKS='books/FILTERED_BOOKS'
 const getBook = (books) => ({
     type:GET_BOOKS,
     data:books
@@ -17,9 +17,9 @@ const updateSingleBook = (book) => ({
     type:UPDATE_BOOK,
     data:book
 })
-const filterPriceBooks = (books) => ({
-    type:PRICE_FILTER,
-    data:books
+const fileterdBooks = (data) => ({
+    type:FILTERED_BOOKS,
+    data
 })
 export const thunkGetBooks = () => async(dispatch) => {
     const res = await fetch(`/api/books`)
@@ -34,12 +34,17 @@ export const thunkGetBooks = () => async(dispatch) => {
     }
 }
 
-export const thunkFilterPriceBooks = (genre) => async(dispatch) => {
-    const res = await fetch(`/api/books/filter/price`)
+export const thunkFilteredBooks = (subgenre) => async(dispatch) => {
+    const res = await fetch(`/api/books/filter`,{
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "SubGenre":`${subgenre}`,
+		},
+    });
     if (res.ok) {
         const data = await res.json()
-        console.log('should be books---------------------------', data)
-        dispatch(filterPriceBooks(data))
+        dispatch(fileterdBooks(data))
         return data
     }
     else {
@@ -91,7 +96,7 @@ export default function reducer(state = initialState, action) {
             });
             return newState
         }
-        case PRICE_FILTER: {
+        case FILTERED_BOOKS: {
             let newState = {...state, allBooks:{...state.allBooks}}
             newState.allBooks = {}
             action.data.forEach(ele => {

@@ -8,13 +8,15 @@ import StarRatingInput from '../Create Review/StarInputRating';
 import { thunkGetReviews } from '../../store/reviews';
 import { thunkEditReview } from '../../store/reviews';
 // import { useSelector } from "react-redux";
-const EditReview = ({ closeModal1,review }) => {
-  const [comment, setComment] = useState(review.comment)
-  const [rating, setRating] = useState(review.rating)
+const EditReview = ({ closeModal1,review,comments,ratings}) => {
+  const [comment, setComment] = useState(comments)
+  const [rating, setRating] = useState(ratings)
   const [error, setErrors] = useState({});
   const dispatch = useDispatch();
   const history = useHistory();
   const {bookId} =useParams()
+  const user= useSelector(state => state.session.user)
+  console.log('this is my review id in editreview',review.id)
 
   // const book =  useSelector(state=> state.book.singleBook)
   // const user= useSelector(state => state.session.user)
@@ -22,9 +24,9 @@ const EditReview = ({ closeModal1,review }) => {
   const handleSubmit = async (e) => {
       e.preventDefault();
       // setErrors({});
-      // reviews = {comment,rating};
-          let reviews = await dispatch(thunkEditReview(review.id,comment,rating));
-          await dispatch(thunkGetReviews(bookId))
+      const data = {comment,rating,user_username:user.username};
+          let reviews = await dispatch(thunkEditReview(review.id,data,bookId));
+          // await dispatch(thunkGetReviews(bookId))
 
       // if (reviews.error) {
       //   setErrors(reviews.error);
@@ -65,7 +67,7 @@ const EditReview = ({ closeModal1,review }) => {
           Stars
         </label>
           </div>
-        <button type="submit" disabled={disable}onClick={()=>
+        <button disabled={disable} type="submit" onClick={()=>
           {
           return handleSubmit
           }}>Submit your Review</button>

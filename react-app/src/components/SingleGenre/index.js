@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
 import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre } from '../../store/genres';
-import { thunkFilterPriceBooks, thunkGetBooks } from '../../store/book'
+import { thunkFilterPriceBooks, thunkFilteredBooks, thunkGetBooks } from '../../store/book'
 import './singleGenre.css'
+import StarRatingSingleReview from '../Reviews/starRatingSingleReview';
 
 
 
@@ -16,9 +17,10 @@ function SingleGenre() {
     const[reversePrice, setReversePrice]=useState(false)
     const [highestRated,setHighestRated]=useState(false)
     const [lowestRated,setLowestRated]=useState(false)
+    // const [subgenres,setSubgenres]=useState(false)
     const history = useHistory()
     const { genreId } = useParams()
-    // console.log('genre', genre)
+    console.log('genre', genre)
 
     useEffect(async() => {
             dispatch(thunkGetSingleGenre(genreId))
@@ -26,6 +28,7 @@ function SingleGenre() {
         setReversePrice(false)
         setHighestRated(false)
         setLowestRated(false)
+        // dispatch(thunkFilteredBooks(genre.subgenre_id))
     }, [genreId])
 
         if(descending){
@@ -40,6 +43,10 @@ function SingleGenre() {
         if(lowestRated){
         genre.sort((c,d)=>c.avgRating-d.avgRating)
         }
+        // if(subgenres){
+        //     genre.filter((gen)=> gen.subgenre_id ==6)
+        // }
+        // console.log(subgenres)
     if(!genre) return null
 
     return (
@@ -100,16 +107,23 @@ function SingleGenre() {
                 setHighestRated(false)
                 dispatch(thunkGetSingleGenre(genreId))
             }}>Rating high to low X</div>:null}
+            {/* <div className="buttonFilterGenre"onClick={()=>{
+            dispatch(thunkFilteredBooks(6))
+                dispatch(thunkGetBooks())
+            }}>Subgenre</div> */}
 
+<div className="holdsthebooksforgenre">
             {genre.map(book => {
                 return <div key={book.id} >
-                    <p>{book.name}</p>
-                    <p>{book.price}</p>
-                    <p>{book.avgRating}</p>
+                    {/* <p>{book.name}</p>
+                    <p>{book.price}</p> */}
+                    {/* <p>{book.subgenre_id}</p> */}
                     <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                    <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
                     </div>
 
             })}
+            </div>
         </div>
         )
     }

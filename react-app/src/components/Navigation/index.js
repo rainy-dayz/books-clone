@@ -35,28 +35,6 @@ function Navigation({ isLoaded }){
 				<div className="navLinks2"onClick={() => {history.push('/genres/3')}}>Romance</div>
 				<div className="navLinks2"onClick={() => {history.push('/genres/4')}}>Thriller</div>
 				</div>
-				{/* <script type="text/javascript">
-                {
-            chicken= setInterval(() => {
-                    if(document.getElementById('radio'+ counter)){
-                    document.getElementById('radio'+ counter).checked=true
-                    if(direction===1){
-                        counter++
-                        if(counter ===6){
-                            direction=0
-                        }
-                    }
-                    if(direction===0){
-                    counter--
-                    if(counter===1){
-                        direction=1
-                    }
-                    }
-                }else{
-                    clearInterval(chicken)
-                }
-                }, 5000)}
-        </script> */}
 				</div>
 	);
 }

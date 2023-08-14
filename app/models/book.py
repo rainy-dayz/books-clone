@@ -11,13 +11,15 @@ class Book(db.Model):
     name= db.Column(db.String(200),nullable=False)
     author= db.Column(db.String(200),nullable=False)
     price = db.Column(db.Numeric(precision=5, scale=2),nullable=False)
-    description = db.Column(db.String(2000), nullable=False)
+    description = db.Column(db.String(3000), nullable=False)
     genre_id=db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("genres.id")))
     book_image=db.Column(db.String(255), nullable=False)
     types=db.Column(db.Boolean, nullable=False)
     releaseDate=db.Column(db.Date)
+    subgenre_id=db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("subgenres.id")))
 
     genre = db.relationship('Genre', back_populates='book')
+    subgenre = db.relationship('SubGenre', back_populates='book1')
     orders1= db.relationship('Cart',back_populates="book1",cascade="all, delete-orphan")
     reviews = db.relationship('Review', back_populates='book', cascade="all, delete-orphan")
     def to_dict(self):
@@ -31,6 +33,7 @@ class Book(db.Model):
             'book_image':self.book_image,
             'types':self.types,
             'releaseDate':self.releaseDate,
+            'subgenre_id':self.subgenre_id,
             'reviews': [review.to_dict() for review in self.reviews],
             'avgRating': self.avgRating
         }

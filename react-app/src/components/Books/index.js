@@ -15,27 +15,16 @@ import thriller from '../../images/thriller.png'
 function Books() {
     const dispatch = useDispatch()
     let booksAll = useSelector(state => Object.values(state.book.allBooks))
+    let singleBook= useSelector(state=> state.book.singleBook)
 
     const history = useHistory()
 
 
     useEffect(() => {
         dispatch(thunkGetBooks())
-        // clearInterval(chicken)
+
     }, [dispatch])
 
-//     useEffect(()=>{
-//         const clearPics = () => {
-//             clearInterval(chicken)
-//        }
-//        window.addEventListener('click',clearPics)
-
-//        return ()=>window.removeEventListener('click',clearPics)
-//    },[])
-
-    // let counter=1
-    // let direction=1
-    // let chicken
 
     return (
         <>
@@ -93,12 +82,12 @@ function Books() {
             <div className="shelfCont">
             <div>Highest Rated:</div>
             <div  className="highestRated">
-            {booksAll.slice(0,10).map(book => {
+            {booksAll.map(book => {
                 return( <>
-                   {book.avgRating>=4.50 &&
+                    {console.log(book.price)}
+                   {parseInt(book.avgRating)>=4.50 &&
                     <div className="cheese">
                    <img onClick={() => {
-                    // clearInterval(chicken)
                     history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
                    </div>}
                    </>)
@@ -109,9 +98,9 @@ function Books() {
 <div className="shelfCont">
     <div>Books Under $10:</div>
 <div  className="highestRated">
-            {booksAll.slice(0,10).map(book => {
+            {booksAll.map(book => {
                 return( <>
-                   {book.price<10.00 &&
+                   {parseInt(book.price)<=10.00 &&
                     <div className="cheese">
                    <img onClick={() => {
                     // clearInterval(chicken)
@@ -125,7 +114,7 @@ function Books() {
  <div className="shelfCont">
     <div>New Releases:</div>
 <div  className="highestRated">
-            {booksAll.slice(0,10).map(book => {
+            {booksAll.map(book => {
                 return( <>
 
                    {book.releaseDate.slice(8,11)== 'Aug' && parseInt(book.releaseDate.slice(5,7)) <10&& parseInt(book.releaseDate.slice(12,17)) ==2023 &&

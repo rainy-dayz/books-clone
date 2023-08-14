@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 import CreateReview from '../Create Review'
 import EditReview from '../EditReview'
+import StarRatingSingleReview from './starRatingSingleReview'
 
 
 
@@ -24,27 +25,33 @@ function Reviews() {
 
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
-    }, [bookId])
+    }, [dispatch,bookId])
     let createReviewButton = false
     reviewsAll.map((review)=> {
-
+        console.log('reviewwewant',review)
         return (
-         !user || review.user_id === user.id ? createReviewButton = false : createReviewButton= true
+         !user || review.user_id == user.id ? createReviewButton = false : createReviewButton= true
         )
     })
 
 if(!reviewsAll) return null
     return (
         <div>
+            {/* <p>hello</p> */}
             {openModal && <CreateReview closeModal ={setOpenModal} book={book} user={user}/>}
-            {createReviewButton&&<button onClick={()=>setOpenModal(true)}>Post Your Review</button>}
+            {createReviewButton&&
+            <button onClick={()=>setOpenModal(true)}>Post Your Review</button>
+            }
             {user && !reviewsAll.length ?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
             {reviewsAll.toReversed().map(review => {
-                return <div key={review.id} >
-                    {openModal1 && <EditReview closeModal1 ={setOpenModal1} review={review}/>}
+                return <div className="eachreview"key={review.id} >
+                    {openModal1 && user && user.id == review.user_id &&<EditReview closeModal1 ={setOpenModal1} review={review} comments={review.comment} ratings={review.rating}/>}
+                    <div >{<StarRatingSingleReview stars={review.rating} />}</div>
                     <p>{review.comment}</p>
-                    <p>{review.rating}</p>
+                    <p>{review.user_username}</p>
+                    {/* {console.log(review)} */}
                     <p>{`${review.created_at.slice(8,11)} ${review.created_at.slice(5,7)}, ${review.created_at.slice(12,17)}`}</p>
+                    {/* <button onClick={()=>setOpenModal1(true)}>Edit Your Review</button> */}
                     {user && user.id == review.user_id &&<button onClick={()=>setOpenModal1(true)}>Edit Your Review</button>}
                     {user && user.id == review.user_id &&<button onClick={()=> {
                         return dispatch(thunkDeleteReview(review.id))

@@ -25,6 +25,7 @@ def create_review(userId,bookId):
             rating= form.data['rating'],
             user_id=userId,
             book_id=bookId,
+            user_username=form.data['user_username'],
             created_at=datetime.utcnow()
 
         )
@@ -42,7 +43,7 @@ def delete_post(reviewId):
   db.session.commit()
   return {'message':'deleted'}
 
-@reviews_routes.route('/edit/<int:reviewId>', methods=['PUT'])
+@reviews_routes.route('/edit/<int:reviewId>', methods=['GET','POST','PUT'])
 # @login_required
 def edit_review(reviewId):
     form = ReviewForm()
@@ -51,6 +52,7 @@ def edit_review(reviewId):
 
     review.comment=form.data['comment']
     review.rating=form.data['rating']
+    review.created_at = datetime.utcnow()
 
     db.session.commit()
     return review.to_dict()

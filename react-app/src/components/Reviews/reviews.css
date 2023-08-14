@@ -1,0 +1,4 @@
+.eachreview{
+    display:flex;
+    flex-direction:column;
+}
