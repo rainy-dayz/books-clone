@@ -16,7 +16,6 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
   const history = useHistory();
   const {bookId} =useParams()
   const user= useSelector(state => state.session.user)
-  console.log('this is my review id in editreview',review.id)
 
   // const book =  useSelector(state=> state.book.singleBook)
   // const user= useSelector(state => state.session.user)
@@ -25,6 +24,8 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
       e.preventDefault();
       // setErrors({});
       const data = {comment,rating,user_username:user.username};
+      console.log('this is my review id in editreview',rating)
+
           let reviews = await dispatch(thunkEditReview(review.id,data,bookId));
           // await dispatch(thunkGetReviews(bookId))
 
@@ -37,6 +38,11 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
     const onChange = (number) => {
       setRating(number);
     };
+
+    useEffect(() => {
+      setComment(review.comment)
+      setRating(parseInt(review.rating))
+  },[review])
     let disable=true
     if(comment.length >9 && rating >= 1){
        disable=false

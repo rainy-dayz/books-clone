@@ -128,16 +128,16 @@ def seed_users():
         name="A Deadly Education", author='Naomi Novik',price=14.99, description='A school for the magically gifted where failure means certain death (for real) — until one girl, El, begins to unlock its many secrets.',
         genre_id=1,book_image="https://utopia-state-of-mind.com/wp-content/uploads/2020/10/A-Deadly-Education-683x1024.jpg",types=False,releaseDate=datetime(2020, 10, 8),subgenre_id=3)
     review1=Review(
-        comment="Mid",rating=3,user_id=1, book_id=1,created_at=datetime(2010, 10, 5),user_username='Demo'
+        comment="Mid at best i mean come on",rating=3,user_id=1, book_id=1,created_at=datetime(2010, 10, 5),user_username='Demo'
     )
     review2=Review(
         comment="Best SciFi book ever.",rating=5,user_id=2, book_id=2,created_at=datetime(2021, 9, 6),user_username='marnie'
     )
     review3=Review(
-        comment="This is the best",rating=5,user_id=2, book_id=3,created_at=datetime(2015, 11, 5),user_username='marnie'
+        comment="This is the best!!!!",rating=5,user_id=2, book_id=3,created_at=datetime(2015, 11, 5),user_username='marnie'
     )
     review4=Review(
-        comment="Romace was supre cute",rating=4,user_id=1, book_id=4,created_at=datetime(2020, 7, 15),user_username='Demo'
+        comment="Romace was super cute",rating=4,user_id=1, book_id=4,created_at=datetime(2020, 7, 15),user_username='Demo'
     )
     review5=Review(
         comment="This book was so dark and the twists were amazing! Kept me on the edge of my seat",rating=4,user_id=1, book_id=5,created_at=datetime(2022, 11, 15),user_username='Demo'
