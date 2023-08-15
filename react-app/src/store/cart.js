@@ -18,10 +18,7 @@ const deleteCart = (cartId) => ({
     type:DELETE_CART,
     data:cartId
 })
-// const deleteWholeCart = (carts) => ({
-//     type:DELETE_CART,
-//     data:carts
-// })
+
 const editCart = (cartId) => ({
     type:EDIT_CART,
     data:cartId
@@ -42,19 +39,7 @@ export const thunkGetCart = (id) => async(dispatch) => {
         return {errors:err}
     }
 }
-// export const thunkDeleteWholeCart = () => async(dispatch) => {
-//     const res = await fetch(`/api/carts/delete/cart`)
-//     if (res.ok) {
-//         const data = await res.json()
-//         console.log('deletewholecartdata',data)
-//         dispatch(deleteWholeCart(data))
-//         return data
-//     }
-//     else {
-//         const err = await res.json()
-//         return {errors:err}
-//     }
-// }
+
 export const thunkCreateCart = (userId,bookId,quantity) => async (dispatch) => {
 
     const response = await fetch(`/api/carts/${userId}/${bookId}`, {

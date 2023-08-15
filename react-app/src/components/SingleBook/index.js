@@ -34,7 +34,7 @@ function SingleBook() {
 
     useEffect(() =>{
         dispatch(thunkUpdateBook(types,bookId))
-    },[types])
+    },[types,bookId])
 
 
     return (
@@ -44,11 +44,13 @@ function SingleBook() {
             <p>{book.price}</p>
             <p>{book.description}</p>
              {book.types == false ?<button style={{color: "blue"}} className="serverInput"
-                onClick={() => {setTypes(false)}}>Hardcover</button>
+                // onClick={() => {setTypes(false)}}
+                >Hardcover</button>
                 :<button className="serverInput"onClick={() => {setTypes(false)}} >Hardcover</button> }
 
             {book.types == true ?<button style={{color: "blue"}} className="serverInput"
-                onClick={() => {setTypes(true)}}>Paperback</button>
+                // onClick={() => {setTypes(true)}}
+                >Paperback</button>
                 :<button className="serverInput"onClick={() => {setTypes(true)}} >Paperback</button> }
                 {user &&<button onClick={() => {
                         return dispatch(thunkCreateCart(user.id,bookId))

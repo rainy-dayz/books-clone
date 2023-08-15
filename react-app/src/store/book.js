@@ -76,7 +76,7 @@ export const thunkUpdateBook = (types,bookId) => async (dispatch) => {
     if (response.ok)    {
         const book = await response.json()
         dispatch(updateSingleBook(book))
-        dispatch(thunkGetSingleBook(bookId))
+        // dispatch(thunkGetSingleBook(bookId))
         return book
     }
     else if (response.status < 500){
@@ -110,14 +110,9 @@ export default function reducer(state = initialState, action) {
             newState.singleBook=action.data
             return newState
         }
-        // case UPDATE_BOOK: {
-        //     const newState = {...state}
-        //     newState.allBooks[action.data.id] = action.data
-        //     return newState
-        // }
         case UPDATE_BOOK: {
-            const newState = {...state, singleBook:{...state.singleBook},allBooks:{...state.allBooks}}
-            // newState.singleBook = {}
+            const newState = {...state, singleBook:{...state.singleBook}}
+            newState.singleBook = {}
             newState.singleBook = action.data
             return newState
         }
