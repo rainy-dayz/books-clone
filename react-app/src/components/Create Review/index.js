@@ -38,7 +38,7 @@ const CreateReview = ({ closeModal,book,user }) => {
       setRating(number);
     };
     let disable=true
-    if(comment.length >9 && rating >= 1){
+    if(comment.length >6 && rating >= 1){
        disable=false
     }
   return (
@@ -50,7 +50,7 @@ const CreateReview = ({ closeModal,book,user }) => {
         <label>
           <textarea
           rows="4" cols="50"
-            placeholder="Leave your review here ..."
+            placeholder="Leave your review here must be longer than 6 characters..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />

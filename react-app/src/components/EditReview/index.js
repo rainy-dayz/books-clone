@@ -44,7 +44,7 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
       setRating(parseInt(review.rating))
   },[review])
     let disable=true
-    if(comment.length >9 && rating >= 1){
+    if(comment.length >6 && rating >= 1){
        disable=false
     }
 

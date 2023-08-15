@@ -32,10 +32,23 @@ function SingleBook() {
         dispatch(thunkGetSingleBook(bookId))
     }, [bookId])
 
-    useEffect(() =>{
-        dispatch(thunkUpdateBook(types,bookId))
-    },[types])
-
+    // useEffect(() =>{
+    //     dispatch(thunkUpdateBook(types,bookId))
+    // },[types])
+    const addthings=async()=>{
+        if(cartAll){
+            cartAll.map(cart=>{
+                {console.log('carttypes',cart.books.types)}
+                if(cart.book_id==bookId){
+                    dispatch(thunkEditCart(cart.id, cart.quantity+1))
+                    history.push(`/carts`)
+                }
+            })
+        }
+    }
+    const chicken=cartAll.map(order => {
+        return order.book_id
+    })
 
     return (
         <div>
@@ -43,17 +56,20 @@ function SingleBook() {
             <img className='booksImageHomepage' src ={book.book_image}/>
             <p>{book.price}</p>
             <p>{book.description}</p>
-             {book.types == false ?<button style={{color: "blue"}} className="serverInput"
+             {/* {book.types == false ?<button style={{color: "blue"}} className="serverInput"
                 onClick={() => {setTypes(false)}}>Hardcover</button>
                 :<button className="serverInput"onClick={() => {setTypes(false)}} >Hardcover</button> }
 
             {book.types == true ?<button style={{color: "blue"}} className="serverInput"
                 onClick={() => {setTypes(true)}}>Paperback</button>
-                :<button className="serverInput"onClick={() => {setTypes(true)}} >Paperback</button> }
-                {user &&<button onClick={() => {
-                        return dispatch(thunkCreateCart(user.id,bookId))
-                        .then(()=> history.push(`/carts`))
-                        }}>Add to Cart</button> }
+                :<button className="serverInput"onClick={() => {setTypes(true)}} >Paperback</button> } */}
+                {user &&
+                chicken.find((chick) => book.id==chick)
+                ?<button onClick={addthings}>+</button>:
+                <button onClick={() => {
+                    return dispatch(thunkCreateCart(user.id,bookId))
+                    .then(()=>{history.push(`/carts`)})
+                }}>Add to Cart</button> }
             {!user && <div>Login or Signup to add this book to your cart!</div>}
         <p>{book.id}</p>
         <h1>Reviews</h1>
