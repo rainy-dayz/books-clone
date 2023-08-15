@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
-import { thunkGetBooks } from '../../store/book'
+import { thunkGetBooks, thunkUpdateBook } from '../../store/book'
 
 
 
@@ -13,6 +13,7 @@ function Cart() {
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
     let booksAll = useSelector(state => Object.values(state.book.allBooks))
     let cart=useSelector(state => (state.carts.singleCart))
+    const [types, setTypes] = useState('Hard')
     console.log('cart',cart)
     const history = useHistory()
 
@@ -27,6 +28,9 @@ function Cart() {
     records.forEach(async(record)=>{
     await dispatch(thunkEditCart(record.id,0))
 })}
+// useEffect(() =>{
+//     dispatch(thunkUpdateBook(types,bookId))
+// },[types,bookId])
 let total=0
     return (
         <div>
@@ -39,7 +43,11 @@ let total=0
                     <img onClick={() => {history.push(`/books/${cart.books.id}`)}} className="booksImageHomepage" src={cart.books.book_image}/>
                     <p>Book Id:{cart.books.id}</p>
                     <p>Price: {cart.books.price}</p>
-                    {cart.books.types == false? <p>Hardcover</p>: <p>Paperback</p>}
+                    {cart.books.types == 'Hard'? <p>Hardcover</p>: <p>Paperback</p>}
+                    {cart.books.types == false ?<button style={{color: "blue"}} className="serverInput"
+                // onClick={() => {setTypes(false)}}
+                >Hardcover</button>
+                :<button className="serverInput"onClick={() => {dispatch(thunkUpdateBook("Hard",cart.books.id))}} >Hardcover</button> }
                     <p>Quantity: {cart.quantity}</p>
                     <button onClick={async()=> {
                         cart.quantity +=1

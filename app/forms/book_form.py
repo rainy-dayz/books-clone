@@ -5,4 +5,4 @@ from datetime import datetime
 
 
 class BookForm(FlaskForm):
-    types = BooleanField('types', validators=[DataRequired()])
+    types = StringField('types', validators=[DataRequired()])

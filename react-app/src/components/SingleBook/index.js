@@ -22,7 +22,7 @@ function SingleBook() {
     const history = useHistory()
     const { bookId } = useParams()
     // console.log('cart', cartAll)
-    const [types, setTypes] = useState(false)
+    const [types, setTypes] = useState('Hard')
     const [name] = useState(book.name)
     const [author] = useState(book.author)
     const [price] = useState(book.price)
@@ -46,12 +46,12 @@ function SingleBook() {
              {book.types == false ?<button style={{color: "blue"}} className="serverInput"
                 // onClick={() => {setTypes(false)}}
                 >Hardcover</button>
-                :<button className="serverInput"onClick={() => {setTypes(false)}} >Hardcover</button> }
+                :<button className="serverInput"onClick={() => {setTypes("Hard")}} >Hardcover</button> }
 
             {book.types == true ?<button style={{color: "blue"}} className="serverInput"
                 // onClick={() => {setTypes(true)}}
                 >Paperback</button>
-                :<button className="serverInput"onClick={() => {setTypes(true)}} >Paperback</button> }
+                :<button className="serverInput"onClick={() => {setTypes("Soft")}} >Paperback</button> }
                 {user &&<button onClick={() => {
                         return dispatch(thunkCreateCart(user.id,bookId))
                         .then(()=> history.push(`/carts`))
