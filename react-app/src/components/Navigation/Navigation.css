@@ -23,6 +23,8 @@
   display:flex;
   justify-content: space-evenly;
   margin-bottom:15px;
+  padding:5px;
+  border-bottom:1px solid black;
 }
 .navLinks2{
   cursor:pointer;

@@ -52,10 +52,25 @@
     background-color: blue;
   }
 .holdsthebooksforgenre{
-  display:flex;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
-  gap:30px;
+  grid-gap: 30px;
+  gap: 30px;
+  margin: auto;
+  padding: 30px;
+}
+.bookandreviewstarsgenre{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttonFilterGenre1{
+  display:flex;
+}
+.sortingstuffout{
+  display: flex;
+  margin-bottom:20px;
 }

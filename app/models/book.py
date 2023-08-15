@@ -35,7 +35,7 @@ class Book(db.Model):
             'releaseDate':self.releaseDate,
             'subgenre_id':self.subgenre_id,
             'reviews': [review.to_dict() for review in self.reviews],
-            'avgRating': self.avgRating
+            'avgRating': self.avgRating,
         }
 
     @property

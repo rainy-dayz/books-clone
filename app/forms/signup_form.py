@@ -21,7 +21,7 @@ def user_exists(form, field):
 def long_enough(form, field):
     username=field.data
     if len(username) <2 or len(username) > 32:
-        raise ValidationError("Must be 2-32 characters long")
+        raise ValidationError("Must be a valid username")
 
 def long_enough_firstName(form, field):
     firstName=field.data

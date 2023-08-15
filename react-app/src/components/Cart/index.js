@@ -18,18 +18,24 @@ function Cart() {
 
     useEffect(() => {
         dispatch(thunkGetCart())
-        dispatch(thunkGetBooks())
-    }, [dispatch])
+        dispatch(thunkGetSingleCart(cart.id))
+       dispatch(thunkGetBooks())
+    }, [])
 
-
-let price1=[]
-const sum = price1.reduce((partialSum, a) => partialSum + a, 0);
+let records =Object.values(cartAll)
+console.log('recrod',records)
+const checkout = async(record)=>{
+    records.forEach(async(record)=>{
+    await dispatch(thunkEditCart(record.id,0))
+})
+}
+    let total=0
     return (
         <div>
             <h1>Cart:</h1>
             {cartAll.length ?
             cartAll.toReversed().map(cart => {
-
+                total+=cart.quantity*cart.books.price
                 return <div key={cart.id} >
                     <p>{cart.books.name}</p>
                     <img onClick={() => {history.push(`/books/${cart.books.id}`)}} className="booksImageHomepage" src={cart.books.book_image}/>
@@ -43,7 +49,7 @@ const sum = price1.reduce((partialSum, a) => partialSum + a, 0);
                     }}>+</button>
                     <button onClick={async()=> {
                         cart.quantity -=1
-                       price1 = cart.books.price*cart.quantity
+                    //    price1 = cart.books.price*cart.quantity
                        dispatch(thunkEditCart(cart.id,cart.quantity))
                     //    dispatch(thunkGetCart())
                     }}>-</button>
@@ -51,11 +57,14 @@ const sum = price1.reduce((partialSum, a) => partialSum + a, 0);
                         return dispatch(thunkDeleteCart(cart.id))
                         .then(()=> dispatch(thunkGetCart()))
                     }}>Delete</button>
-                    <p>{price1.push(cart.books.price *cart.quantity)}</p>
-                    {console.log('price1',price1)}
+                    {/* <p>{price1.push(cart.books.price *cart.quantity)}</p>
+                    {console.log('price1',price1)} */}
                     {/* <p>{sum}</p> */}
 </div>
             }): <div>Your Cart is currently empty!</div>}
+            <button onClick={checkout}>Checkout</button>
+            <div>Total</div>
+            <p>{total.toFixed(2)}</p>
             {/* <button onClick={()=>{
                 return dispatch(thunkDeleteWholeCart())
                 .then(()=> dispatch(thunkGetCart()))}}>Checkout</button> */}

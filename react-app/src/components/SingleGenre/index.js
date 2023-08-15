@@ -52,6 +52,7 @@ function SingleGenre() {
     return (
         <div>
             <h1 className="singlegenreheader">{genreName.name}</h1>
+            <div className="sortingstuffout">
             <div className="buttonFilterGenreCont">
                 <button className="dropBtnt">Sort By</button>
                 <div className="dropdown-content">
@@ -111,10 +112,10 @@ function SingleGenre() {
             dispatch(thunkFilteredBooks(6))
                 dispatch(thunkGetBooks())
             }}>Subgenre</div> */}
-
+            </div>
 <div className="holdsthebooksforgenre">
             {genre.map(book => {
-                return <div key={book.id} >
+                return <div className="bookandreviewstarsgenre"key={book.id} >
                     {/* <p>{book.name}</p>
                     <p>{book.price}</p> */}
                     {/* <p>{book.subgenre_id}</p> */}
