@@ -17,7 +17,8 @@ const dispatch = useDispatch()
   useEffect(() => {
     dispatch(thunkGetBooks())
 }, [])
-
+const onlyBook=books.filter(value=>{return value.types="Hard"})
+console.log('onlybook',onlyBook)
  const handleFilter = (event) =>{
     const searchEle=event.target.value
     setWordInput(searchEle)

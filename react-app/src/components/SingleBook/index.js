@@ -22,7 +22,7 @@ function SingleBook() {
     const history = useHistory()
     const { bookId } = useParams()
     // console.log('cart', cartAll)
-    const [types, setTypes] = useState('Hard')
+    // const [types, setTypes] = useState('Hard')
     const [name] = useState(book.name)
     const [author] = useState(book.author)
     const [price] = useState(book.price)
@@ -32,9 +32,9 @@ function SingleBook() {
         dispatch(thunkGetSingleBook(bookId))
     }, [bookId])
 
-    useEffect(() =>{
-        dispatch(thunkUpdateBook(types,bookId))
-    },[types,bookId])
+    // useEffect(() =>{
+    //     dispatch(thunkUpdateBook(types,bookId))
+    // },[types,bookId])
 
 
     return (
@@ -43,7 +43,7 @@ function SingleBook() {
             <img className='booksImageHomepage' src ={book.book_image}/>
             <p>{book.price}</p>
             <p>{book.description}</p>
-             {book.types == false ?<button style={{color: "blue"}} className="serverInput"
+             {/* {book.types == false ?<button style={{color: "blue"}} className="serverInput"
                 // onClick={() => {setTypes(false)}}
                 >Hardcover</button>
                 :<button className="serverInput"onClick={() => {setTypes("Hard")}} >Hardcover</button> }
@@ -51,7 +51,7 @@ function SingleBook() {
             {book.types == true ?<button style={{color: "blue"}} className="serverInput"
                 // onClick={() => {setTypes(true)}}
                 >Paperback</button>
-                :<button className="serverInput"onClick={() => {setTypes("Soft")}} >Paperback</button> }
+                :<button className="serverInput"onClick={() => {setTypes("Soft")}} >Paperback</button> } */}
                 {user &&<button onClick={() => {
                         return dispatch(thunkCreateCart(user.id,bookId))
                         .then(()=> history.push(`/carts`))
