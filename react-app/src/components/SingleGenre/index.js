@@ -28,7 +28,7 @@ function SingleGenre() {
         setReversePrice(false)
         setHighestRated(false)
         setLowestRated(false)
-        // dispatch(thunkFilteredBooks(genre.subgenre_id))
+
     }, [genreId])
 
         if(descending){
@@ -43,15 +43,13 @@ function SingleGenre() {
         if(lowestRated){
         genre.sort((c,d)=>c.avgRating-d.avgRating)
         }
-        // if(subgenres){
-        //     genre.filter((gen)=> gen.subgenre_id ==6)
-        // }
-        // console.log(subgenres)
+
     if(!genre) return null
 
     return (
         <div>
             <h1 className="singlegenreheader">{genreName.name}</h1>
+            <div className="sortingstuffout">
             <div className="buttonFilterGenreCont">
                 <button className="dropBtnt">Sort By</button>
                 <div className="dropdown-content">
@@ -107,17 +105,11 @@ function SingleGenre() {
                 setHighestRated(false)
                 dispatch(thunkGetSingleGenre(genreId))
             }}>Rating high to low X</div>:null}
-            {/* <div className="buttonFilterGenre"onClick={()=>{
-            dispatch(thunkFilteredBooks(6))
-                dispatch(thunkGetBooks())
-            }}>Subgenre</div> */}
+            </div>
 
 <div className="holdsthebooksforgenre">
             {genre.map(book => {
-                return <div key={book.id} >
-                    {/* <p>{book.name}</p>
-                    <p>{book.price}</p> */}
-                    {/* <p>{book.subgenre_id}</p> */}
+                return <div className="bookandreviewstarsgenre"key={book.id} >
                     <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
                     <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
                     </div>

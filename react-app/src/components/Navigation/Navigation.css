@@ -3,10 +3,10 @@
   background-color: #f1f1f1;
     /* right:170px; */
     top:45px;
-    padding: 5px;
+    padding: 15px;
     display:flex;
     flex-direction:column;
-    z-index:1;
+    /* z-index:1; */
     border-radius:10%;
 }
 
@@ -23,6 +23,8 @@
   display:flex;
   justify-content: space-evenly;
   margin-bottom:15px;
+  padding:5px;
+  border-bottom:1px solid black;
 }
 .navLinks2{
   cursor:pointer;
@@ -84,31 +86,4 @@ cursor:pointer;
   border:none;
   width:90px;
   margin:5px;
-}
-
-@media only screen and (max-width: 737px) {
-  .profile-dropdown {
-    position: absolute;
-    background-color: #f1f1f1;
-      /* right:170px; */
-      top:85px;
-      padding: 15px;
-      display:flex;
-      flex-direction:column;
-      /* z-index:1; */
-      border-radius:10%;
-  }
-}
-@media only screen and (max-width: 595px) {
-  .profile-dropdown {
-    position: absolute;
-    background-color: #f1f1f1;
-      /* right:170px; */
-      top:115px;
-      padding: 15px;
-      display:flex;
-      flex-direction:column;
-      /* z-index:1; */
-      border-radius:10%;
-  }
 }

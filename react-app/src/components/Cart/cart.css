@@ -1,0 +1,25 @@
+
+  .popuptext.show {
+    display: block;
+  }
+  .popuptext {
+      display: none;
+
+    }
+
+    .backg2{
+    /* background-color: white; */
+    /* width: 500px;
+    height: 500px; */
+    display:flex;
+    flex-direction:column;
+      align-items:center;
+      justify-content: center;
+    }
+.thankyoumess{
+  position:relative;
+  margin-top:-100px;
+}
+.gifatcheckout{
+  border-radius:5px;
+}

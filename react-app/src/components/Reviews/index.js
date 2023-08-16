@@ -50,7 +50,7 @@ if(!reviewsAll) return null
                     <p>{review.comment}</p>
                     <p>{review.user_username}</p>
                     {/* {console.log(review)} */}
-                    {/* <p>{`${review.created_at.slice(8,11)} ${review.created_at.slice(5,7)}, ${review.created_at.slice(12,17)}`}</p> */}
+                    <p>{`${review.created_at.slice(8,11)} ${review.created_at.slice(5,7)}, ${review.created_at.slice(12,17)}`}</p>
                     {/* <button onClick={()=>setOpenModal1(true)}>Edit Your Review</button> */}
                     {user && user.id == review.user_id &&<button onClick={()=>setOpenModal1(true)}>Edit Your Review</button>}
                     {user && user.id == review.user_id &&<button onClick={()=> {

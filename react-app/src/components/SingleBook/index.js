@@ -8,6 +8,8 @@ import OpenModalButton from '../OpenModalButton'
 import SignupFormModal from '../SignupFormModal'
 import ProfileButton from '../Navigation'
 import Reviews from '../Reviews'
+import './singlebook.css'
+import StarRatingSingleReview from '../Reviews/starRatingSingleReview'
 
 
 
@@ -17,11 +19,12 @@ function SingleBook() {
     let genre = useSelector(state => Object.values(state.genres.singleGenre))
     let user = useSelector(state => (state.session.user))
     let book = useSelector(state => (state.book.singleBook))
+    let book2 = useSelector(state => (state.book.singleBook.reviews))
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
     let cart=useSelector(state => (state.carts.singleCart))
     const history = useHistory()
     const { bookId } = useParams()
-    // console.log('cart', cartAll)
+    // console.log('cart', book2.length )
     const [types, setTypes] = useState(false)
     const [name] = useState(book.name)
     const [author] = useState(book.author)
@@ -52,25 +55,36 @@ function SingleBook() {
 
     return (
         <div>
-            <p>{book.name}</p>
-            <img className='booksImageHomepage' src ={book.book_image}/>
-            <p>{book.price}</p>
-            <p>{book.description}</p>
-             {/* {book.types == false ?<button style={{color: "blue"}} className="serverInput"
+        <div className="singlebookcont">
+            <div className='bookimagecont'>
+            <img className='booksImageSingleBook' src ={book.book_image}/>
+            </div>
+        <div className="infoaboutsinglebookcont">
+            <div>{book.name}</div>
+            <div>by {book.author}</div>
+            <p>${book.price}</p>
+            <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
+            <div>{book.avgRating} ({book2?.length})       Write a Review Below</div>
+            <div className='buttoncontforinglestuff'>
+            {book.types == false ?<button style={{color: "blue"}} className="serverInput"
                 onClick={() => {setTypes(false)}}>Hardcover</button>
-                :<button className="serverInput"onClick={() => {setTypes(false)}} >Hardcover</button> }
+                :<button className="serverInput" style={{color: "grey"}}onClick={()=>alert("Currently out of Stock")} >Hardcover</button>}
 
             {book.types == true ?<button style={{color: "blue"}} className="serverInput"
                 onClick={() => {setTypes(true)}}>Paperback</button>
-                :<button className="serverInput"onClick={() => {setTypes(true)}} >Paperback</button> } */}
-                {user &&
-                chicken.find((chick) => book.id==chick)
+                :<button className="serverInput" style={{color: "grey"}} onClick={()=>alert("Currently out of Stock")}  >Paperback</button> }
+                {user ?(chicken.find((chick) => book.id==chick)
                 ?<button onClick={addthings}>+</button>:
                 <button onClick={() => {
                     return dispatch(thunkCreateCart(user.id,bookId))
                     .then(()=>{history.push(`/carts`)})
-                }}>Add to Cart</button> }
-            {!user && <div>Login or Signup to add this book to your cart!</div>}
+                }}>Add to Cart</button>
+                ):<div>Login or Signup to add this book to your cart!</div>}
+                </div>
+            {/* {!user && <div>Login or Signup to add this book to your cart!</div>} */}
+            </div>
+        </div>
+                <p>{book.description}</p>
         <p>{book.id}</p>
         <h1>Reviews</h1>
         <Reviews />

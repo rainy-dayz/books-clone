@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
+import OpenModalButton from "../OpenModalButton";
+import LoginFormModal from "../LoginFormModal";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -26,7 +28,7 @@ function SignupFormModal() {
 			}
 		} else {
 			setErrors([
-				"Confirm Password field must be the same as the Password field",
+				"Confirm Password field must match the Password field",
 			]);
 		}
 	};
@@ -37,7 +39,7 @@ function SignupFormModal() {
 			<form className="formforsignup" onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
-						<li key={idx}>{error}</li>
+						<div key={idx} style={{color:'red'}}>{error}</div>
 					))}
 				</ul>
 				<label>
@@ -101,6 +103,10 @@ function SignupFormModal() {
 					/>
 				</label>
 				<button className="signUpBtn" type="submit">Sign Up</button>
+				<OpenModalButton
+              buttonText="Sign In"
+              modalComponent={<LoginFormModal />}
+            />
 			</form>
 		</div>
 	);

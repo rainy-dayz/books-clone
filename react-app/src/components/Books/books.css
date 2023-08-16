@@ -1,6 +1,7 @@
 .booksImageHomepage{
   height:150px;
   width:100px;
+  cursor:pointer;
 }
 .shelfCont{
 display:flex;

@@ -39,7 +39,7 @@ def seed_users():
 
     book1=Book(
         name="JuJutsu Kaisen Vol.1", author='Gege Akutami',price=8.99, description='A boy with already supernatural powers is thrust into the limelight when he becomes the perfect vessel for a powerful demon',
-        genre_id=5,book_image="https://www.anime-planet.com/images/manga/covers/jujutsu-kaisen-24477.jpg",types=False,releaseDate=datetime(2023, 8, 8),subgenre_id=6)
+        genre_id=5,book_image="https://www.anime-planet.com/images/manga/covers/jujutsu-kaisen-24477.jpg",types=True,releaseDate=datetime(2023, 8, 8),subgenre_id=6)
     book2=Book(
         name="Project Hail Mary", author='Andy Weir',price=20.99, description='Humanities last hope is a Science Teacher with amnesia in space',
         genre_id=2,book_image="https://bookandfilmglobe.com/wp-content/uploads/2021/05/91Bd7P8UwxL.jpg",types=False,releaseDate=datetime(2023, 8, 5),subgenre_id=12)
@@ -66,7 +66,7 @@ def seed_users():
         genre_id=4,book_image="https://images2.minutemediacdn.com/image/fetch/w_2000,h_2000,c_fit/https://culturess.com/files/image-exchange/2017/07/ie_67345.jpeg",types=False,releaseDate=datetime(2023, 5, 8),subgenre_id=20)
     book10=Book(
         name="Assassination Classroom, Vol.1", author='Yusei Matsui',price=5.99, description="The students in Class 3-E of Kunugigaoka Junior High have a new teacher: an alien octopus with bizarre powers and unlimited strength, who's just destroyed the moon and is threatening to destroy the earth - unless they can kill him first!",
-        genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png",types=False,releaseDate=datetime(2023, 10, 7),subgenre_id=8)
+        genre_id=5,book_image="http://www.capsulecomputers.com.au/wp-content/uploads/2015/01/assassination-classroom-volume-1-cover.png",types=True,releaseDate=datetime(2023, 10, 7),subgenre_id=8)
     book11=Book(
         name="Down Among the Sticks and Bones", author='Seanan McGuire',price=14.99, description='What would happen is alice had fallen not into wonderland, but somewhere much darker',
         genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/A1DfuuJpEjL.jpg",types=False,releaseDate=datetime(2023, 10, 8),subgenre_id=18)
@@ -87,13 +87,13 @@ def seed_users():
         genre_id=1,book_image="https://media.npr.org/assets/bakertaylor/covers/t/the-gilded-wolves/9781250144546_custom-ce38bc9584f5780361ff03eec2c97854c49650da-s300.jpg",types=False,releaseDate=datetime(2023, 10, 8),subgenre_id=5)
     book17=Book(
         name="Fruit's Basket", author='Natsuki Takaya ',price=6.99, description="After a family tragedy turns her life upside down, plucky high schooler Tohru Honda takes matters into her own hands and moves out...into a tent! Unfortunately for her, she pitches her new home on private land belonging to the mysterious Sohma clan, and it isn't long before the owners discover her secret. But, as Tohru quickly finds out when the family offers to take her in, the Sohmas have a secret of their own--when touched by the opposite sex, they turn into the animals of the Chinese Zodiac!",
-        genre_id=5,book_image="https://images-na.ssl-images-amazon.com/images/I/41flDadak8L.jpg",types=False,releaseDate=datetime(2016, 6, 28),subgenre_id=7)
+        genre_id=5,book_image="https://images-na.ssl-images-amazon.com/images/I/41flDadak8L.jpg",types=True,releaseDate=datetime(2016, 6, 28),subgenre_id=7)
     book18=Book(
         name="Demon Slayer", author='Koyoharu Gotouge',price=6.49, description='After his sister is turned into a demon Tanjiro must become a demon slayter to protect her, while he hunts for a cure.',
-        genre_id=5,book_image="https://pictures.abebooks.com/isbn/9781974700523-us.jpg",types=False,releaseDate=datetime(2023, 10, 8),subgenre_id=6)
+        genre_id=5,book_image="https://pictures.abebooks.com/isbn/9781974700523-us.jpg",types=True,releaseDate=datetime(2023, 10, 8),subgenre_id=6)
     book19=Book(
         name="Haikyuu!!", author='Haruichi Furudate',price=10.99, description="Shoyo Hinata is out to prove that in volleyball you don't need to be tall to fly!",
-        genre_id=5,book_image="https://m.media-amazon.com/images/I/8125DI58M+L.jpg",types=False,releaseDate=datetime(2016, 7, 5),subgenre_id=9)
+        genre_id=5,book_image="https://m.media-amazon.com/images/I/8125DI58M+L.jpg",types=True,releaseDate=datetime(2016, 7, 5),subgenre_id=9)
     book20=Book(
         name="This is How you Lose a Time War", author='Amal El-Mohtar',price=12.99, description='omantic novel spanning time and space about two time-traveling rivals who fall in love and must change the past to ensure their future',
         genre_id=2,book_image="https://miro.medium.com/max/3376/1*Lq6IjJBbSxvTn1jJY7U1Zg.jpeg",types=False,releaseDate=datetime(2019, 7, 16),subgenre_id=13)

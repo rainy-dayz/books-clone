@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -11,34 +11,27 @@ import { thunkCreateReview } from '../../store/reviews';
 // import { useSelector } from "react-redux";
 const CreateReview = ({ closeModal,book,user }) => {
   const [comment, setComment] = useState('')
-  const [rating, setRating] = useState('')
-  const [error, setErrors] = useState({});
+  const [rating, setRating] = useState(1)
+  const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
-//   const {bookId} =useParams()
 
-  // const book =  useSelector(state=> state.book.singleBook)
-  // const user= useSelector(state => state.session.user)
-  console.log('user review',user.username)
-  console.log('book review',book)
+
   const handleSubmit = async (e) => {
       e.preventDefault();
       // setErrors({});
       const data = {comment,rating, user_username:user.username};
           let reviews = await dispatch(thunkCreateReview(data,user.id,book.id));
           await dispatch(thunkGetSingleBook(book.id))
-
-      // if (reviews.error) {
-      //   setErrors(reviews.error);
-      // }else {
           closeModal(false)
-      // }
+
     };
     const onChange = (number) => {
       setRating(number);
     };
     let disable=true
-    if(comment.length >6 && rating >= 1){
+    if(comment.length >5 && rating >= 1){
        disable=false
     }
   return (
@@ -46,11 +39,11 @@ const CreateReview = ({ closeModal,book,user }) => {
       <form onSubmit={handleSubmit}>
             <div className="backg" >
         <h2>{`How was the book?`}</h2>
-        {/* <div className="errors">{error.review}</div> */}
+
         <label>
           <textarea
           rows="4" cols="50"
-            placeholder="Leave your review here must be longer than 6 characters..."
+            placeholder="Leave your review here, it must be longer than 6 characters..."
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           />
