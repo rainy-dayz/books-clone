@@ -6,6 +6,8 @@ import "./LoginForm.css";
 import { useHistory } from "react-router-dom"
 import SignupFormModal from "../SignupFormModal";
 import OpenModalButton from "../OpenModalButton";
+import OpenModalButton2 from "../OpenModalButton/index2";
+import OpenModalButton3 from "../OpenModalButton/index3";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
@@ -31,7 +33,7 @@ function LoginFormModal() {
       <form className="thisistheform"onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <div key={idx} style={{color:'red'}}>{error}</div>
+            <div  className="errors2"key={idx} style={{color:'red'}}>{error}</div>
           ))}
         </ul>
         <label>
@@ -57,15 +59,17 @@ function LoginFormModal() {
           />
         </label>
         <button className="login-btn" type="submit">Log In</button>
+        <div className="fixstyling">
+      <OpenModalButton3
+              buttonText="Create an Account"
+
+              modalComponent={<SignupFormModal />}
+            />
+            </div>
         <button className="demo-user" onClick={() => {
           setEmail('demo@aa.io')
           setPassword('password')
         }} >Demo User</button>
-      <OpenModalButton
-              buttonText="Create an account"
-
-              modalComponent={<SignupFormModal />}
-            />
       </form>
     </div>
   );

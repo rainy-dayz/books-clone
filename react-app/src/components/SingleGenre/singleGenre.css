@@ -8,12 +8,14 @@
 }
 
 .dropBtnt{
-  background-color: blue;
+  background-color: black;
 color: white;
-padding: 16px;
-font-size: 16px;
+padding: 10px;
+font-size: 14px;
 border: none;
 cursor: pointer;
+border-radius:5px;
+margin-left:30px
 }
 .buttonFilterGenreCont{
   position: relative;
@@ -49,7 +51,11 @@ cursor:pointer;
 }
 
 .buttonFilterGenreCont:hover .dropBtnt {
-  background-color: blue;
+  background: #161f28;  /* fallback for old browsers */
+  background: linear-gradient(to bottom, #161f28, #8e9194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+/* color:black */
+
 }
 .holdsthebooksforgenre{
 display: flex;
@@ -69,8 +75,19 @@ align-items: center;
 }
 .buttonFilterGenre1{
 display:flex;
+cursor:pointer;
+
+}
+.buttonFilterGenre1:hover{
+  text-decoration:underline;
 }
 .sortingstuffout{
 display: flex;
 margin-bottom:20px;
+align-items: center;
+}
+.booksImageNotHomepage{
+  height:180px;
+  width:110px;
+  cursor:pointer;
 }

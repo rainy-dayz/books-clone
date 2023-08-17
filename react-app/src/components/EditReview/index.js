@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import StarRatingInput from '../Create Review/StarInputRating';
 import { thunkGetReviews } from '../../store/reviews';
 import { thunkEditReview } from '../../store/reviews';
+import { thunkGetSingleBook } from '../../store/book';
 // import { useSelector } from "react-redux";
 const EditReview = ({ closeModal1,review,comments,ratings}) => {
   const [comment, setComment] = useState(comments)
@@ -27,7 +28,7 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
       console.log('this is my review id in editreview',rating)
 
           let reviews = await dispatch(thunkEditReview(review.id,data,bookId));
-          // await dispatch(thunkGetReviews(bookId))
+          await dispatch(thunkGetSingleBook(bookId))
 
       // if (reviews.error) {
       //   setErrors(reviews.error);
@@ -73,13 +74,12 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
           Stars
         </label>
           </div>
-        <button disabled={disable} type="submit" onClick={()=>
-          {
-          return handleSubmit
-          }}>Submit your Review</button>
-              <button onClick={()=>
+          <div className='bttninreviewmodal'>
+              <button className="cancelreviewmodal" onClick={()=>
                 closeModal1(false)
                 }>Cancel</button>
+        <button  className="submitreviewmodal" disabled={disable} type="submit" onClick={handleSubmit}>Submit your Review</button>
+          </div>
           </div>
        </form>
           </div>

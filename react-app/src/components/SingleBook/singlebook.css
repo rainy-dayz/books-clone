@@ -1,13 +1,121 @@
-.booksImageSingleBook{
-    height:500px;
-    width:350px;
-}
 .singlebookcont{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap:60px;
+    margin-top:30px;
+}
+.booksImageSingleBook{
+    height:500px;
+    width:350px;
+}
+.titleofbook{
+    font-size:30px;
+    display:flex;
+    flex-wrap:wrap;
+    width: 400px;
+    padding:10px 0px;
+}
+.authorofbook{
+    padding:5px 0px;
+    font-size:18px;
+}
+.ratingsininfoofsinglebook{
+    display:flex;
+    gap:8px;
+    padding:10px 0px;
+    margin-bottom:15px;
+    font-size:18px;
+    align-items:center;
+}
+.holderofpriceandtype{
+display:flex;
+flex-direction:column;
+gap:10px;
+border-top:1px solid black;
+}
+.thetypeoutsidebutton{
+    font-size:18px;
+    font-weight:bold;
+    margin-top:15px;
+}
+.priceofbook{
+
+    font-size:30px;
+    font-weight:bold;
+    margin-bottom:12px;
 }
 .buttoncontforinglestuff{
+display:flex;
+gap:15px;
+margin-bottom:20px;
 
 }
+.serverInput{
+    padding:12px;
+    border-radius:3px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    cursor:pointer;
+
+}
+.serverInput2{
+    padding:10px;
+    border:4px solid rgb(10, 54, 200);
+    color:blue;
+    border-radius:3px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    cursor:pointer;
+    background:transparent;
+}
+.addtocartadnshippingcont{
+    border:1px solid darkgrey;
+    padding:15px;
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+.addtocart{
+    background:rgb(23, 98, 227);
+    color:white;
+    padding:10px 62px;
+    font-size:18px;
+    border:none;
+    border-radius:3px;
+
+}
+.addtocart:hover{
+    background: #0575E6;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    cursor:pointer;
+}
+.descboxcont{
+margin-top:50px;
+/* margin:0px 70px; */
+/* width: 1042px; */
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+}
+.thisisoverview{
+    font-size:20px;
+}
+.descwords{
+    border:1px solid darkgrey;
+    padding:20px;
+    width:800px;
+}
+
+@media only screen and (max-width: 865px) {
+    .descwords{
+        border:1px solid darkgrey;
+        padding:20px;
+        width:460px;
+    }
+  }

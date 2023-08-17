@@ -101,7 +101,6 @@ export const thunkDeleteReview = (reviewId) => async (dispatch) => {
     })
     if (res.ok)    {
         const data = await res.json()
-
         dispatch(deleteReview(data))
         return data
     }else {
@@ -133,8 +132,8 @@ export default function reducer(state = initialState, action) {
             return newState
         }
         case DELETE_REVIEW: {
-            const newState = {...state, allReviews:{...state.allReviews}}//try this to reshresh {...state,allGroups:{...state.allGroups}}
-            delete newState.allReviews[action.eventId]
+            const newState = {...state, allReviews:{...state.allReviews}}
+            delete newState.allReviews[action.id]
             return newState
         }
         case EDIT_REVIEW: {

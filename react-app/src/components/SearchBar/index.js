@@ -31,9 +31,12 @@ const dispatch = useDispatch()
     }
  }
  useEffect(()=>{
-     const clearInput = () => {
-            setFilteredData([])
-            setWordInput('')
+     const clearInput = (e) => {
+      if(!e.target.matches('.textbox')){
+
+        setFilteredData([])
+        setWordInput('')
+      }
     }
     window.addEventListener('click',clearInput)
 
@@ -45,13 +48,17 @@ const dispatch = useDispatch()
         <div className="searchInputs">
       <input
         type="text"
+        id='ssssssssss'
         className="textbox"
         placeholder="Search by Title"
         value={wordInput}
         onChange={handleFilter}
 
       />
-      {filteredData.length===0 ? <i className="fa-solid fa-magnifying-glass" ></i>: <i className="fa-solid fa-x"></i>}
+      {!wordInput ? <i className="fa-solid fa-magnifying-glass" ></i>: <i onClick={()=> {
+        setFilteredData([])
+        setWordInput('')
+      }}className="fa-solid fa-x"></i>}
       </div>
       {filteredData.length !== 0 &&
       <div  className="dataResult">

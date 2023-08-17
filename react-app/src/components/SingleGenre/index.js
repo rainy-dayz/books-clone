@@ -110,7 +110,7 @@ function SingleGenre() {
 <div className="holdsthebooksforgenre">
             {genre.map(book => {
                 return <div className="bookandreviewstarsgenre"key={book.id} >
-                    <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageHomepage" src={book.book_image} />
+                    <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageNotHomepage" src={book.book_image} />
                     <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
                     </div>
 

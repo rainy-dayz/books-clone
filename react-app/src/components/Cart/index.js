@@ -50,7 +50,7 @@ let total=0
                     <p>Book Id:{cart.books.id}</p>
                     {cart.books.types == false? <p>Hardcover</p>: <p>Paperback</p>}
                     <p>Quantity: {cart.quantity}</p>
-                    <p>Price: {cart.books.price*cart.quantity}</p>
+                    <p>Price: {Number.parseFloat(cart.books.price*cart.quantity).toFixed(2)}</p>
                     <button onClick={async()=> {
                         cart.quantity +=1
                         dispatch(thunkEditCart(cart.id,cart.quantity))

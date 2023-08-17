@@ -59,13 +59,15 @@ const CreateReview = ({ closeModal,book,user }) => {
           Stars
         </label>
           </div>
-        <button type="submit" disabled={disable}onClick={()=>
+          <div className='bttninreviewmodal'>
+            <button className="cancelreviewmodal" onClick={()=>
+              closeModal(false)
+              }>Cancel</button>
+        <button className="submitreviewmodal" type="submit" disabled={disable}onClick={()=>
           {
           return handleSubmit
           }}>Submit your Review</button>
-              <button onClick={()=>
-                closeModal(false)
-                }>Cancel</button>
+          </div>
           </div>
        </form>
           </div>

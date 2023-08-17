@@ -22,7 +22,7 @@
 .navLinksCont{
   display:flex;
   justify-content: space-evenly;
-  margin-bottom:15px;
+  /* margin-bottom:15px; */
   padding:5px;
   border-bottom:1px solid black;
 }
@@ -82,8 +82,63 @@ text-decoration:underline;
 cursor:pointer;
 }
 .buttons-profile{
-  cursor:pointer;
-  border:none;
-  width:90px;
+  cursor: pointer;
+  border: none;
+  width: 70px;
+  margin: 6px;
+  background: transparent;
+}
+.buttons-profile:hover{
+text-decoration:underline;
+}
+.logoutbttn{
+ margin-top:10px;
+ margin-left:10px;
+ border:none;
+ cursor:pointer;
+}
+.logoutbttn:hover{
+  text-decoration: underline;
+}
+.content-box{
   margin:5px;
+}
+.buttons-profile2{
+  cursor: pointer;
+  color:blue;
+  display:inline-block
+}
+.buttons-profile2:hover{
+  cursor: pointer;
+  color:blue;
+  text-decoration:underline;
+}
+.buttonstoswitchmodals{
+  width:360px;
+  padding:5px;
+  margin-top:15px;
+  cursor:pointer;
+  padding:10px 20px;
+    width:360px;
+    border:none;
+    border-radius:5px;
+    background:rgb(189, 220, 244);
+
+}
+.buttonstoswitchmodals:hover{
+  color:white;
+    border:none;
+    border-radius:5px;
+    background: #FEAC5E;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.login-btn{
+  width:360px;
+}
+.useremaildropmodal{
+  border-bottom:1px solid black;
+  margin-top:5px;
+  padding:5px;
+  /* margin-bottom:5px; */
 }

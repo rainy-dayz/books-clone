@@ -1,4 +1,56 @@
+.holderofthereviews{
+    margin-top:40px;
+}
+.reviewheades{
+    display:flex;
+    justify-content: center;
+    font-size:22px;
+    align-items: center;
+}
+.reviewheades:before {
+    display:block;
+    content: "";
+    float:left;
+    width: 400px;
+    height: 1px;
+    background: #000;
+    margin:5px;
+}
+.reviewheades:after {
+    display:block;
+    content: "";
+    float:right;
+    width: 400px;
+    height: 1px;
+    background: #000;
+    margin: 5px;
+}​
 .eachreview{
+   padding:20px;
+   display:flex;
+}
+.displayofavgratingperbook{
+    padding:0px 50px;
+}
+.meep{
     display:flex;
     flex-direction:column;
+    /* padding:30px 50px; */
+}
+.meepJR{
+    display:flex;
+    gap:10px;
+    padding:0px 50px;
+}
+.editanddeletecontreview{
+    display:flex;
+    padding:0px 50px;
+    gap:10px
+}
+.reviewcomment{
+    display:flex;
+    padding:10px 50px;
+}
+.userwhomadereview{
+    padding:0px 50px;
 }

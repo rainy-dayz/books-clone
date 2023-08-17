@@ -10,6 +10,8 @@ import ProfileButton from '../Navigation'
 import Reviews from '../Reviews'
 import './singlebook.css'
 import StarRatingSingleReview from '../Reviews/starRatingSingleReview'
+import LoginFormModal from '../LoginFormModal'
+import OpenModalButton2 from '../OpenModalButton/index2'
 
 
 
@@ -31,13 +33,11 @@ function SingleBook() {
     const [price] = useState(book.price)
     const [description] = useState(book.description)
     const [bookImage, setImage] = useState(book.bookImage)
+
     useEffect(() => {
         dispatch(thunkGetSingleBook(bookId))
     }, [bookId])
 
-    // useEffect(() =>{
-    //     dispatch(thunkUpdateBook(types,bookId))
-    // },[types])
     const addthings=async()=>{
         if(cartAll){
             cartAll.map(cart=>{
@@ -60,33 +60,54 @@ function SingleBook() {
             <img className='booksImageSingleBook' src ={book.book_image}/>
             </div>
         <div className="infoaboutsinglebookcont">
-            <div>{book.name}</div>
-            <div>by {book.author}</div>
-            <p>${book.price}</p>
+            <div className="titleofbook">{book.name}</div>
+            <div className="authorofbook">by {book.author}</div>
+            <div className="ratingsininfoofsinglebook">
             <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
-            <div>{book.avgRating} ({book2?.length})       Write a Review Below</div>
+            <div>{book.avgRating}</div>
+            <div>({book2?.length})</div>
+            </div>
+            <div className='holderofpriceandtype'>
+                {book.types==false?<div className="thetypeoutsidebutton">Hardcover</div>:<div className="thetypeoutsidebutton">Paperback</div>}
+            <div className="priceofbook">${book.price}</div>
+            </div>
             <div className='buttoncontforinglestuff'>
-            {book.types == false ?<button style={{color: "blue"}} className="serverInput"
-                onClick={() => {setTypes(false)}}>Hardcover</button>
-                :<button className="serverInput" style={{color: "grey"}}onClick={()=>alert("Currently out of Stock")} >Hardcover</button>}
+            {book.types == false ?<button style={{color: "blue"}} className="serverInput2"
+                onClick={() => {setTypes(false)}}>Hardcover <span>${book.price}</span></button>
+                :<button className="serverInput" style={{color: "grey"}}onClick={()=>alert("Currently out of stock")} >Hardcover <span>${book.price}</span></button>}
 
-            {book.types == true ?<button style={{color: "blue"}} className="serverInput"
-                onClick={() => {setTypes(true)}}>Paperback</button>
-                :<button className="serverInput" style={{color: "grey"}} onClick={()=>alert("Currently out of Stock")}  >Paperback</button> }
-                {user ?(chicken.find((chick) => book.id==chick)
-                ?<button onClick={addthings}>+</button>:
-                <button onClick={() => {
+            {book.types == true ?<button  className="serverInput2"
+                onClick={() => {setTypes(true)}}>Paperback <span>${book.price}</span></button>
+                :<button className="serverInput" style={{color: "grey"}} onClick={()=>alert("Currently out of stock")}  >Paperback <span>${book.price}</span></button> }
+                </div>
+                <div className="addtocartadnshippingcont">
+                    <div classname='shippingtextcont'>
+                    <div>SHIP THIS ITEM <i class="fa-solid fa-truck"></i></div>
+                    <div>Guaranteed Free Shipping</div>
+                    </div>
+                {user ?(chicken.find((chick) => book.id===chick)
+                ?<button className="addtocart" onClick={addthings}>Add to Cart Again!</button>:
+                <button className="addtocart"onClick={() => {
                     return dispatch(thunkCreateCart(user.id,bookId))
                     .then(()=>{history.push(`/carts`)})
                 }}>Add to Cart</button>
-                ):<div>Login or Signup to add this book to your cart!</div>}
-                </div>
-            {/* {!user && <div>Login or Signup to add this book to your cart!</div>} */}
+                ):<div>{<OpenModalButton2
+                  buttonText="Log In"
+                  modalComponent={<LoginFormModal />}
+                />} or {<OpenModalButton2
+                      buttonText="Sign Up"
+                      style={{color:'blue'}}
+                      modalComponent={<SignupFormModal />}
+                    />} to add this book to your cart!</div>}
+                    </div>
             </div>
         </div>
-                <p>{book.description}</p>
-        <p>{book.id}</p>
-        <h1>Reviews</h1>
+                <div className='descboxcont'>
+                   <div className='thisisoverview'>Overview</div>
+
+                <div className='descwords'>{book.description}</div>
+                </div>
+        
         <Reviews />
 
         </div>

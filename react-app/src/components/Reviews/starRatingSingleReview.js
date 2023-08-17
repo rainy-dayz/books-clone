@@ -14,10 +14,7 @@ const StarRatingSingleReview = ({ stars }) => {
 
     <div className="rating-input2">
 
-      <div
-        className={activeRating >= 1 ? "filled" : "empty"}
-
-      >
+      <div className={activeRating >= 1 ? "filled" : "empty"}>
         <i className="fa-sharp fa-solid fa-star"></i>
       </div>
       <div

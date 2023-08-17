@@ -21,17 +21,17 @@ def user_exists(form, field):
 def long_enough(form, field):
     username=field.data
     if len(username) <2 or len(username) > 32:
-        raise ValidationError("Must be 2-32 characters long")
+        raise ValidationError("Username must be 2-32 characters long")
 
 def long_enough_firstName(form, field):
     firstName=field.data
     if len(firstName) <2 :
-        raise ValidationError("Must be at least 2 characters long")
+        raise ValidationError("First Name must be longer than 2 characters")
 
 def long_enough_lastName(form, field):
     lastName=field.data
     if len(lastName) <2 :
-        raise ValidationError("Must be at least 2 characters long")
+        raise ValidationError("Last Name must be longer than 2 characters")
 
 def username_exists(form, field):
     username = field.data
@@ -41,7 +41,7 @@ def username_exists(form, field):
 def password_enough(form,field):
     password=field.data
     if len(password)<8:
-        raise ValidationError("Must be at least 8 characters long")
+        raise ValidationError("Password must be longer than 8 characters")
 
 
 class SignUpForm(FlaskForm):

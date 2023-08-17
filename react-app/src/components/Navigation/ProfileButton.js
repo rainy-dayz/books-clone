@@ -52,9 +52,9 @@ function ProfileButton({ user }) {
           <>
           <div className="content-box">
           <div className = "firstName">{`Hello,  ${user.firstName}`}</div>
-            <div>{user.email}</div>
+            <div className="useremaildropmodal">{user.email}</div>
               <div className="btn-container">
-              <button onClick={handleLogout}>Log Out</button>
+              <button className="logoutbttn"onClick={handleLogout}>Log Out</button>
               </div>
             </div>
           </>

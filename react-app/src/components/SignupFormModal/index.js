@@ -3,8 +3,10 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
-import OpenModalButton from "../OpenModalButton";
+
 import LoginFormModal from "../LoginFormModal";
+import OpenModalButton2 from "../OpenModalButton/index2";
+import OpenModalButton3 from "../OpenModalButton/index3";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -39,7 +41,7 @@ function SignupFormModal() {
 			<form className="formforsignup" onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
-						<div key={idx} style={{color:'red'}}>{error}</div>
+						<div className="errors2" key={idx} style={{color:'red'}}>{error}</div>
 					))}
 				</ul>
 				<label>
@@ -47,6 +49,7 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="text"
+						 size="50"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
@@ -57,6 +60,7 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="text"
+						size="50"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
 						required
@@ -67,6 +71,7 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="text"
+						 size="50"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
 						required
@@ -77,6 +82,7 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="text"
+						 size="50"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
 						required
@@ -87,6 +93,7 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="password"
+						 size="50"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
@@ -97,14 +104,15 @@ function SignupFormModal() {
 					<input
 					className="input-field"
 						type="password"
+						size="50"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
 				</label>
 				<button className="signUpBtn" type="submit">Sign Up</button>
-				<OpenModalButton
-              buttonText="Sign In"
+				<OpenModalButton3
+              buttonText="Log In"
               modalComponent={<LoginFormModal />}
             />
 			</form>

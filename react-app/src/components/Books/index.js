@@ -28,6 +28,7 @@ function Books() {
 
     return (
         <>
+        <img className="bannerforsales"src="https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2023/08/PROD-27234_Global_Nav_Banner_BookHaul2023_08-11.jpg"/>
          <div className="slider">
             <div className="slides">
             <input type="radio" name="radio-btn" id='radio1' />
@@ -80,7 +81,7 @@ function Books() {
             </div>
             </div>
             <div className="shelfCont">
-            <div>Highest Rated:</div>
+            <div className="fheadersforscrolls">Highest Rated:</div>
             <div  className="highestRated">
             {booksAll.map(book => {
                 return( <>
@@ -96,7 +97,7 @@ function Books() {
  </div>
 </div>
 <div className="shelfCont">
-    <div>Books Under $10:</div>
+    <div className="fheadersforscrolls">Books Under $10:</div>
 <div  className="highestRated">
             {booksAll.map(book => {
                 return( <>
@@ -112,7 +113,7 @@ function Books() {
  </div>
  </div>
  <div className="shelfCont">
-    <div>New Releases:</div>
+    <div className="fheadersforscrolls">New Releases:</div>
 <div  className="highestRated">
             {booksAll.map(book => {
                 return( <>
@@ -128,30 +129,18 @@ function Books() {
 
 })}
    </div>
-   </div>
-    {/* <script type="text/javascript">
-                {
-            chicken= setInterval(() => {
-                    if(document.getElementById('radio'+ counter)){
-                    document.getElementById('radio'+ counter).checked=true
-                    if(direction===1){
-                        counter++
-                        if(counter ===6){
-                            direction=0
-                        }
-                    }
-                    if(direction===0){
-                    counter--
-                    if(counter===1){
-                        direction=1
-                    }
-                    }
-                }else{
-                    clearInterval(chicken)
-                }
-                }, 5000)}
 
-        </script> */}
+                        <div className="myinfocont">
+                            <div className="headersh5">Brought to you by:</div>
+                            {/* <div className='devBox' onClick={()=>{history.push("/ourDevTeam")}}> */}
+                                <div className='LandingDevName'>Emily Breininger  </div>
+                                <a className="githibbutton" href='https://github.com/rainy-dayz'
+                    ><i class="fa-brands fa-github"></i></a>
+
+
+
+                    </div>
+                    </div>
 </>
         )
     }
