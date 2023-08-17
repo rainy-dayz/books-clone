@@ -2,35 +2,44 @@
     margin-top:40px;
 }
 .reviewheades{
-    display:flex;
-    justify-content: center;
+    width:960px;
     font-size:22px;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 10px 120px;
+
+}
+.reviewheades span {
+    background:#fff;
+    padding:0 10px;
+}
+.individualsarehere{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
     align-items: center;
 }
-.reviewheades:before {
-    display:block;
-    content: "";
-    float:left;
-    width: 400px;
-    height: 1px;
-    background: #000;
-    margin:5px;
+.holderoftheheadofcustomerreviews{
+display: flex;
+justify-content: center;
 }
-.reviewheades:after {
-    display:block;
-    content: "";
-    float:right;
-    width: 400px;
-    height: 1px;
-    background: #000;
-    margin: 5px;
-}​
 .eachreview{
-   padding:20px;
+    padding:20px;
+    width:800px;
+    border-bottom:1px solid darkgrey;
    display:flex;
 }
+.overallRatingandpostingofreview{
+    display:flex;
+    position: relative;
+    /* right: 350px; */
+    padding:20px 0px;
+    gap:10px;
+
+}
 .displayofavgratingperbook{
-    padding:0px 50px;
+    /* padding:0px 50px; */
 }
 .meep{
     display:flex;
@@ -49,8 +58,44 @@
 }
 .reviewcomment{
     display:flex;
-    padding:10px 50px;
+    padding:15px 50px;
 }
-.userwhomadereview{
-    padding:0px 50px;
+.openingoftheeditmodal{
+cursor:pointer;
+border:none;
+border-radius:5px;
+padding:5px;
 }
+.openingoftheeditmodal:hover{
+    background: #24C6DC;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #514A9D, #24C6DC);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #514A9D, #24C6DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    color:white;
+    border:none;
+    border-radius:5px;
+}
+.reviewwillenterthevoid{
+    cursor:pointer;
+    /* border:0.5px solid lightgrey; */
+    border:none;
+    border-radius:5px;
+    padding:5px;
+}
+.reviewwillenterthevoid:hover{
+    border:none;
+    color:white;
+border-radius:5px;
+background: #ED213A;
+background: linear-gradient(to right, #93291E, #ED213A);
+
+}
+@media only screen and (max-width: 865px) {
+    .eachreview{
+        padding:20px;
+        width:460px;
+        border-bottom:1px solid darkgrey;
+       display:flex;
+    }
+  }

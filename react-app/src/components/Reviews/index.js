@@ -41,15 +41,18 @@ if(!reviewsAll) return null
 
     return (
         <div className='holderofthereviews'>
-            <div>
-            <div className="reviewheades">Customer Reviews</div>
+            <div className="holderoftheheadofcustomerreviews">
+            <div className="reviewheades"><span>Customer Reviews</span></div>
             </div>
+            <div className='individualsarehere'>
             {openModal && <CreateReview closeModal ={setOpenModal} book={book} user={user}/>}
+            <div className="overallRatingandpostingofreview">
             <div className="displayofavgratingperbook">{<StarRatingSingleReview stars={book.avgRating} />} </div>
-            {createReviewButton&&
-            <button onClick={()=>setOpenModal(true)}>Post Your Review</button>
-            }
+            <div>{book.avgRating}</div>
+            <div>({book2?.length})</div>
+            {createReviewButton&& <button onClick={()=>setOpenModal(true)}>Post Your Review</button>}
             {user && !reviewsAll.length ?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
+            </div>
             {reviewsAll.toReversed().map(review => {
                 return <div className="eachreview" key={review.id} >
                     {openModal1 && user && user.id == review.user_id &&<EditReview closeModal1 ={setOpenModal1} review={review} comments={review.comment} ratings={review.rating}/>}
@@ -61,16 +64,18 @@ if(!reviewsAll) return null
                     </div>
                     <div className="reviewcomment">{review.comment}</div>
                     <div className="editanddeletecontreview">
-                    {user && user.id == review.user_id &&<button onClick={()=>setOpenModal1(true)}>Edit Your Review</button>}
-                    {user && user.id == review.user_id &&<button onClick={()=> {
+                    {user && user.id == review.user_id &&<button className="openingoftheeditmodal" onClick={()=>setOpenModal1(true)}>Edit Your Review</button>}
+                    {user && user.id == review.user_id &&<button className="reviewwillenterthevoid"onClick={()=> {
                         dispatch(thunkDeleteReview(review.id))
                         .then(()=>dispatch(thunkGetReviews(bookId)))
                         .then(()=>dispatch(thunkGetSingleBook(bookId)))
                     }}>Delete</button>}
                     </div>
+
                     </div>
                     </div>
             })}
+            </div>
         </div>
         )
     }

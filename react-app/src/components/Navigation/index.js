@@ -13,15 +13,6 @@ function Navigation({ isLoaded }){
 	const history=useHistory()
 	const dispatch = useDispatch()
 
-	// let total=0
-	// let newTotal=cartAll.map(cart =>{
-	// 	if(cartAll.length>1){
-	// 		total+=cart.quantity+cartAll.length
-	// 	}else{
-	// 		total+=cart.quantity
-	// 	}
-	// 	return total
-	// })
 	return (
 		<div>
 			<div className="mainNavLineCont2">

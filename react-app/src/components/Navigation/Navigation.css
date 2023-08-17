@@ -16,7 +16,8 @@
 
 .logo{
   width:140px;
- height:60px
+ height:60px;
+ cursor:pointer;
 }
 
 .navLinksCont{
@@ -46,6 +47,7 @@ text-decoration:underline;
 }
 .fa-cart-shopping{
   font-size:25px;
+  cursor:pointer;
 }
 .cartnNumber{
   color:white;

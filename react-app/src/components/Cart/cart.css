@@ -1,16 +1,56 @@
+.holderoftheuniverse{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+.reviewheades2{
+  width:960px;
+  font-size:22px;
+ text-align: center;
+ border-bottom: 1px solid #000;
+ line-height: 0.1em;
+ margin: 30px 120px;
 
+}
+.reviewheades2 span {
+  background:#fff;
+  padding:0 10px;
+}
+.contforpositionshoop{
+  display:flex;
+  gap:20px;
+}
+.contforpositionshoop2{
+  border:1px solid black;
+  display:flex;
+  flex-direction:column;
+
+}
+.everthingelseinhere{
+  display:flex;
+  flex-direction:row;
+}
+.bookincart{
+  width:500px;
+  justify-content: space-between;
+  align-items: center;
+  display:flex;
+  flex-direction:column;
+  align-items: flex-start;
+}
+.infoonbookatuhname{
+  flex-direction:column;
+  display:flex;
+  padding-top:20px ;
+  padding-left:20px;
+}
   .popuptext.show {
     display: block;
   }
   .popuptext {
       display: none;
-
     }
-
     .backg2{
-    /* background-color: white; */
-    /* width: 500px;
-    height: 500px; */
     display:flex;
     flex-direction:column;
       align-items:center;
@@ -22,4 +62,131 @@
 }
 .gifatcheckout{
   border-radius:5px;
+}
+.checkoutDiv{
+  border:1px solid grey;
+  display:flex;
+  flex-direction:column;
+  width:250px;
+  gap:20px;
+  height:300px;
+  /* position:fixed; */
+}
+.order-summary{
+  font-size:20px;
+  display:flex;
+  justify-content: center;
+  margin-top:15px;
+}
+.ordersummarytinydivs{
+  display:flex;
+  justify-content: space-between;
+}
+.wordsintinydiv{
+padding:5px 10px;
+}
+/* .totalandcheckoutbttn{
+  border-top:1px solid grey;
+} */
+.changequanbtnadd{
+  border:none;
+  /* background:transparent; */
+  cursor:pointer;
+  font-size:16px;
+  margin-top:5px;
+  margin-right:2px;
+  border-radius:5px;
+}
+.changequanbtnminus{
+  border:none;
+  /* background:transparent; */
+  cursor:pointer;
+  font-size:18px;
+  margin-top:5px;
+  /* margin-left:1px; */
+  padding:0px 7px;
+  border-radius:5px;
+}
+.changequanbtnadd:hover{
+  border:none;
+  color:white;
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.changequanbtnminus:hover{
+  border:none;
+  color:white;
+background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.quantityprices{
+  padding:15px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 180px;
+  align-items: center;
+}
+.priceinbook{
+  padding:10px 0px;
+}
+
+.possmiddle{
+  display:flex;
+  margin-left: 30px;
+  align-items: center;
+  /* border-bottom:1px solid black; */
+  margin-bottom:10px;
+}
+
+.possinnermiddle{
+  margin-left: 20px;
+}
+.singularprice{
+  padding:15px 0px;
+}
+.possmiddlepic{
+  padding:20px 0px;
+  height:150px;
+  width:100px;
+  cursor:pointer;
+}
+.wordsintinydiv2{
+  padding:8px 10px;
+
+}
+.ordersummarytinydivs2{
+  border-top:1px solid darkgrey;
+  display:flex;
+  justify-content: space-between;
+  margin:7px;
+}
+.holderofcheckoutbttnonly{
+  display:flex;
+  justify-content: center;
+  margin-top:20px
+}
+.checkoutbttn{
+  padding:8px 45px;
+  cursor:pointer;
+  border:none;
+  border-radius:5px;
+  background:rgb(214, 210, 210)
+}
+.checkoutbttn:hover{
+  color:white;
+  border:none;
+  border-radius:5px;
+  background: #136a8a;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.emptymessage{
+  padding:20px;
+  font-size:18px;
+
 }

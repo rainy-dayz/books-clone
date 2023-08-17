@@ -29,10 +29,11 @@ const StarRatingSingleReview = ({ stars }) => {
       >
        <i className="fa-sharp fa-solid fa-star"></i>
       </div>
-      <div
-        className={activeRating >= 4 ? "filled" : "empty"}
 
-      >
+      <div
+        className={activeRating >= 4 ? "filled" : "empty" }
+
+        >
        <i className="fa-sharp fa-solid fa-star"></i>
       </div>
       <div

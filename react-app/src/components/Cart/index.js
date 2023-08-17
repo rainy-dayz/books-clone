@@ -39,42 +39,70 @@ function Cart() {
 let total=0
 
     return (
-        <div>
-            <h1>Cart:</h1>
+        <div className='holderoftheuniverse'>
+            <div className="holderoftheheadofcustomerreviews">
+            <div className="reviewheades2"><span>My Shopping Cart</span></div>
+            </div>
+            <div className='contforpositionshoop'>
+            <div className='contforpositionshoop2'>
             {cartAll.length ?
             cartAll.toReversed().map(cart => {
                 total+=cart.quantity*cart.books.price
-                return <div key={cart.id} >
-                    <p>{cart.books.name}</p>
-                    <img onClick={() => {history.push(`/books/${cart.books.id}`)}} className="booksImageHomepage" src={cart.books.book_image}/>
-                    <p>Book Id:{cart.books.id}</p>
-                    {cart.books.types == false? <p>Hardcover</p>: <p>Paperback</p>}
-                    <p>Quantity: {cart.quantity}</p>
-                    <p>Price: {Number.parseFloat(cart.books.price*cart.quantity).toFixed(2)}</p>
-                    <button onClick={async()=> {
-                        cart.quantity +=1
-                        dispatch(thunkEditCart(cart.id,cart.quantity))
-                    }}>+</button>
-                    <button onClick={async()=> {
-                        cart.quantity -=1
-                       dispatch(thunkEditCart(cart.id,cart.quantity))
-                    }}>-</button>
-                    <button onClick={()=>{
+                return <div className='bookincart' key={cart.id} >
+                    <div className='infoonbookatuhname'>
+                    <div>{cart.books.name}</div>
+                    <div>by {cart.books.author}</div>
+                    </div>
+                    <div classname="everthingelseinhere">
+                    <div className='possmiddle'>
+                    <img className='possmiddlepic' onClick={() => {history.push(`/books/${cart.books.id}`)}} src={cart.books.book_image}/>
+                    <div className="possinnermiddle">
+                    {cart.books.types == false? <div>Hardcover</div>: <div>Paperback</div>}
+                    <div className='singularprice'>${cart.books.price}</div>
+                    <button className='reviewwillenterthevoid' onClick={()=>{
                         return dispatch(thunkDeleteCart(cart.id))
                         .then(()=> dispatch(thunkGetCart()))
                     }}>Delete</button>
+                    </div>
+                    <div className='quantityprices'>
+                    <div >Quantity</div>
+                    <div><button className="changequanbtnadd" onClick={async()=> {
+                        cart.quantity +=1
+                        dispatch(thunkEditCart(cart.id,cart.quantity))
+                    }}>+</button>{cart.quantity} <button className="changequanbtnminus" onClick={async()=> {
+                        cart.quantity -=1
+                       dispatch(thunkEditCart(cart.id,cart.quantity))
+                    }}>-</button></div>
+                    <div className="priceinbook">${Number.parseFloat(cart.books.price*cart.quantity).toFixed(2)}</div>
+                    </div>
+
+                    </div>
+                    </div>
 
 </div>
             })
-            : <div>Your Cart is currently empty!</div>}
+            : <div className="emptymessage">Your Cart is currently empty!</div>}
+            </div>
             {cartAll.length >0 && <div className='checkoutDiv'>
-            <button onClick={checkout}>Checkout</button>
-            <div>SubTotal</div>
-            <p>${total.toFixed(2)}</p>
-            <div>Shipping:</div>
-            <div>FREE</div>
-            <div>${total.toFixed(2)}</div>
-            <div>Total</div>
+            <div className="order-summary">Order Summary</div>
+
+            <div className='ordersummarytinydivs'>
+            <div className='wordsintinydiv'>SubTotal</div>
+            <div className='wordsintinydiv'>${total.toFixed(2)}</div>
+            </div>
+            <div className='ordersummarytinydivs'>
+            <div className='wordsintinydiv'>Shipping:</div>
+            <div className='wordsintinydiv'>FREE</div>
+            </div>
+            <div className="totalandcheckoutbttn">
+            <div className='ordersummarytinydivs2'>
+            <div className='wordsintinydiv2'>Order Total:</div>
+            <div className='wordsintinydiv2' >${total.toFixed(2)}</div>
+            </div>
+            <div className="holderofcheckoutbttnonly">
+            <button className="checkoutbttn" onClick={checkout}>Checkout</button>
+            </div>
+            </div>
             </div>}
             <div className="popuptext" id="myPopup" >
             <div className="modals" >
@@ -84,6 +112,7 @@ let total=0
             </div>
             </div>
             </div>
+             </div>
              </div>
         )
     }
