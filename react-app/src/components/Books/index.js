@@ -37,7 +37,7 @@ function Books() {
             <input type="radio" name="radio-btn" id='radio4' />
             <input type="radio" name="radio-btn" id='radio5' />
 
-            <div className="slide first">
+            <div onClick={() => {history.push('/genres/1')}} className="slide first">
             <img
                 src={fantasy}
                 alt=""
@@ -45,21 +45,21 @@ function Books() {
             </div>
 
 
-            <div className="slide">
+            <div onClick={() => {history.push('/genres/5')}} className="slide">
             <img src={manga} alt="" />
             </div>
 
 
-            <div className="slide">
+            <div onClick={() => {history.push('/genres/2')}} className="slide">
             <img src={scifi} alt="" />
             </div>
 
 
-            <div className="slide">
+            <div onClick={() => {history.push('/genres/3')}} className="slide">
             <img src={romance} alt="" />
             </div>
 
-            <div className="slide">
+            <div onClick={() => {history.push('/genres/4')}} className="slide">
             <img src={thriller} alt="" />
             </div>
 
