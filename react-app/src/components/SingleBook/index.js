@@ -34,6 +34,7 @@ function SingleBook() {
     const [description] = useState(book.description)
     const [bookImage, setImage] = useState(book.bookImage)
 
+
     useEffect(() => {
         dispatch(thunkGetSingleBook(bookId))
     }, [bookId])
@@ -107,7 +108,7 @@ function SingleBook() {
 
                 <div className='descwords'>{book.description}</div>
                 </div>
-        
+
         <Reviews />
 
         </div>

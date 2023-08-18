@@ -6,6 +6,7 @@ import './Navigation.css';
 import logo from '../../images/Logo.png'
 import { thunkGetGenres } from '../../store/genres';
 import SearchBar from '../SearchBar'
+import { thunkEditCart, thunkGetCart } from '../../store/cart';
 function Navigation({ isLoaded }){
 	const sessionUser = useSelector(state => state.session.user);
 	let cartAll = useSelector(state => Object.values(state.carts.allCarts))
@@ -13,6 +14,10 @@ function Navigation({ isLoaded }){
 	const history=useHistory()
 	const dispatch = useDispatch()
 	let totalQuantity = 0;
+
+	useEffect(() => {
+		dispatch(thunkGetCart())
+	}, [sessionUser])
 	return (
 		<div>
 			<div className="mainNavLineCont2">
@@ -20,7 +25,7 @@ function Navigation({ isLoaded }){
 				<SearchBar/>
 				<div className="cartInNav">
 				{sessionUser &&<div onClick={() => {history.push(`/carts`)}}><i className="fa-sharp fa-solid fa-cart-shopping"></i></div>}
-				{sessionUser &&cartAll && cartAll.length>0 &&<div className="cartbubble">{cartAll.forEach(item => {
+				{sessionUser &&cartAll && cartAll.length>0 &&<div className="cartbubble" onClick={() => {history.push(`/carts`)}} >{cartAll.forEach(item => {
 									totalQuantity += item.quantity
 								})}
 								{totalQuantity}

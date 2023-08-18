@@ -42,12 +42,11 @@ text-decoration:underline;
   flex-wrap:wrap;
 }
 .cartInNav{
-  display:flex;
-  margin-top:5px;
-  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
 }
 .fa-cart-shopping{
-  font-size:25px;
+  font-size:28px;
   cursor:pointer;
 }
 .cartnNumber{
@@ -146,10 +145,14 @@ text-decoration:underline;
   /* margin-bottom:5px; */
 }
 .cartbubble{
-  background:black;
-  color:white;
-  border-radius: 100%;
-  display:flex;
-  align-items: center;
-  padding:5px;
+  position: absolute;
+  left: 10px;
+  bottom: 14px;
+  font-size: 15px;
+  background: black;
+  color: white;
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
 }

@@ -127,6 +127,69 @@ def seed_users():
     book30=Book(
         name="A Deadly Education", author='Naomi Novik',price=14.99, description='A school for the magically gifted where failure means certain death (for real) — until one girl, El, begins to unlock its many secrets.',
         genre_id=1,book_image="https://utopia-state-of-mind.com/wp-content/uploads/2020/10/A-Deadly-Education-683x1024.jpg",types=False,releaseDate=datetime(2020, 10, 8),subgenre_id=3)
+    book30=Book(
+        name="A Deadly Education", author='Naomi Novik',price=14.99, description='A school for the magically gifted where failure means certain death (for real) — until one girl, El, begins to unlock its many secrets.',
+        genre_id=1,book_image="https://utopia-state-of-mind.com/wp-content/uploads/2020/10/A-Deadly-Education-683x1024.jpg",types=False,releaseDate=datetime(2020, 10, 8),subgenre_id=3)
+    # book31=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book32=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book33=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book34=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book35=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book36=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book37=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book38=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book39=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book40=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book41=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book42=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book43=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book44=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book45=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book46=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book47=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book48=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book49=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
+    # book50=Book(
+    #     name="", author='Naomi Novik',price=, description='',
+    #     genre_id=,book_image="",types=False,releaseDate=datetime())
     review1=Review(
         comment="Mid at best i mean come on",rating=3,user_id=1, book_id=1,created_at=datetime(2010, 10, 5),user_username='Demo'
     )
