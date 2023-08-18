@@ -59,6 +59,7 @@ justify-content: center;
 .reviewcomment{
     display:flex;
     padding:15px 50px;
+    overflow-wrap: anywhere;
 }
 .openingoftheeditmodal{
 cursor:pointer;

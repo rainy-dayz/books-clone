@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
 	let booksAll = useSelector(state => Object.values(state.book.allBooks))
 	const history=useHistory()
 	const dispatch = useDispatch()
-
+	let totalQuantity = 0;
 	return (
 		<div>
 			<div className="mainNavLineCont2">
@@ -20,7 +20,11 @@ function Navigation({ isLoaded }){
 				<SearchBar/>
 				<div className="cartInNav">
 				{sessionUser &&<div onClick={() => {history.push(`/carts`)}}><i className="fa-sharp fa-solid fa-cart-shopping"></i></div>}
-				{/* <div>{newTotal}</div> */}
+				{sessionUser &&cartAll && cartAll.length>0 &&<div className="cartbubble">{cartAll.forEach(item => {
+									totalQuantity += item.quantity
+								})}
+								{totalQuantity}
+								</div>}
 				</div>
 				<div>
 					<ProfileButton user={sessionUser} />

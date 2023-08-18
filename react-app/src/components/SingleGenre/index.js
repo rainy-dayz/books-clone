@@ -47,7 +47,7 @@ function SingleGenre() {
     if(!genre) return null
 
     return (
-        <div>
+        <div className="allbooksofgenrecont">
             <h1 className="singlegenreheader">{genreName.name}</h1>
             <div className="sortingstuffout">
             <div className="buttonFilterGenreCont">

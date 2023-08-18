@@ -145,15 +145,15 @@ def seed_users():
     review6=Review(
         comment="This book was amazing!",rating=5,user_id=2, book_id=9,created_at=datetime(2015, 10, 25),user_username='marnie'
     )
-    cart1=Cart(
-        user_id=1,book_id=1,quantity=1,created_at=datetime(2010, 10, 3)
-    )
-    cart2=Cart(
-        user_id=1,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
-    )
-    cart3=Cart(
-        user_id=2,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
-    )
+    # cart1=Cart(
+    #     user_id=1,book_id=1,quantity=1,created_at=datetime(2010, 10, 3)
+    # )
+    # cart2=Cart(
+    #     user_id=1,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
+    # )
+    # cart3=Cart(
+    #     user_id=2,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
+    # )
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
@@ -164,7 +164,7 @@ def seed_users():
                         book11,book12,book13,book14,book15,book16,book17,book18,book19,book20,
                         book21,book22,book23,book24,book25,book26,book27,book28,book29,book30])
     db.session.add_all([review1,review2,review3,review4,review5,review6])
-    db.session.add_all([cart1,cart2,cart3])
+    # db.session.add_all([cart1,cart2,cart3])
     db.session.commit()
 
 

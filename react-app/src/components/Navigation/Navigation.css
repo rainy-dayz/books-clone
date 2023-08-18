@@ -44,6 +44,7 @@ text-decoration:underline;
 .cartInNav{
   display:flex;
   margin-top:5px;
+  align-items: flex-end;
 }
 .fa-cart-shopping{
   font-size:25px;
@@ -143,4 +144,12 @@ text-decoration:underline;
   margin-top:5px;
   padding:5px;
   /* margin-bottom:5px; */
+}
+.cartbubble{
+  background:black;
+  color:white;
+  border-radius: 100%;
+  display:flex;
+  align-items: center;
+  padding:5px;
 }
