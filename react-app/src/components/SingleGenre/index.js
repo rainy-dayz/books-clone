@@ -6,6 +6,8 @@ import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre } from '../../
 import { thunkFilterPriceBooks, thunkFilteredBooks, thunkGetBooks } from '../../store/book'
 import './singleGenre.css'
 import StarRatingSingleReview from '../Reviews/starRatingSingleReview';
+import QuickAdd from '../Quickadd';
+import { thunkCreateCart, thunkEditCart } from '../../store/cart';
 
 
 
@@ -17,10 +19,15 @@ function SingleGenre() {
     const[reversePrice, setReversePrice]=useState(false)
     const [highestRated,setHighestRated]=useState(false)
     const [lowestRated,setLowestRated]=useState(false)
-    // const [subgenres,setSubgenres]=useState(false)
+    const [openModal,setOpenModal] = useState(false)
+    const user= useSelector(state => state.session.user)
+    let cartAll = useSelector(state => Object.values(state.carts.allCarts))
+
     const history = useHistory()
     const { genreId } = useParams()
     console.log('genre', genre)
+
+    let addthings
 
     useEffect(async() => {
             dispatch(thunkGetSingleGenre(genreId))
@@ -45,7 +52,7 @@ function SingleGenre() {
         }
 
     if(!genre) return null
-
+let chicken
     return (
         <div className="allbooksofgenrecont">
             <h1 className="singlegenreheader">{genreName.name}</h1>
@@ -111,6 +118,18 @@ function SingleGenre() {
             {genre.map(book => {
                 return <div className="bookandreviewstarsgenre"key={book.id} >
                     <img onClick={() => {history.push(`/books/${book.id}`)}} className="booksImageNotHomepage" src={book.book_image} />
+                    <div className="middleQuick">
+    <script>
+    {chicken=cartAll.map(order => {
+        return order.book_id
+    })}
+    </script>
+                    {user && (chicken.find((chick) => book.id===chick) ?<div className="textQuick" onClick={()=>{history.push(`/carts`)}}>Added to Cart!</div>:
+                    <div className="textQuick" onClick={() => {
+                    return dispatch(thunkCreateCart(user.id,book.id))
+
+                }}>Quick Add</div>)}
+                            </div>
                     <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
                     </div>
 
