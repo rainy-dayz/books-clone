@@ -17,7 +17,7 @@ import { thunkCreateLikes, thunkDeleteLikes, thunkGetLikes } from '../../store/l
 function Reviews() {
     const dispatch = useDispatch()
     let reviewsAll = useSelector(state => Object.values(state.reviews.allReviews))
-    let likesAll = useSelector(state => Object.values(state.likes.allLikes))
+    let likesAll = useSelector(state => (state.likes.allLikes))
     const book =  useSelector(state=> state.book.singleBook)
     let book2 = useSelector(state => (state.book.singleBook.reviews))
     const user= useSelector(state => state.session.user)
@@ -26,14 +26,14 @@ function Reviews() {
     const [openModal1,setOpenModal1] = useState(false)
     const history = useHistory()
     const {bookId} =useParams()
-    console.log(bookId, '-----------------')
+    console.log(reviewsAll, '-----------------')
 
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
     }, [dispatch,bookId])
-    useEffect(() => {
-        dispatch(thunkGetLikes(bookId))
-    }, [dispatch,bookId])
+    // useEffect(() => {
+    //     dispatch(thunkGetLikes(bookId))
+    // }, [bookId])
     let createReviewButton = false
     reviewsAll.map((review)=> {
         console.log('reviewwewant',review)
@@ -41,16 +41,16 @@ function Reviews() {
          !user || review.user_id == user.id ? createReviewButton = false : createReviewButton= true
         )
     })
-    if(!likesAll)return null
+    // if(!likesAll)return null
     // if(!user)return
 
-        const chicken2 = likesAll?.filter(like => like.user_id==user?.id)
-        const chicken3=chicken2.map(like => like.id)
 
 
 if(!reviewsAll) return null
 let chicken
-
+let chicken2
+let chicken3
+let chicken4
     return (
         <div className='holderofthereviews'>
             <div className="holderoftheheadofcustomerreviews">
@@ -84,21 +84,23 @@ let chicken
                     }}>Delete</button>}
                     </div>
                     <script>
-    {chicken=review.likes.map(like => like.user_id)
-    }
+ {chicken=review.likes.map(like => like.user_id)}
+
     </script>
-    {console.log('chicken',chicken)}
                     </div>
                     <div>{review.likes_count}</div>
-                    {user && (chicken.find((chick) => user.id ==chick)|| review.user_id==user.id?<div>no btn for you</div>: <button onClick={()=>{
+                    {user && (chicken.find((chick) => user.id ==chick)|| review.user_id==user.id?null: <button onClick={()=>{
                         dispatch(thunkCreateLikes(review.id))
                         .then(()=>dispatch(thunkGetReviews(bookId)))
-                        }}>+</button>)}
-                    {user && (chicken.find((chick) => user.id ==chick)?
-                    <button onClick={()=>{
-                        dispatch(thunkDeleteLikes(chicken3))
-                        .then(()=>dispatch(thunkGetReviews(bookId)))
-                        .then(()=>dispatch(thunkGetLikes(bookId)))}}>-</button>:null)}
+                        }}>Like</button>)}
+
+                                {user &&review.likes.map(like =>{
+                                    return <>
+                            {review?.id==like?.review_id && user.id == like?.user_id ?<button onClick={()=>{
+                                dispatch(thunkDeleteLikes(like.id))
+                                .then(()=>dispatch(thunkGetReviews(bookId)))
+                                .then(()=>dispatch(thunkGetLikes(bookId)))}}>Unlike</button>:null}</>})}
+
                     </div>
 
             })}

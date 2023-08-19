@@ -150,21 +150,24 @@ def seed_users():
     review6=Review(
         comment="This book was amazing!",rating=5,user_id=2, book_id=9,created_at=datetime(2015, 10, 25),user_username='marnie'
     )
-    like1=Like(
-        user_id=2,review_id=1
+    review7=Review(
+        comment="This book was amazing!",rating=5,user_id=2, book_id=1,created_at=datetime(2015, 10, 25),user_username='marnie'
     )
-    like2=Like(
-        user_id=1,review_id=2
-    )
-    like3=Like(
-        user_id=3,review_id=2
-    )
-    like4=Like(
-        user_id=3,review_id=1
-    )
-    like5=Like(
-        user_id=1,review_id=3
-    )
+    # like1=Like(
+    #     user_id=2,review_id=1
+    # )
+    # like2=Like(
+    #     user_id=1,review_id=2
+    # )
+    # like3=Like(
+    #     user_id=3,review_id=2
+    # )
+    # like4=Like(
+    #     user_id=3,review_id=1
+    # )
+    # like5=Like(
+    #     user_id=1,review_id=3
+    # )
 
     db.session.add(demo)
     db.session.add(marnie)
@@ -175,9 +178,9 @@ def seed_users():
     db.session.add_all([book1,book2,book3,book4,book5,book6,book7,book8,book9,book10,
                         book11,book12,book13,book14,book15,book16,book17,book18,book19,book20,
                         book21,book22,book23,book24,book25,book26,book27,book28,book29,book30])
-    db.session.add_all([review1,review2,review3,review4,review5,review6])
+    db.session.add_all([review1,review2,review3,review4,review5,review6,review7])
     db.session.add_all([ wishlist1,wishlist2])
-    db.session.add_all([ like1,like2,like3,like4,like5])
+    # db.session.add_all([ like1,like2,like3,like4,like5])
     db.session.commit()
 
 
