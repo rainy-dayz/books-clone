@@ -135,7 +135,7 @@ function Books() {
                             {/* <div className='devBox' onClick={()=>{history.push("/ourDevTeam")}}> */}
                                 <div className='LandingDevName'>Emily Breininger  </div>
                                 <a className="githibbutton" href='https://github.com/rainy-dayz'
-                    ><i class="fa-brands fa-github"></i></a>
+                    ><i className="fa-brands fa-github"></i></a>
 
 
 

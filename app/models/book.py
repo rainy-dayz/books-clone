@@ -22,6 +22,7 @@ class Book(db.Model):
     subgenre = db.relationship('SubGenre', back_populates='book1')
     orders1= db.relationship('Cart',back_populates="book1",cascade="all, delete-orphan")
     reviews = db.relationship('Review', back_populates='book', cascade="all, delete-orphan")
+    wishlist=db.relationship('WishList',back_populates='book')
     def to_dict(self):
         return {
             'id': self.id,

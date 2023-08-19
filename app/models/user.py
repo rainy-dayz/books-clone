@@ -18,7 +18,8 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship('Review', back_populates="user",cascade="all, delete-orphan")
     orders = db.relationship('Cart', back_populates="user", cascade="all, delete-orphan")
-
+    wishlist = db.relationship('WishList', back_populates="user", cascade="all, delete-orphan")
+    likes=db.relationship('Like',back_populates="users" )
     @property
     def password(self):
         return self.hashed_password
@@ -40,4 +41,5 @@ class User(db.Model, UserMixin):
             'hashed_password': self.hashed_password,
             'reviews': [review.to_dict() for review in self.reviews],
             'orders': [order.to_dict() for order in self.orders],
+            'likes': [like.to_dict() for like in self.likes],
         }

@@ -13,6 +13,8 @@ import StarRatingSingleReview from '../Reviews/starRatingSingleReview'
 import LoginFormModal from '../LoginFormModal'
 import OpenModalButton2 from '../OpenModalButton/index2'
 
+import { thunkCreateWishlist } from '../../store/wishlists'
+
 
 
 
@@ -26,7 +28,7 @@ function SingleBook() {
     let cart=useSelector(state => (state.carts.singleCart))
     const history = useHistory()
     const { bookId } = useParams()
-    // console.log('cart', book2.length )
+    const [openModal,setOpenModal] = useState(false)
     const [types, setTypes] = useState(false)
     const [name] = useState(book.name)
     const [author] = useState(book.author)
@@ -81,8 +83,8 @@ function SingleBook() {
                 :<button className="serverInput" style={{color: "grey"}} onClick={()=>alert("Currently out of stock")}  >Paperback <span>${book.price}</span></button> }
                 </div>
                 <div className="addtocartadnshippingcont">
-                    <div classname='shippingtextcont'>
-                    <div>SHIP THIS ITEM <i class="fa-solid fa-truck"></i></div>
+                    <div className='shippingtextcont'>
+                    <div>SHIP THIS ITEM <i className="fa-solid fa-truck"></i></div>
                     <div>Guaranteed Free Shipping</div>
                     </div>
                 {user ?(chicken.find((chick) => book.id===chick)
@@ -107,7 +109,12 @@ function SingleBook() {
 
                 <div className='descwords'>{book.description}</div>
                 </div>
-        
+
+                <button onClick={()=>{
+                    return dispatch(thunkCreateWishlist(user.id,book.id))
+                    .then(()=>{history.push(`/wishlists`)})
+                    }}>Add to WishList</button>
+
         <Reviews />
 
         </div>

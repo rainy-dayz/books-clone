@@ -42,19 +42,7 @@ export const thunkGetCart = (id) => async(dispatch) => {
         return {errors:err}
     }
 }
-// export const thunkDeleteWholeCart = () => async(dispatch) => {
-//     const res = await fetch(`/api/carts/delete/cart`)
-//     if (res.ok) {
-//         const data = await res.json()
-//         console.log('deletewholecartdata',data)
-//         dispatch(deleteWholeCart(data))
-//         return data
-//     }
-//     else {
-//         const err = await res.json()
-//         return {errors:err}
-//     }
-// }
+
 export const thunkCreateCart = (userId,bookId,quantity) => async (dispatch) => {
 
     const response = await fetch(`/api/carts/${userId}/${bookId}`, {
@@ -142,13 +130,7 @@ export default function reducer(state = initialState, action) {
             delete newState.allCarts[action.cartId]
             return newState
         }
-        // case DELETE_WHOLE_CART:{
-        //     const newState = {...state, allCarts:{...state.allCarts}}
-        //     newState.allCarts = {}
-        //     action.data.forEach(ele => {
-        //     delete newState.allCarts[action.ele]})
-        //     return newState
-        // }
+
         case EDIT_CART: {
             const newState = {...state, singleCart:{...state.singleCart},allCarts:{...state.allCarts}}
             newState.singleCart = action.data
@@ -156,8 +138,6 @@ export default function reducer(state = initialState, action) {
         }
         case GET_SINGLE_CART:{
             let newState = {...state, singleCart:{...state.singleCart}}
-
-            // console.log('newState', newState)
             newState.singleCart=action.data
             return newState
         }

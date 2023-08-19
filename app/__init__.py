@@ -11,6 +11,8 @@ from .api.books_routes import books_routes
 from .api.genre_routes import genres_routes
 from .api.cart_routes import carts_routes
 from .api.reviews_routes import reviews_routes
+from .api.wishlist_routes import wishlists_routes
+from .api.likes_routes import likes_routes
 from .seeds import seed_commands
 from .config import Config
 
@@ -36,6 +38,8 @@ app.register_blueprint(books_routes, url_prefix='/api/books')
 app.register_blueprint(genres_routes, url_prefix='/api/genres')
 app.register_blueprint(carts_routes, url_prefix='/api/carts')
 app.register_blueprint(reviews_routes, url_prefix='/api/reviews')
+app.register_blueprint(wishlists_routes, url_prefix='/api/wishlists')
+app.register_blueprint(likes_routes, url_prefix='/api/likes')
 db.init_app(app)
 Migrate(app, db)
 

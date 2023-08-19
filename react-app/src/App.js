@@ -9,6 +9,7 @@ import Books from "./components/Books";
 import SingleGenre from "./components/SingleGenre";
 import SingleBook from "./components/SingleBook";
 import Cart from "./components/Cart";
+import WishList from "./components/WishLists";
 
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/carts" >
             <Cart />
+          </Route>
+          <Route exact path="/wishlists" >
+            <WishList />
           </Route>
           <Route exact path="/genres/:genreId" >
             <SingleGenre />

@@ -18,7 +18,7 @@ class Review(db.Model):
     # Relationships goes here
     user = db.relationship("User", back_populates='reviews')
     book = db.relationship("Book", back_populates='reviews')
-
+    likes=db.relationship('Like',back_populates='reviews', cascade="all, delete-orphan")
     def to_dict(self):
         return {
             'id': self.id,
@@ -27,5 +27,7 @@ class Review(db.Model):
             'user_id': self.user_id,
             'book_id': self.book_id,
             'created_at':self.created_at,
+            "likes":[like.to_dict() for like in self.likes],
+            "likes_count": len(self.likes),
             "user_username":self.user_username
         }

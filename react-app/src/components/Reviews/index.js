@@ -8,6 +8,7 @@ import EditReview from '../EditReview'
 import StarRatingSingleReview from './starRatingSingleReview'
 import { thunkGetSingleBook } from '../../store/book'
 import './reviews.css'
+import { thunkCreateLikes, thunkDeleteLikes, thunkGetLikes } from '../../store/likes'
 
 
 
@@ -16,6 +17,7 @@ import './reviews.css'
 function Reviews() {
     const dispatch = useDispatch()
     let reviewsAll = useSelector(state => Object.values(state.reviews.allReviews))
+    let likesAll = useSelector(state => Object.values(state.likes.allLikes))
     const book =  useSelector(state=> state.book.singleBook)
     let book2 = useSelector(state => (state.book.singleBook.reviews))
     const user= useSelector(state => state.session.user)
@@ -29,6 +31,9 @@ function Reviews() {
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
     }, [dispatch,bookId])
+    useEffect(() => {
+        dispatch(thunkGetLikes(bookId))
+    }, [dispatch,bookId])
     let createReviewButton = false
     reviewsAll.map((review)=> {
         console.log('reviewwewant',review)
@@ -36,8 +41,15 @@ function Reviews() {
          !user || review.user_id == user.id ? createReviewButton = false : createReviewButton= true
         )
     })
+    if(!likesAll)return null
+    // if(!user)return
+
+        const chicken2 = likesAll?.filter(like => like.user_id==user?.id)
+        const chicken3=chicken2.map(like => like.id)
+
 
 if(!reviewsAll) return null
+let chicken
 
     return (
         <div className='holderofthereviews'>
@@ -71,9 +83,24 @@ if(!reviewsAll) return null
                         .then(()=>dispatch(thunkGetSingleBook(bookId)))
                     }}>Delete</button>}
                     </div>
+                    <script>
+    {chicken=review.likes.map(like => like.user_id)
+    }
+    </script>
+    {console.log('chicken',chicken)}
+                    </div>
+                    <div>{review.likes_count}</div>
+                    {user && (chicken.find((chick) => user.id ==chick)|| review.user_id==user.id?<div>no btn for you</div>: <button onClick={()=>{
+                        dispatch(thunkCreateLikes(review.id))
+                        .then(()=>dispatch(thunkGetReviews(bookId)))
+                        }}>+</button>)}
+                    {user && (chicken.find((chick) => user.id ==chick)?
+                    <button onClick={()=>{
+                        dispatch(thunkDeleteLikes(chicken3))
+                        .then(()=>dispatch(thunkGetReviews(bookId)))
+                        .then(()=>dispatch(thunkGetLikes(bookId)))}}>-</button>:null)}
+                    </div>
 
-                    </div>
-                    </div>
             })}
             </div>
         </div>

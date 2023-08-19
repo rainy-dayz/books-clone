@@ -1,4 +1,4 @@
-from app.models import db, User, environment, SCHEMA,Book,Genre,Review,Cart,SubGenre
+from app.models import db, User, Like,WishList,environment, SCHEMA,Book,Genre,Review,Cart,SubGenre
 from sqlalchemy.sql import text
 from datetime import datetime
 
@@ -36,7 +36,6 @@ def seed_users():
     subgenre18=SubGenre(name="Fantasy")
     subgenre19=SubGenre(name="Horror")
     subgenre20=SubGenre(name="Mystery")
-
     book1=Book(
         name="JuJutsu Kaisen Vol.1", author='Gege Akutami',price=8.99, description='A boy with already supernatural powers is thrust into the limelight when he becomes the perfect vessel for a powerful demon',
         genre_id=5,book_image="https://www.anime-planet.com/images/manga/covers/jujutsu-kaisen-24477.jpg",types=True,releaseDate=datetime(2023, 8, 8),subgenre_id=6)
@@ -127,6 +126,12 @@ def seed_users():
     book30=Book(
         name="A Deadly Education", author='Naomi Novik',price=14.99, description='A school for the magically gifted where failure means certain death (for real) — until one girl, El, begins to unlock its many secrets.',
         genre_id=1,book_image="https://utopia-state-of-mind.com/wp-content/uploads/2020/10/A-Deadly-Education-683x1024.jpg",types=False,releaseDate=datetime(2020, 10, 8),subgenre_id=3)
+    wishlist1=WishList(
+        user_id=1,book_id=1
+    )
+    wishlist2=WishList(
+        user_id=1,book_id=3
+    )
     review1=Review(
         comment="Mid at best i mean come on",rating=3,user_id=1, book_id=1,created_at=datetime(2010, 10, 5),user_username='Demo'
     )
@@ -145,15 +150,22 @@ def seed_users():
     review6=Review(
         comment="This book was amazing!",rating=5,user_id=2, book_id=9,created_at=datetime(2015, 10, 25),user_username='marnie'
     )
-    # cart1=Cart(
-    #     user_id=1,book_id=1,quantity=1,created_at=datetime(2010, 10, 3)
-    # )
-    # cart2=Cart(
-    #     user_id=1,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
-    # )
-    # cart3=Cart(
-    #     user_id=2,book_id=2,quantity=1,created_at=datetime(2010, 10, 3)
-    # )
+    like1=Like(
+        user_id=2,review_id=1
+    )
+    like2=Like(
+        user_id=1,review_id=2
+    )
+    like3=Like(
+        user_id=3,review_id=2
+    )
+    like4=Like(
+        user_id=3,review_id=1
+    )
+    like5=Like(
+        user_id=1,review_id=3
+    )
+
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
@@ -164,7 +176,8 @@ def seed_users():
                         book11,book12,book13,book14,book15,book16,book17,book18,book19,book20,
                         book21,book22,book23,book24,book25,book26,book27,book28,book29,book30])
     db.session.add_all([review1,review2,review3,review4,review5,review6])
-    # db.session.add_all([cart1,cart2,cart3])
+    db.session.add_all([ wishlist1,wishlist2])
+    db.session.add_all([ like1,like2,like3,like4,like5])
     db.session.commit()
 
 
@@ -177,6 +190,8 @@ def seed_users():
 def undo_users():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.carts RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.wishlist RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.subgenres RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.genres RESTART IDENTITY CASCADE;")
@@ -184,6 +199,8 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM carts"))
+        db.session.execute(text("DELETE FROM wishlist"))
+        db.session.execute(text("DELETE FROM likes"))
         db.session.execute(text("DELETE FROM reviews"))
         db.session.execute(text("DELETE FROM subgenres"))
         db.session.execute(text("DELETE FROM genres"))

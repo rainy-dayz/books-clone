@@ -5,12 +5,16 @@ import book from './book'
 import genres from './genres'
 import carts from './cart'
 import reviews from './reviews'
+import wishlists from './wishlists'
+import likes from './likes'
 const rootReducer = combineReducers({
   session,
   book,
   genres,
   carts,
-  reviews
+  reviews,
+  wishlists,
+  likes
 });
 
 
