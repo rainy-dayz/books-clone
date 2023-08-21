@@ -92,6 +92,22 @@ background: #ED213A;
 background: linear-gradient(to right, #93291E, #ED213A);
 
 }
+.checkoutbttn2{
+    padding:4px 10px;
+    cursor:pointer;
+    border:none;
+    border-radius:5px;
+    background:rgb(214, 210, 210)
+  }
+  .checkoutbttn2:hover{
+    color:white;
+    border:none;
+    border-radius:5px;
+    background: #136a8a;
+
+    background: linear-gradient(to right, #267871, #136a8a); 
+
+  }
 @media only screen and (max-width: 865px) {
     .eachreview{
         padding:20px;
