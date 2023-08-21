@@ -29,13 +29,6 @@ function Reviews() {
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
     }, [dispatch,bookId])
-    let createReviewButton = false
-    reviewsAll.map((review)=> {
-        console.log('reviewwewant',review)
-        return (
-         !user || review.user_id == user.id ? createReviewButton = false : createReviewButton= true
-        )
-    })
 
 if(!reviewsAll) return null
 
@@ -48,9 +41,9 @@ if(!reviewsAll) return null
             {openModal && <CreateReview closeModal ={setOpenModal} book={book} user={user}/>}
             <div className="overallRatingandpostingofreview">
             <div className="displayofavgratingperbook">{<StarRatingSingleReview stars={book.avgRating} />} </div>
-            <div>{book.avgRating}</div>
+            <div>{Number.parseFloat(book.avgRating).toFixed(2)}</div>
             <div>({book2?.length})</div>
-            {createReviewButton&& <button onClick={()=>setOpenModal(true)}>Post Your Review</button>}
+            {user && !reviewsAll.find(review=> review.user_id === user?.id)?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null}
             {user && !reviewsAll.length ?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
             </div>
             {reviewsAll.toReversed().map(review => {
