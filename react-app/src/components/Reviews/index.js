@@ -29,6 +29,7 @@ function Reviews() {
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
     }, [dispatch,bookId])
+
 if(!reviewsAll) return null
 
     return (
@@ -42,7 +43,6 @@ if(!reviewsAll) return null
             <div className="displayofavgratingperbook">{<StarRatingSingleReview stars={book.avgRating} />} </div>
             <div>{Number.parseFloat(book.avgRating).toFixed(2)}</div>
             <div>({book2?.length})</div>
-            {/* sessionUser && !reviews.find((review) => review.user_id === sessionUser?.id */}
             {user && !reviewsAll.find(review=> review.user_id === user?.id)?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null}
             {user && !reviewsAll.length ?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
             </div>
