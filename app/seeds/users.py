@@ -137,7 +137,7 @@ def seed_users():
         genre_id=1,book_image="https://utopia-state-of-mind.com/wp-content/uploads/2020/10/A-Deadly-Education-683x1024.jpg",types=False,releaseDate=datetime(2020, 10, 8))
     book31=Book(
         name="Foundryside", author='Robert Jackson Bennett',price=14.95, description='In a city that runs on industrialized magic, a secret war will be fought to overwrite reality itself',
-        genre_id=1,book_image="http://www.elbakin.net/fantasy/modules/public/images/livres/livre-foundryside-2656-1.jpg",types=False,releaseDate=datetime(2018,8,21))
+        genre_id=1,book_image="https://i.pinimg.com/736x/b2/a0/56/b2a056897a5d7dbab7e233a36998f929.jpg",types=False,releaseDate=datetime(2018,8,21))
     book32=Book(
         name="A Dowry of Blood", author='S.T. Gibson',price=14.95, description="A lyrical and dreamy reimagining of Dracula's brides, A Dowry of Blood is a story of desire, obsession, and emancipation.",
         genre_id=1,book_image="https://booktriggerwarnings.com/images/thumb/7/78/A_Dowry_of_Blood_by_S.T._Gibson.jpg/200px-A_Dowry_of_Blood_by_S.T._Gibson.jpg",types=False,releaseDate=datetime(2021,4,20))
@@ -386,7 +386,7 @@ def seed_users():
         genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1665768248i/62991434.jpg",types=False,releaseDate=datetime(2022,12,3))
     book114=Book(
         name="Magic for Liars", author='Sarah Gailey',price=13.99, description="When a gruesome murder is discovered at the Osthorne Academy of Young Mages, where her estranged twin sister teaches theoretical magic, reluctant detective Ivy Gamble is pulled into the world of untold power and dangerous secrets. She will have to find a murderer and reclaim her sister - without losing herself.   ",
-        genre_id=4,book_image="http://www.elbakin.net/fantasy/modules/public/images/livres/livre-magic-for-liars-2955-0.jpg",types=False,releaseDate=datetime(2019,1,4))
+        genre_id=4,book_image="https://i.pinimg.com/originals/94/ff/b9/94ffb9f890db82481f329c1c5f2025dc.jpg",types=False,releaseDate=datetime(2019,1,4))
     book115=Book(
         name="The 7 1/2 Deaths of Evelyn Hugo", author='Stuart Turton',price=12.99, description="An addictive mystery that follows one man's race to find a killer, with an astonishing time-turning twist that means nothing and no one are quite what they seem.",
         genre_id=4,book_image="https://images-na.ssl-images-amazon.com/images/I/51UbZamYsxL.jpg",types=False,releaseDate=datetime(2019,2,16))
@@ -488,7 +488,7 @@ def seed_users():
         genre_id=5,book_image="https://m.media-amazon.com/images/I/61mov5O6GtL._SY346_.jpg",types=True,releaseDate=datetime(2010,6,4))
     book148=Book(
         name="Ouran High School Host Club", author='Bisco Hatori',price=8.99, description="One day, Haruhi, a scholarship student at exclusive Ouran High School, breaks an $80,000 vase that belongs to the 'Host Club', a mysterious campus group consisting of six super-rich (and gorgeous) guys. To pay back the damages, she is forced to work for the club, and it's there that she discovers just how wealthy the boys are and how different they are from everybody else.",
-        genre_id=5,book_image="http://img1.imagesbn.com/p/9781591169154_p0_v1_s260x420.JPG",types=True,releaseDate=datetime(2004,9,7))
+        genre_id=5,book_image="https://www.absoluteanime.com/ouran_high_school_host_club/index.jpg",types=True,releaseDate=datetime(2004,9,7))
     book149=Book(
         name="Chainsaw Man", author='Tatsuki Fujimoto',price=10.10, description="Denji’s a poor young man who’ll do anything for money, even hunting down devils with his pet devil Pochita. He’s a simple man with simple dreams, drowning under a mountain of debt. But his sad life gets turned upside down one day when he’s betrayed by someone he trusts. Now with the power of a devil inside him, Denji’s become a whole new man—Chainsaw Man!",
         genre_id=5,book_image="https://lesinstantsvolesalavie.files.wordpress.com/2020/02/chainswanman.jpg",types=True,releaseDate=datetime(2018,9,3))
