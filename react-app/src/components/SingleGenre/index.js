@@ -2,7 +2,7 @@ import { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
-import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre } from '../../store/genres';
+import { thunkGetSingleGenre, thunkGetSortedGenre,sortSingleGenre, clearSingleGenre } from '../../store/genres';
 import { thunkFilterPriceBooks, thunkFilteredBooks, thunkGetBooks } from '../../store/book'
 import './singleGenre.css'
 import StarRatingSingleReview from '../Reviews/starRatingSingleReview';
@@ -13,7 +13,7 @@ import { thunkCreateCart, thunkEditCart } from '../../store/cart';
 
 function SingleGenre() {
     const dispatch = useDispatch()
-    let genre = useSelector(state => (state.genres.singleGenre.books))
+    let genre = useSelector(state => (state.genres.singleGenre?.books))
     let genreName = useSelector(state => (state.genres.singleGenre))
     const [descending,setDescending]=useState(false)
     const[reversePrice, setReversePrice]=useState(false)
@@ -30,6 +30,7 @@ function SingleGenre() {
     let addthings
 
     useEffect(async() => {
+        dispatch(clearSingleGenre())
             dispatch(thunkGetSingleGenre(genreId))
         setDescending(false)
         setReversePrice(false)
