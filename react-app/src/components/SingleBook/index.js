@@ -65,7 +65,7 @@ function SingleBook() {
             <div className="authorofbook">by {book.author}</div>
             <div className="ratingsininfoofsinglebook">
             <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
-            <div>{book.avgRating}</div>
+            <div>{Number.parseFloat(book.avgRating).toFixed(2)}</div>
             <div>({book2?.length})</div>
             </div>
             <div className='holderofpriceandtype'>

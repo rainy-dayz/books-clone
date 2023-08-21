@@ -19,6 +19,8 @@
 .contforpositionshoop{
   display:flex;
   gap:20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .contforpositionshoop2{
   border:1px solid black;
