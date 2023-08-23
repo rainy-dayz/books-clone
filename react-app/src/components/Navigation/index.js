@@ -19,7 +19,7 @@ function Navigation({ isLoaded }){
 
 	useEffect(() => {
 		dispatch(thunkGetCart())
-	}, [dispatch])
+	}, [sessionUser])
 	return (
 		<div>
 			<div className="mainNavLineCont2">

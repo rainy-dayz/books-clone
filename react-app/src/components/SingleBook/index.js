@@ -23,20 +23,22 @@ function SingleBook() {
     let genre = useSelector(state => Object.values(state.genres.singleGenre))
     let user = useSelector(state => (state.session.user))
     let book = useSelector(state => (state.book.singleBook))
-    let book2 = useSelector(state => (state.book.singleBook.reviews))
+    let book2 = useSelector(state => (state.book.singleBook?.reviews))
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
     let cart=useSelector(state => (state.carts.singleCart))
     const history = useHistory()
     const { bookId } = useParams()
     const [openModal,setOpenModal] = useState(false)
     const [types, setTypes] = useState(false)
-    const [name] = useState(book.name)
-    const [author] = useState(book.author)
-    const [price] = useState(book.price)
-    const [description] = useState(book.description)
-    const [bookImage, setImage] = useState(book.bookImage)
+    // const [name] = useState(book.name)
+    // const [author] = useState(book.author)
+    // const [price] = useState(book.price)
+    // const [description] = useState(book.description)
+    // const [bookImage, setImage] = useState(book.bookImage)
+
 
     useEffect(() => {
+        dispatch(clearSingleBook())
         dispatch(thunkGetSingleBook(bookId))
     }, [bookId])
 
@@ -54,7 +56,7 @@ function SingleBook() {
     const chicken=cartAll.map(order => {
         return order.book_id
     })
-
+if(!book2)return null
     return (
         <div>
         <div className="singlebookcont">
@@ -66,7 +68,7 @@ function SingleBook() {
             <div className="authorofbook">by {book.author}</div>
             <div className="ratingsininfoofsinglebook">
             <div >{<StarRatingSingleReview stars={book.avgRating} />}</div>
-            <div>{book.avgRating}</div>
+            <div>{Number.parseFloat(book.avgRating).toFixed(2)}</div>
             <div>({book2?.length})</div>
             </div>
             <div className='holderofpriceandtype'>
@@ -110,11 +112,14 @@ function SingleBook() {
                 <div className='descwords'>{book.description}</div>
                 </div>
 
+<<<<<<< HEAD
                 <button onClick={()=>{
                     return dispatch(thunkCreateWishlist(user.id,book.id))
                     .then(()=>{history.push(`/wishlists`)})
                     }}>Add to WishList</button>
 
+=======
+>>>>>>> dev
         <Reviews />
 
         </div>

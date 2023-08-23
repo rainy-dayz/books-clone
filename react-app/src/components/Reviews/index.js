@@ -60,10 +60,10 @@ let chicken4
             {openModal && <CreateReview closeModal ={setOpenModal} book={book} user={user}/>}
             <div className="overallRatingandpostingofreview">
             <div className="displayofavgratingperbook">{<StarRatingSingleReview stars={book.avgRating} />} </div>
-            <div>{book.avgRating}</div>
+            <div>{Number.parseFloat(book.avgRating).toFixed(2)}</div>
             <div>({book2?.length})</div>
-            {createReviewButton&& <button onClick={()=>setOpenModal(true)}>Post Your Review</button>}
-            {user && !reviewsAll.length ?<button onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
+            {user && !reviewsAll.find(review=> review.user_id === user?.id)?<button className="checkoutbttn2"onClick={()=>setOpenModal(true)}>Post Your Review</button>:null}
+            {user && !reviewsAll.length ?<button className="checkoutbttn2"onClick={()=>setOpenModal(true)}>Post Your Review</button>:null }
             </div>
             {reviewsAll.toReversed().map(review => {
                 return <div className="eachreview" key={review.id} >

@@ -48,9 +48,8 @@ const dispatch = useDispatch()
         <div className="searchInputs">
       <input
         type="text"
-        id='ssssssssss'
         className="textbox"
-        placeholder="Search by Title"
+        placeholder=" Search by Title"
         value={wordInput}
         onChange={handleFilter}
 

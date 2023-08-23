@@ -4,6 +4,7 @@ const GET_BOOKS = "books/GET_BOOKS"
 const GET_SINGLE_BOOK = "books/GET_SINGLE_BOOK"
 const UPDATE_BOOK="books/UPDATE_BOOK"
 const FILTERED_BOOKS='books/FILTERED_BOOKS'
+const CLEAR_SINGLE_BOOK="books/CLEAR_SINGLE_BOOK"
 const getBook = (books) => ({
     type:GET_BOOKS,
     data:books
@@ -21,6 +22,11 @@ const fileterdBooks = (data) => ({
     type:FILTERED_BOOKS,
     data
 })
+export const clearSingleBook=()=>{
+    return {
+        type:CLEAR_SINGLE_BOOK
+    }
+}
 export const thunkGetBooks = () => async(dispatch) => {
     const res = await fetch(`/api/books`)
     if (res.ok) {
@@ -110,11 +116,10 @@ export default function reducer(state = initialState, action) {
             newState.singleBook=action.data
             return newState
         }
-        // case UPDATE_BOOK: {
-        //     const newState = {...state}
-        //     newState.allBooks[action.data.id] = action.data
-        //     return newState
-        // }
+        case CLEAR_SINGLE_BOOK:{
+            let newState={...state, singleBook:null}
+            return newState
+        }
         case UPDATE_BOOK: {
             const newState = {...state, singleBook:{...state.singleBook},allBooks:{...state.allBooks}}
             // newState.singleBook = {}

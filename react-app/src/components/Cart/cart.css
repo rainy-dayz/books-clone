@@ -19,6 +19,8 @@
 .contforpositionshoop{
   display:flex;
   gap:20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .contforpositionshoop2{
   border:1px solid black;
@@ -185,6 +187,7 @@ background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+
   background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
 .emptymessage{
   padding:20px;
   font-size:18px;
