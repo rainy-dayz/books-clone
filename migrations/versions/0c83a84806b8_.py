@@ -98,10 +98,10 @@ def upgrade():
     # ### end Alembic commands ###
 
 if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
-        op.execute(f"ALTER TABLE books SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE genres SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE subgenres SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE books SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE carts SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE reviews SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE wishlist SET SCHEMA {SCHEMA};")
@@ -114,8 +114,8 @@ def downgrade():
     op.drop_table('wishlist')
     op.drop_table('reviews')
     op.drop_table('carts')
-    op.drop_table('subgenres')
-    op.drop_table('genres')
     op.drop_table('books')
     op.drop_table('users')
+    op.drop_table('subgenres')
+    op.drop_table('genres')
     # ### end Alembic commands ###

@@ -494,12 +494,6 @@ def seed_users():
     book150=Book(
         name="Fairy Tail", author='Hiro Mashima',price=10.69, description="THE WICKED SIDE OF WIZARDRY ? Cute girl wizard Lucy wants to join the Fairy Tail, a club for the most powerful wizards. But instead, her ambitions land her in the clutches of a gang of unsavory pirates le by a devious magician. Her only hope is Natsu, a strange boy she happens to meet on her travels. Natsu's not your typical hero - he gets motion sickness, eats like a pig, and his best friend is a talking cat. With friends like this, is Lucy better off with her enemies?",
         genre_id=5,book_image="https://prodimage.images-bn.com/pimages/9781612622767_p0_v1_s1200x630.jpg",types=True,releaseDate=datetime(2006,4,7))
-    wishlist1=WishList(
-        user_id=1,book_id=1
-    )
-    wishlist2=WishList(
-        user_id=1,book_id=3
-    )
     review1=Review(
         comment="Mid at best i mean come on",rating=3,user_id=1, book_id=1,created_at=datetime(2010, 10, 5),user_username='Demo'
     )
@@ -1125,7 +1119,6 @@ def seed_users():
                         review121,review122,review123,review124,review125,review126,review127,review128,review129,review130,
                         review131,review132,review133,review134,review135,review136,review137,review138,review139,review140,
                         review141,review142,review143,review144,review145,review146,review147,review148,review149,review150, review151])
-    db.session.add_all([ wishlist1,wishlist2]) 
     db.session.commit()
 
 
@@ -1138,8 +1131,6 @@ def seed_users():
 def undo_users():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.carts RESTART IDENTITY CASCADE;")
-        db.session.execute(f"TRUNCATE table {SCHEMA}.wishlist RESTART IDENTITY CASCADE;")
-        db.session.execute(f"TRUNCATE table {SCHEMA}.likes RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.reviews RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.subgenres RESTART IDENTITY CASCADE;")
         db.session.execute(f"TRUNCATE table {SCHEMA}.genres RESTART IDENTITY CASCADE;")
@@ -1147,8 +1138,6 @@ def undo_users():
         db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(text("DELETE FROM carts"))
-        db.session.execute(text("DELETE FROM wishlist"))
-        db.session.execute(text("DELETE FROM likes"))
         db.session.execute(text("DELETE FROM reviews"))
         db.session.execute(text("DELETE FROM subgenres"))
         db.session.execute(text("DELETE FROM genres"))
