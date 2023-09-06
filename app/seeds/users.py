@@ -1079,13 +1079,14 @@ def seed_users():
         created_at=datetime(2022,9,4),user_username='Demo'
     )
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(rory)
-    db.session.add(donna)
-    db.session.add(amy)
-    db.session.add(rose)
-    db.session.add(river)
+    # db.session.add(demo)
+    # db.session.add(marnie)
+    # db.session.add(rory)
+    # db.session.add(donna)
+    # db.session.add(amy)
+    # db.session.add(rose)
+    # db.session.add(river)
+    db.session.add_all([demo,marnie,rory,donna,amy,rose,river])
     db.session.add_all([genre1,genre2,genre3,genre4,genre5])
     db.session.add_all([subgenre1,subgenre2,subgenre3,subgenre4,subgenre5,subgenre6,subgenre7,subgenre8,subgenre9,subgenre10,
                         subgenre11,subgenre12,subgenre13,subgenre14,subgenre15,subgenre16,subgenre17,subgenre18,subgenre19,subgenre20])
