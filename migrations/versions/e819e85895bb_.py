@@ -97,7 +97,7 @@ def upgrade():
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
-if environment == "production":
+    if environment == "production":
         op.execute(f"ALTER TABLE books SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE genres SET SCHEMA {SCHEMA};")
         op.execute(f"ALTER TABLE subgenres SET SCHEMA {SCHEMA};")
