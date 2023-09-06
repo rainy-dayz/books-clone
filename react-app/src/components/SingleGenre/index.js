@@ -8,8 +8,8 @@ import './singleGenre.css'
 import StarRatingSingleReview from '../Reviews/starRatingSingleReview';
 import QuickAdd from '../Quickadd';
 import { thunkCreateCart, thunkEditCart } from '../../store/cart';
+import Loading from '../Loading';
 
-import { thunkCreateCart, thunkEditCart } from '../../store/cart';
 
 
 

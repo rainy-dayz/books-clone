@@ -9,6 +9,12 @@
     height:500px;
     width:350px;
 }
+.bookimagecont{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    align-items: center;
+}
 .titleofbook{
     font-size:30px;
     display:flex;
@@ -111,7 +117,19 @@ flex-direction: column;
     padding:20px;
     width:800px;
 }
-
+.wishesbttn{
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    width:147px;
+    font-size:16px
+}
+.wishesbttn:hover{
+text-decoration:underline;
+}
+.fa-heart:hover{
+    color: black;
+}
 @media only screen and (max-width: 865px) {
     .descwords{
         border:1px solid darkgrey;

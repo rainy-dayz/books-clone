@@ -186,3 +186,8 @@ color:white;
 border-radius:5px;
 padding:1px 3px;
 }
+.thegifcarousel{
+  width: -webkit-fill-available;
+  height:600px;
+  object-fit:fill;
+}

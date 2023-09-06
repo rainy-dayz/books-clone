@@ -2,7 +2,7 @@ import { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
 import { useParams, useHistory } from 'react-router-dom'
-import { thunkGetSingleBook, thunkUpdateBook } from '../../store/book'
+import { clearSingleBook, thunkGetSingleBook, thunkUpdateBook } from '../../store/book'
 import { thunkCreateCart, thunkEditCart, thunkGetCart, thunkGetSingleCart } from '../../store/cart'
 import OpenModalButton from '../OpenModalButton'
 import SignupFormModal from '../SignupFormModal'
@@ -13,7 +13,8 @@ import StarRatingSingleReview from '../Reviews/starRatingSingleReview'
 import LoginFormModal from '../LoginFormModal'
 import OpenModalButton2 from '../OpenModalButton/index2'
 
-import { thunkCreateWishlist } from '../../store/wishlists'
+import { thunkCreateWishlist, thunkGetWishlists } from '../../store/wishlists'
+import Loading from '../Loading'
 
 
 
@@ -25,21 +26,17 @@ function SingleBook() {
     let book = useSelector(state => (state.book.singleBook))
     let book2 = useSelector(state => (state.book.singleBook?.reviews))
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
+    let wishAll = useSelector(state => Object.values(state.wishlists.allWishlists))
     let cart=useSelector(state => (state.carts.singleCart))
     const history = useHistory()
     const { bookId } = useParams()
     const [openModal,setOpenModal] = useState(false)
     const [types, setTypes] = useState(false)
-    // const [name] = useState(book.name)
-    // const [author] = useState(book.author)
-    // const [price] = useState(book.price)
-    // const [description] = useState(book.description)
-    // const [bookImage, setImage] = useState(book.bookImage)
-
-
+    console.log('wishes',wishAll)
     useEffect(() => {
         dispatch(clearSingleBook())
         dispatch(thunkGetSingleBook(bookId))
+        dispatch(thunkGetWishlists())
     }, [bookId])
 
     const addthings=async()=>{
@@ -56,12 +53,19 @@ function SingleBook() {
     const chicken=cartAll.map(order => {
         return order.book_id
     })
+    const wishes=wishAll.map(wish => {
+        return wish.book_id
+    })
 if(!book2)return null
     return (
         <div>
         <div className="singlebookcont">
             <div className='bookimagecont'>
             <img className='booksImageSingleBook' src ={book.book_image}/>
+{user&&(!wishes.find((chick) => book.id===chick)&&<button className="wishesbttn" onClick={()=>{
+    return dispatch(thunkCreateWishlist(user.id,book.id))
+    .then(()=>{history.push(`/wishlists`)})
+    }}><i className="fa-regular fa-heart"></i> Add to WishList</button>)}
             </div>
         <div className="infoaboutsinglebookcont">
             <div className="titleofbook">{book.name}</div>
@@ -112,14 +116,7 @@ if(!book2)return null
                 <div className='descwords'>{book.description}</div>
                 </div>
 
-<<<<<<< HEAD
-                <button onClick={()=>{
-                    return dispatch(thunkCreateWishlist(user.id,book.id))
-                    .then(()=>{history.push(`/wishlists`)})
-                    }}>Add to WishList</button>
 
-=======
->>>>>>> dev
         <Reviews />
 
         </div>

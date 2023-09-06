@@ -9,6 +9,7 @@ import manga from '../../images/manga.png'
 import romance from '../../images/romance.png'
 import scifi from '../../images/scifi.png'
 import thriller from '../../images/thriller.png'
+import main from '../../images/main.gif'
 
 
 
@@ -29,8 +30,10 @@ function Books() {
     return (
         <>
         <img className="bannerforsales"src="https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2023/08/PROD-27234_Global_Nav_Banner_BookHaul2023_08-11.jpg"/>
-         <div className="slider">
-            <div className="slides">
+         <div className="holderofimagecarousel">
+            <img className="thegifcarousel" src={main}/>
+          
+         {/* <div className="slides">
             <input type="radio" name="radio-btn" id='radio1' />
             <input type="radio" name="radio-btn" id='radio2' />
             <input type="radio" name="radio-btn" id='radio3' />
@@ -78,7 +81,7 @@ function Books() {
                <label for='radio4'className='manual-btn'></label>
                <label for='radio5'className='manual-btn'></label>
             </div>
-            </div>
+            </div> */}
             </div>
             <div className="shelfCont">
             <div className="fheadersforscrolls">Highest Rated:</div>

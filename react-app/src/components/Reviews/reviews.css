@@ -105,8 +105,13 @@ background: linear-gradient(to right, #93291E, #ED213A);
     border-radius:5px;
     background: #136a8a;
 
-    background: linear-gradient(to right, #267871, #136a8a); 
+    background: linear-gradient(to right, #267871, #136a8a);
 
+  }
+  .userandlikes{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
   }
 @media only screen and (max-width: 865px) {
     .eachreview{

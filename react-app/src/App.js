@@ -10,6 +10,7 @@ import SingleGenre from "./components/SingleGenre";
 import SingleBook from "./components/SingleBook";
 import Cart from "./components/Cart";
 import WishList from "./components/WishLists";
+import Loading from "./components/Loading";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/books/:bookId" >
             <SingleBook />
           </Route>
+         
         </Switch>
       )}
     </>

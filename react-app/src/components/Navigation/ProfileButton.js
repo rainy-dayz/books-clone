@@ -6,6 +6,7 @@ import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { useHistory } from "react-router-dom";
 import './Navigation.css'
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -53,6 +54,7 @@ function ProfileButton({ user }) {
           <div className="content-box">
           <div className = "firstName">{`Hello,  ${user.firstName}`}</div>
             <div className="useremaildropmodal">{user.email}</div>
+            <div onClick={closeMenu} className="manage-spots-border"><NavLink className='manage-spot' to= '/wishlists'>Wishlist</NavLink></div>
               <div className="btn-container">
               <button className="logoutbttn"onClick={handleLogout}>Log Out</button>
               </div>

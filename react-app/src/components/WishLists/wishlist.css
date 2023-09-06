@@ -1,0 +1,57 @@
+.holderoftheuniverse2{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+  }
+  .reviewheades3{
+    width:960px;
+    font-size:22px;
+   text-align: center;
+   border-bottom: 1px solid #000;
+   line-height: 0.1em;
+   margin: 30px 120px;
+
+  }
+  .reviewheades3 span {
+    background:#fff;
+    padding:0 10px;
+  }
+  .bookincart2{
+    width:500px;
+    justify-content: space-between;
+    align-items: center;
+    display:flex;
+    flex-direction:column;
+    align-items: flex-start;
+    border-bottom:1px solid grey;
+  }
+  .middlest{
+    display:flex;
+    margin-left: 30px;
+    align-items: center;
+    /* border-bottom:1px solid black; */
+    margin-bottom:10px;
+  }
+
+  .possinnermiddle2{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .singularprice2{
+    padding:15px 0px;
+  }
+  .possmiddlepic2{
+    padding:20px 0px;
+    height:220px;
+    width:140px;
+    cursor:pointer;
+  }
+.bookTitleName{
+    font-size:21px;
+    margin-bottom:20px;
+}
+.authoorName{
+    font-size:16px;
+    margin-bottom:10px;
+}

@@ -86,6 +86,7 @@ export const thunkDeleteWishlist = (wishlistId) => async (dispatch) => {
             const data = await res.json()
 
             dispatch(deleteWishlist(data))
+            dispatch(thunkGetWishlists())
             return data
         }else {
                 const err = await res.json()

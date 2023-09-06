@@ -48,9 +48,7 @@ function Reviews() {
 
 if(!reviewsAll) return null
 let chicken
-let chicken2
-let chicken3
-let chicken4
+
     return (
         <div className='holderofthereviews'>
             <div className="holderoftheheadofcustomerreviews">
@@ -68,7 +66,10 @@ let chicken4
             {reviewsAll.toReversed().map(review => {
                 return <div className="eachreview" key={review.id} >
                     {openModal1 && user && user.id == review.user_id &&<EditReview closeModal1 ={setOpenModal1} review={review} comments={review.comment} ratings={review.rating}/>}
+                    <div className="userandlikes">
                     <div className='userwhomadereview'>{review.user_username}</div>
+                    <div>Likes:{review.likes_count}</div>
+                    </div>
                     <div className='meep'>
                         <div className="meepJR">
                     <div >{<StarRatingSingleReview stars={review.rating} />} </div>
@@ -82,24 +83,20 @@ let chicken4
                         .then(()=>dispatch(thunkGetReviews(bookId)))
                         .then(()=>dispatch(thunkGetSingleBook(bookId)))
                     }}>Delete</button>}
-                    </div>
-                    <script>
- {chicken=review.likes.map(like => like.user_id)}
-
-    </script>
-                    </div>
-                    <div>{review.likes_count}</div>
-                    {user && (chicken.find((chick) => user.id ==chick)|| review.user_id==user.id?null: <button onClick={()=>{
+                                <script>{chicken=review.likes.map(like => like.user_id)}</script>
+                    {user && (chicken.find((chick) => user.id ==chick)|| review.user_id==user.id?null: <button className="openingoftheeditmodal" onClick={()=>{
                         dispatch(thunkCreateLikes(review.id))
                         .then(()=>dispatch(thunkGetReviews(bookId)))
                         }}>Like</button>)}
 
                                 {user &&review.likes.map(like =>{
                                     return <>
-                            {review?.id==like?.review_id && user.id == like?.user_id ?<button onClick={()=>{
+                            {review?.id==like?.review_id && user.id == like?.user_id ?<button className="reviewwillenterthevoid" onClick={()=>{
                                 dispatch(thunkDeleteLikes(like.id))
                                 .then(()=>dispatch(thunkGetReviews(bookId)))
                                 .then(()=>dispatch(thunkGetLikes(bookId)))}}>Unlike</button>:null}</>})}
+                    </div>
+                    </div>
 
                     </div>
 
