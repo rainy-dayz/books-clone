@@ -1,9 +1,9 @@
 # Pure Fiction
 
-View our site live: https://books-clone-40tf.onrender.com/
-Pure Fiction is a book selling website inspired by Barnes & Noble. This website is written in Flask and React/Redux.
+View my site live: https://books-clone-40tf.onrender.com/
+Pure Fiction is a book selling website inspired by Barnes & Noble. In which a user can buy books, leave reviews for each book, and add books to their personal wishlists.
 
-## ⚡ Technologies We Used:
+## ⚡ Technologies Used:
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
 ![React](https://img.shields.io/badge/React-61DAFB.svg?style=for-the-badge&logo=React&logoColor=black)
 ![Redux](https://img.shields.io/badge/Redux-764ABC.svg?style=for-the-badge&logo=Redux&logoColor=white)
@@ -14,15 +14,66 @@ Pure Fiction is a book selling website inspired by Barnes & Noble. This website 
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg?style=for-the-badge&logo=CSS3&logoColor=white)
 
 ## Index
-- [Features List](https://github.com/rainy-dayz/books-clone/wiki/Feature-List)
+- [Link to my Wiki](https://github.com/rainy-dayz/books-clone/wiki)
 
 - [Frontend and Backend Routes](https://github.com/rainy-dayz/books-clone/wiki/Routes)
 
 - [React Components List](https://github.com/rainy-dayz/books-clone/wiki/React-Components-List)
 
 - [Redux Store State Tree](https://github.com/rainy-dayz/books-clone/wiki/Redux-store-state)
+  
+- [User Stories](https://github.com/rainy-dayz/books-clone/wiki/User-Stories))
 
 
+# Features 
+
+## Orders:
+*Users should be able to view all books in their cart.
+*Users should be able to add books to their cart.
+*Users should be able to update the quantity of books in their cart.
+*Users should be able to delete books from their cart.
+
+## WishList:
+*Users should be able to view all books in their wishlist.
+*Users should be able to add books to their wishlist.
+*Users should be able to delete books from their wishlist.
+
+## Reviews:
+*Users should be able to view all public reviews for a book.
+*Users should be able to create new reviews for the book they bought.
+*Users should be able to update reviews they created.
+*Users should be able to delete reviews they created.
+
+## Liking Reviews:
+*Users should be able to view all likes for reviews of a book.
+*Users should be able to like a review.
+*Users should be able to delete their like for a review.
+
+# Photos
+### Landing Page
+![Screen Shot 2023-09-06 at 4 11 25 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/5a61a29c-ba89-48c3-9a92-1aafd9190515)
+
+
+### Single Genre Page
+![Screen Shot 2023-09-06 at 4 12 04 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/0257775c-bc26-45b4-8c7a-da8357c91d77)
+
+
+
+### Single Book Page
+![Screen Shot 2023-09-06 at 4 12 48 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/640c2bd8-227c-4ea7-9f1a-ad3e629e50a4)
+
+
+### Cart
+![Screen Shot 2023-09-06 at 4 13 01 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/deabc95d-463f-495d-a9f6-a4ef5dd995cc)
+
+
+### Wishlist
+![Screen Shot 2023-09-06 at 5 04 09 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/092da07b-ba7f-4216-a7a7-7ec0d27e6896)
+
+
+
+### Search Bar
+![Screen Shot 2023-09-06 at 5 04 38 PM](https://github.com/rainy-dayz/books-clone/assets/124620939/a03fe757-535e-466d-8a85-99c595e05c3d)
 
 
 ## Installation Instructions
