@@ -186,8 +186,26 @@ color:white;
 border-radius:5px;
 padding:1px 3px;
 }
+.holderofimagecarousel{
+  display: flex;
+  justify-content: center;
+}
 .thegifcarousel{
-  width: -webkit-fill-available;
+  width: 1300px;
   height:600px;
-  object-fit:fill;
+  /* object-fit:contain; */
+}
+@media only screen and (max-width: 1300px) {
+  .thegifcarousel{
+    width: -webkit-fill-available;
+    height:550px;
+    object-fit:fill;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .thegifcarousel{
+    width: -webkit-fill-available;
+    height: 350px;
+    object-fit: contain;
+  }
 }

@@ -5,18 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 
 import { thunkDeleteWishlist, thunkGetWishlists } from '../../store/wishlists'
-import { thunkCreateCart, thunkEditCart } from '../../store/cart'
+import { thunkCreateCart} from '../../store/cart'
 import './wishlist.css'
 
 
 function WishList() {
     const dispatch = useDispatch()
     let wishAll = useSelector(state => Object.values(state.wishlists.allWishlists))
-    let booksAll = useSelector(state => Object.values(state.book.allBooks))
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
-    let cart=useSelector(state => (state.carts.singleCart))
     let user = useSelector(state => (state.session.user))
-    const [openModal,setOpenModal] = useState(false)
     const history = useHistory()
     console.log('wiskes',wishAll)
 
@@ -24,7 +21,6 @@ function WishList() {
         dispatch(thunkGetWishlists())
     }, [dispatch])
 
-    let addthings
     const chicken=cartAll.map(order => {
         return order.book_id
     })
@@ -45,28 +41,15 @@ function WishList() {
                 {wish.books.types == false? <div>Hardcover</div>: <div>Paperback</div>}
                 <div className='singularprice2'>${wish.books.price}</div>
 
-    <script>{
-        addthings=async()=>{
-            if(cartAll){
-                cartAll.map(cart=>{
-                    if(cart.book_id==wish.book_id){
-                        dispatch(thunkEditCart(cart.id, cart.quantity+1))
-                        dispatch(thunkDeleteWishlist(wish.id))
-                        history.push(`/carts`)
-                    }
-                })
-            }
-        }
-    }</script>
-    <div className="buttonContwishes">
+    <div className="editanddeletecontreview2">
     {chicken.find((chick) =>wish.book_id===chick)
-                ?<button  onClick={addthings}>Add to Cart Again!</button>:
-                <button onClick={() => {
+                ?<div className="addedtocartmess"><img width="30" height="30" src="https://img.icons8.com/bubbles/100/checked.png" alt="checked"/>Added to Cart!</div>:
+                <button className="addtocart2"onClick={() => {
                     dispatch(thunkCreateCart(user.id,wish.book_id))
                     dispatch(thunkDeleteWishlist(wish.id))
-                    dispatch(thunkGetWishlists())
+
                 }}>Add to Cart</button>}
-                <button onClick={()=> {
+                <button className='reviewwillenterthevoid' onClick={()=> {
                     dispatch(thunkDeleteWishlist(wish.id))
                     dispatch(thunkGetWishlists())
                     }}>Delete</button>

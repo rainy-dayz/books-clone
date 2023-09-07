@@ -1,3 +1,4 @@
+
 .holderoftheuniverse{
   display:flex;
   flex-direction:column;
@@ -73,6 +74,10 @@
   gap:20px;
   height:300px;
   /* position:fixed; */
+}
+.booknameincare{
+  font-size:17px;
+  font-weight:bold;
 }
 .order-summary{
   font-size:20px;

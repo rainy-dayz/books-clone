@@ -1,9 +1,7 @@
 const GET_LIKES = "wishlists/GET_LIKES"
 const CREATE_LIKES = 'wishlists/CREATE_LIKES'
 const DELETE_LIKES = "wishlists/DELETE_LIKES"
-// const ADD_TO_WISHLIST="wishlists/ADD_TO_WISHLIST"
-// const EDIT_WiISHLIST = 'wishlists/EDIT_WiISHLIST'
-// const GET_SINGLE_WiISHLIST= "wishlists/GET_SINGLE_WiISHLIST"
+
 
 const getLikes = (likes) => ({
     type:GET_LIKES,
@@ -18,19 +16,7 @@ const deleteLikes = (likeId) => ({
     type:DELETE_LIKES,
     data:likeId
 })
-// const editWishlist = (wishlistId) => ({
-//     type:EDIT_WiISHLIST,
-//     data:wishlistId
-// })
-// const getSingleWishlist = (wishlist) => ({
-//     type:GET_SINGLE_WiISHLIST,
-//     data:wishlist
 
-// })
-// const createWishBook = (wishlistId) => ({
-//     type: ADD_TO_WISHLIST,
-//     data:wishlistId
-// })
 export const thunkGetLikes = (reviewId) => async(dispatch) => {
     const res = await fetch(`/api/likes/${reviewId}`)
     if (res.ok) {
