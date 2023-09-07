@@ -1,4 +1,4 @@
-import { thunkDeleteCart, thunkEditCart, thunkGetCart, thunkGetSingleCart } from '../../store/cart'
+import { thunkDeleteCart, thunkEditCart, thunkGetCart } from '../../store/cart'
 import { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 // import { useHistory } from "react-router-dom"
@@ -12,15 +12,12 @@ import './cart.css'
 function Cart() {
     const dispatch = useDispatch()
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
-    let booksAll = useSelector(state => Object.values(state.book.allBooks))
-    let cart=useSelector(state => (state.carts.singleCart))
-    const [openModal,setOpenModal] = useState(false)
     const history = useHistory()
 
     useEffect(() => {
         dispatch(thunkGetCart())
-        dispatch(thunkGetBooks())
-    }, [dispatch])
+        // dispatch(thunkGetBooks())
+    }, [])
 
     let records =Object.values(cartAll)
     console.log('recrod',records)
@@ -50,7 +47,7 @@ let total=0
                 total+=cart.quantity*cart.books.price
                 return <div className='bookincart' key={cart.id} >
                     <div className='infoonbookatuhname'>
-                    <div>{cart.books.name}</div>
+                    <div className="booknameincare">{cart.books.name}</div>
                     <div>by {cart.books.author}</div>
                     </div>
                     <div classname="everthingelseinhere">

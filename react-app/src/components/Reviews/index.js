@@ -68,7 +68,7 @@ let chicken
                     {openModal1 && user && user.id == review.user_id &&<EditReview closeModal1 ={setOpenModal1} review={review} comments={review.comment} ratings={review.rating}/>}
                     <div className="userandlikes">
                     <div className='userwhomadereview'>{review.user_username}</div>
-                    <div>Likes:{review.likes_count}</div>
+                    <div>Likes: {review.likes_count}</div>
                     </div>
                     <div className='meep'>
                         <div className="meepJR">

@@ -1,7 +1,6 @@
 const GET_CART = "carts/GET_CART"
 const CREATE_CART = 'carts/CREATE_CART'
 const DELETE_CART = "carts/DELETE_CART"
-// const DELETE_WHOLE_CART = "carts/DELETE_WHOLE_CART"
 const EDIT_CART = 'carts/EDIT_CART'
 const GET_SINGLE_CART = "carts/GET_SINGLE_CART"
 
@@ -18,10 +17,6 @@ const deleteCart = (cartId) => ({
     type:DELETE_CART,
     data:cartId
 })
-// const deleteWholeCart = (carts) => ({
-//     type:DELETE_CART,
-//     data:carts
-// })
 const editCart = (cartId) => ({
     type:EDIT_CART,
     data:cartId

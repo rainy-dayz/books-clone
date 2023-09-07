@@ -39,20 +39,3 @@ def delete_post(wishlistId):
   db.session.commit()
   return {'message':'deleted'}
 
-# @wishlists_routes.route('/edit/<int:wishlistId>', methods=['GET','POST','PUT'])
-# @login_required
-# def edit_wish(wishlistId):
-#     form = WishForm()
-#     wishlist = WishList.query.get(wishlistId)
-#     form['csrf_token'].data = request.cookies['csrf_token']
-#     wishlist.name = form.data['name']
-
-#     db.session.commit()
-#     return wishlist.to_dict()
-
-
-# @wishlists_routes.route('/<int:wishlistId>')
-# @login_required
-# def single_wishlist(wishlistId):
-#     wishlist = WishList.query.get(wishlistId)
-#     return wishlist.to_dict()

@@ -126,10 +126,9 @@ flex-direction: column;
 }
 .wishesbttn:hover{
 text-decoration:underline;
+color:black;
 }
-.fa-heart:hover{
-    color: black;
-}
+
 @media only screen and (max-width: 865px) {
     .descwords{
         border:1px solid darkgrey;

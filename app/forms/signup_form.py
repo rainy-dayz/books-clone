@@ -41,7 +41,7 @@ def username_exists(form, field):
 def password_enough(form,field):
     password=field.data
     if len(password)<8:
-        raise ValidationError("Password must be longer than 8 characters")
+        raise ValidationError("Password must be 8 characters or longer")
 
 
 class SignUpForm(FlaskForm):
