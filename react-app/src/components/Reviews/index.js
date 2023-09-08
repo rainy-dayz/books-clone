@@ -26,7 +26,7 @@ function Reviews() {
     const [openModal1,setOpenModal1] = useState(false)
     const history = useHistory()
     const {bookId} =useParams()
-    console.log(reviewsAll, '-----------------')
+
 
     useEffect(() => {
         dispatch(thunkGetReviews(bookId))
@@ -36,7 +36,7 @@ function Reviews() {
     // }, [bookId])
     let createReviewButton = false
     reviewsAll.map((review)=> {
-        console.log('reviewwewant',review)
+
         return (
          !user || review.user_id == user.id ? createReviewButton = false : createReviewButton= true
         )

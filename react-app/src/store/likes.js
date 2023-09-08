@@ -62,37 +62,6 @@ export const thunkDeleteLikes = (likeId) => async (dispatch) => {
             }
 }
 
-// export const thunkEditWishlist = (wishlistId,name) => async (dispatch) => {
-
-//     console.log('are we in the thiunk')
-//     const response = await fetch(`/api/wishlists/edit/${wishlistId}`, {
-//         method:'PUT',
-//         headers:{"Content-Type":"application/json"},
-//         body:JSON.stringify({name})
-//     })
-//     if (response.ok)    {
-//         const data = await response.json()
-//         dispatch(editWishlist(data))
-//         dispatch(thunkGetWishlists())
-//         return data
-//     }
-//     else if (response.status < 500){
-//     const err = await response.json()
-//     return err
-// }
-// }
-// export const thunkGetSingleWishlist = (wishlistId) => async(dispatch) => {
-//     const res = await fetch(`/api/wishlists/${wishlistId}`)
-//     if (res.ok) {
-//         const data = await res.json()
-//         dispatch(getSingleWishlist(data))
-//         return data
-//     }
-//     else {
-//         const err = await res.json()
-//         return {errors:err}
-//     }
-// }
 
 const initialState = {allLikes:{}}
 export default function reducer(state = initialState, action) {
@@ -116,24 +85,7 @@ export default function reducer(state = initialState, action) {
             return newState
         }
 
-        // case EDIT_WiISHLIST: {
-        //     const newState = {...state, singleCart:{...state.singleCart},allWishlists:{...state.allWishlists}}
-        //     newState.singleCart = action.data
-        //     return newState
-        // }
-        // case GET_SINGLE_WiISHLIST:{
-        //     let newState = {...state, singleCart:{...state.singleCart}}
-        //     newState.singleCart=action.data
-        //     return newState
-        // }
-        // case ADD_TO_WISHLIST: {
-        //     let newState = {...state, allWishlists:{...state.allWishlists}}
-        //     newState.allWishlists = {}
-        //     action.data.books.forEach(ele => {
-        //         newState.allWishlists[ele.id]= ele
-        //     });
-        //     return newState
-        // }
+    
         default:
             return state
     }

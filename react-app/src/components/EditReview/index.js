@@ -25,7 +25,7 @@ const EditReview = ({ closeModal1,review,comments,ratings}) => {
       e.preventDefault();
       // setErrors({});
       const data = {comment,rating,user_username:user.username};
-      console.log('this is my review id in editreview',rating)
+
 
           let reviews = await dispatch(thunkEditReview(review.id,data,bookId));
           await dispatch(thunkGetSingleBook(bookId))

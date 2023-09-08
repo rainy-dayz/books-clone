@@ -179,7 +179,20 @@ background:white;
   font-size:20px;
   cursor:pointer;
   padding:1px 3px;
+  color:black;
 }
+.githibbutton2{
+  font-size:20px;
+  color:black;
+  cursor:pointer;
+  padding:1px 3px;
+}
+.githibbutton2:hover{
+  background:black;
+  color:white;
+  border-radius:5px;
+  padding:1px 3px;
+  }
 .githibbutton:hover{
 background:black;
 color:white;

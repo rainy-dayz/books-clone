@@ -15,7 +15,6 @@ function WishList() {
     let cartAll = useSelector(state => Object.values(state.carts.allCarts))
     let user = useSelector(state => (state.session.user))
     const history = useHistory()
-    console.log('wiskes',wishAll)
 
     useEffect(() => {
         dispatch(thunkGetWishlists())
@@ -31,7 +30,7 @@ function WishList() {
             <div className="holderoftheheadofcustomerreviews2">
             <div className="reviewheades3"><span>WishList</span></div>
             </div>
-        {wishAll.map(wish =>{
+        {wishAll.length?(wishAll.map(wish =>{
             return <div className='bookincart2'key={wish.id}>
                     <div className='middlest'>
                     <img className='possmiddlepic2' onClick={() => {history.push(`/books/${wish.books.id}`)}} src={wish.books.book_image}/>
@@ -58,7 +57,7 @@ function WishList() {
                 </div>
 </div>
 </div>
-        })}
+        })):<div className="emptymessage">No books added yet! </div>}
                 </div>
 
         )

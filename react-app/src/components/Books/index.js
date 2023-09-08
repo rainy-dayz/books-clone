@@ -32,7 +32,7 @@ function Books() {
         <img className="bannerforsales"src="https://dispatch.barnesandnoble.com/content/dam/ccr/global/global-nav-banner/2023/08/PROD-27234_Global_Nav_Banner_BookHaul2023_08-11.jpg"/>
          <div className="holderofimagecarousel">
             <img className="thegifcarousel" src={main}/>
-          
+
          {/* <div className="slides">
             <input type="radio" name="radio-btn" id='radio1' />
             <input type="radio" name="radio-btn" id='radio2' />
@@ -88,7 +88,6 @@ function Books() {
             <div  className="highestRated">
             {booksAll.map(book => {
                 return( <>
-                    {console.log(book.price)}
                    {parseInt(book.avgRating)>=4.50 &&
                     <div className="cheese">
                    <img onClick={() => {
@@ -135,10 +134,11 @@ function Books() {
 
                         <div className="myinfocont">
                             <div className="headersh5">Brought to you by:</div>
-                            {/* <div className='devBox' onClick={()=>{history.push("/ourDevTeam")}}> */}
                                 <div className='LandingDevName'>Emily Breininger  </div>
                                 <a className="githibbutton" href='https://github.com/rainy-dayz'
                     ><i className="fa-brands fa-github"></i></a>
+                    <a className="githibbutton2" href='https://www.linkedin.com/in/emily-breininger'
+                    ><i className="fa-brands fa-linkedin"></i></a>
 
 
 

@@ -20,7 +20,6 @@ function Cart() {
     }, [])
 
     let records =Object.values(cartAll)
-    console.log('recrod',records)
     const checkout = async()=>{
     records.forEach(async(record)=>{
     await dispatch(thunkEditCart(record.id,0))

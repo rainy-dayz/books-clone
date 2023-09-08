@@ -32,7 +32,7 @@ function SingleBook() {
     const { bookId } = useParams()
     const [openModal,setOpenModal] = useState(false)
     const [types, setTypes] = useState(false)
-    console.log('wishes',wishAll)
+
     useEffect(() => {
         dispatch(clearSingleBook())
         dispatch(thunkGetSingleBook(bookId))
@@ -42,7 +42,6 @@ function SingleBook() {
     const addthings=async()=>{
         if(cartAll){
             cartAll.map(cart=>{
-                {console.log('carttypes',cart.books.types)}
                 if(cart.book_id==bookId){
                     dispatch(thunkEditCart(cart.id, cart.quantity+1))
                     history.push(`/carts`)

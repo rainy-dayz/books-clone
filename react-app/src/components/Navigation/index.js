@@ -14,7 +14,7 @@ function Navigation({ isLoaded }){
 	// const sessionUser2 = useSelector(state => Object.values(state.session.user.orders));
 	const history=useHistory()
 	const dispatch = useDispatch()
-	// console.log(sessionUser2)
+
 	let totalQuantity = 0;
 
 	useEffect(() => {

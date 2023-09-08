@@ -51,8 +51,7 @@ export const thunkGetSingleReview = (reviewId) => async(dispatch) => {
     }
 }
 export const thunkCreateReview = (data,userId,bookId) => async (dispatch) => {
-// try{
-    console.log('are we even inside')
+
     const response = await fetch(`/api/reviews/${userId}/${bookId}`, {
         method:'POST',
         headers:{"Content-Type":"application/json"},
@@ -60,14 +59,10 @@ export const thunkCreateReview = (data,userId,bookId) => async (dispatch) => {
     })
     if (response.ok)    {
         const review = await response.json()
-        console.log('review thunk',review)
         dispatch(createReview(review))
         return review
     }
-    // }catch(error){
-    //     const err = await error.json()
-    //     return {error:err}
-    // }
+
     else if (response.status < 500){
     const err = await response.json()
     return err
@@ -83,7 +78,6 @@ export const thunkEditReview = (reviewId,data,bookId) => async (dispatch) => {
     })
     if (response.ok)    {
         const review = await response.json()
-        console.log('thunkeditstuff',review)
         await dispatch(editReview(review))
         await dispatch(thunkGetReviews(bookId))
         return review

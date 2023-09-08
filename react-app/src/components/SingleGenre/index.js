@@ -27,7 +27,7 @@ function SingleGenre() {
 
     const history = useHistory()
     const { genreId } = useParams()
-    console.log('genre', genre)
+
 
     let addthings
 

@@ -73,7 +73,6 @@ export const thunkDeleteCart = (cartId) => async (dispatch) => {
 
 export const thunkEditCart = (cartId,quantity) => async (dispatch) => {
 
-    console.log('are we in the thiunk')
     const response = await fetch(`/api/carts/edit/${cartId}`, {
         method:'PUT',
         headers:{"Content-Type":"application/json"},
@@ -81,7 +80,6 @@ export const thunkEditCart = (cartId,quantity) => async (dispatch) => {
     })
     if (response.ok)    {
         const cart = await response.json()
-        console.log('cart thunk',cart)
         dispatch(editCart(cart))
         dispatch(thunkGetCart())
         return cart

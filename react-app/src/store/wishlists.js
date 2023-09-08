@@ -96,7 +96,6 @@ export const thunkDeleteWishlist = (wishlistId) => async (dispatch) => {
 
 export const thunkEditWishlist = (wishlistId,name) => async (dispatch) => {
 
-    console.log('are we in the thiunk')
     const response = await fetch(`/api/wishlists/edit/${wishlistId}`, {
         method:'PUT',
         headers:{"Content-Type":"application/json"},
