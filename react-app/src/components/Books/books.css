@@ -17,7 +17,7 @@ flex-direction:column;
 }
 
 .bannerforsales{
-  width:-webkit-fill-available;
+  width:100%;
 }
 .highestRated::-webkit-scrollbar{
 
@@ -210,14 +210,14 @@ padding:1px 3px;
 }
 @media only screen and (max-width: 1300px) {
   .thegifcarousel{
-    width: -webkit-fill-available;
+    width: 100%;
     height:550px;
     object-fit:fill;
   }
 }
 @media only screen and (max-width: 500px) {
   .thegifcarousel{
-    width: -webkit-fill-available;
+    width: 100%;
     height: 350px;
     object-fit: contain;
   }
