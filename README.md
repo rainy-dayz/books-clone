@@ -28,26 +28,26 @@ Pure Fiction is a book selling website inspired by Barnes & Noble. In which a us
 # Features 
 
 ## Orders:
-*Users should be able to view all books in their cart.
-*Users should be able to add books to their cart.
-*Users should be able to update the quantity of books in their cart.
-*Users should be able to delete books from their cart.
+- Users should be able to view all books in their cart.
+- Users should be able to add books to their cart.
+- Users should be able to update the quantity of books in their cart.
+- Users should be able to delete books from their cart.
 
 ## WishList:
-*Users should be able to view all books in their wishlist.
-*Users should be able to add books to their wishlist.
-*Users should be able to delete books from their wishlist.
+- Users should be able to view all books in their wishlist.
+- Users should be able to add books to their wishlist.
+- Users should be able to delete books from their wishlist.
 
 ## Reviews:
-*Users should be able to view all public reviews for a book.
-*Users should be able to create new reviews for the book they bought.
-*Users should be able to update reviews they created.
-*Users should be able to delete reviews they created.
+- Users should be able to view all public reviews for a book.
+- Users should be able to create new reviews for the book they bought.
+- Users should be able to update reviews they created.
+- Users should be able to delete reviews they created.
 
 ## Liking Reviews:
-*Users should be able to view all likes for reviews of a book.
-*Users should be able to like a review.
-*Users should be able to delete their like for a review.
+- Users should be able to view all likes for reviews of a book.
+- Users should be able to like a review.
+- Users should be able to delete their like for a review.
 
 # Photos
 ### Landing Page
